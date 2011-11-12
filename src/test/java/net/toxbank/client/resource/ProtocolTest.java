@@ -50,4 +50,19 @@ public class ProtocolTest {
 		Assert.assertNotSame(0, files.size());
 	}
 	
+	@Test
+	public void testListVersions() throws MalformedURLException {
+		Protocol protocol = new Protocol(new URL(TEST_SERVER + "protocol/1"));
+		List<URL> versions = protocol.listVersions();
+		Assert.assertNotNull(versions);
+		Assert.assertNotSame(0, versions.size());
+	}
+	
+	@Test
+	public void testGetVersions() throws MalformedURLException {
+		Protocol protocol = new Protocol(new URL(TEST_SERVER + "protocol/1"));
+		List<ProtocolVersion> versions = protocol.getVersions();
+		Assert.assertNotNull(versions);
+		Assert.assertNotSame(0, versions.size());
+	}
 }
