@@ -1,0 +1,4 @@
+.settings/
+target/
+repos/
+*.tar.gz
