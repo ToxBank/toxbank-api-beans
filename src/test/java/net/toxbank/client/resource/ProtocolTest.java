@@ -42,4 +42,12 @@ public class ProtocolTest {
 		);
 	}
 	
+	@Test
+	public void testListFiles() throws MalformedURLException {
+		Protocol protocol = new Protocol(new URL(TEST_SERVER + "protocol/1"));
+		List<URL> files = protocol.listFiles();
+		Assert.assertNotNull(files);
+		Assert.assertNotSame(0, files.size());
+	}
+	
 }

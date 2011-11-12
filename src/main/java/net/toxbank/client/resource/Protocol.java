@@ -34,6 +34,11 @@ public class Protocol {
 		return null;
 	}
 
+	public List<URL> listFiles() {
+		// FIXME: implement uploading this protocol to the server
+		return null;
+	}
+
 	public URL getOrganisation() {
 		return this.organisation;
 	}
