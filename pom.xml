@@ -25,6 +25,13 @@
         <version>${junit.version}</version>
         <scope>test</scope>
     </dependency>
+  	<dependency>
+  		<groupId>org.toxbank</groupId>
+  		<artifactId>toxbank-interface</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  		<type>jar</type>
+  		<scope>compile</scope>
+  	</dependency>
   </dependencies>
   <properties>
     <cdk.version>1.3.8</cdk.version>
