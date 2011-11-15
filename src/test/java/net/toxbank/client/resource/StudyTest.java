@@ -81,6 +81,16 @@ public class StudyTest {
 	}
 
 	@Test
+	public void testGetSetAuthor() {
+		Study study = new Study();
+		Assert.assertNull(study.getAuthor());
+		User user = new User();
+		study.setAuthor(user);
+		Assert.assertNotNull(study.getAuthor());
+		Assert.assertEquals(user, study.getAuthor());
+	}
+
+	@Test
 	public void testGetSetVersionInfo() {
 		Study study = new Study();
 		Assert.assertNull(study.getVersionInfo());
