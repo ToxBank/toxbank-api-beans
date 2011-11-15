@@ -81,4 +81,37 @@ public class ProtocolTest {
 		Assert.assertNotNull(versions);
 		Assert.assertNotSame(0, versions.size());
 	}
+
+	@Test
+	public void testUploadingAndRetrieving() {
+		Protocol protocol = new Protocol();
+		protocol.addKeyword("cytotoxicity");
+		URL identifier = protocol.upload(TEST_SERVER);
+		
+		// now download it again, and compare
+		Protocol dlProtocol = new Protocol(identifier);
+		Assert.assertTrue(dlProtocol.getKeywords().contains("cytotoxicity"));
+	}
+
+	@Test
+	public void testGetSetKeywords() {
+		Protocol protocol = new Protocol();
+		Assert.assertEquals(0, protocol.getKeywords().size());
+		protocol.addKeyword("foo");
+		Assert.assertEquals(1, protocol.getKeywords().size());
+		Assert.assertTrue(protocol.getKeywords().contains("foo"));
+		protocol.removeKeyword("foo");
+		Assert.assertEquals(0, protocol.getKeywords().size());
+		Assert.assertFalse(protocol.getKeywords().contains("foo"));
+	}
+
+	@Test
+	public void testGetSetAuthor() {
+		Protocol protocol = new Protocol();
+		Assert.assertNull(protocol.getAuthor());
+		User user = new User();
+		protocol.setAuthor(user);
+		Assert.assertNotNull(protocol.getAuthor());
+		Assert.assertEquals(user, protocol.getAuthor());
+	}
 }

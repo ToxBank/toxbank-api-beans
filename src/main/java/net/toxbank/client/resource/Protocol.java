@@ -7,6 +7,8 @@ import java.util.List;
 public class Protocol {
 
 	private URL organisation;
+	private User author;
+	private List<String> keywords;
 
 	public Protocol() {}
 	
@@ -18,6 +20,26 @@ public class Protocol {
 		this.organisation = null;
 	}
 	
+	// bean methods
+	
+	public void addKeyword(String keyword) {
+	}
+
+	public void removeKeyword(String keyword) {
+	}
+
+	public List<String> getKeywords() {
+		return keywords;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+
+	public User getAuthor() {
+		return author;
+	}
+
 	/**
 	 * Described in this <a href="http://api.toxbank.net/index.php/API_Protocol:RetrieveList">API documentation</a>.
 	 */
