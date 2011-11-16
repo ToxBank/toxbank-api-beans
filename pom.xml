@@ -4,6 +4,14 @@
   <artifactId>toxbank-client-java</artifactId>
   <name>ToxBank Java Client</name>
   <version>0.0.1-SNAPSHOT</version>
+  <licenses>
+    <license>
+      <name>LGPL3</name>
+      <url>http://www.gnu.org/licenses/lgpl.html</url>
+      <distribution>repo</distribution>
+      <comments>LGPL 3</comments>
+    </license>
+  </licenses>
   
   <repositories>
     <repository>
