@@ -1,6 +1,7 @@
 package net.toxbank.client.resource;
 
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.util.List;
 
@@ -97,5 +98,53 @@ public class StudyTest {
 		study.setVersionInfo("1");
 		Assert.assertNotNull(study.getVersionInfo());
 		Assert.assertEquals("1", study.getVersionInfo());
+	}
+
+	@Test
+	public void testRoundtripVersions() throws MalformedURLException {
+		Study study = new Study(new URL(TEST_SERVER + "protocol/1"));
+		List<Study> versions = study.getVersions();
+		URL resource = study.upload(TEST_SERVER);
+
+		Study roundtripped = new Study(resource);
+		Assert.assertNotNull(roundtripped);
+		Assert.assertNotSame(0, roundtripped.getVersions().size());
+		Assert.assertTrue(roundtripped.getVersions().contains(study));
+	}
+
+	@Test
+	public void testRoundtripKeywords() {
+		Study study = new Study();
+		Assert.assertEquals(0, study.getKeywords().size());
+		study.addKeyword("foo");
+		URL resource = study.upload(TEST_SERVER);
+
+		Study roundtripped = new Study(resource);
+		Assert.assertEquals(1, roundtripped.getKeywords().size());
+		Assert.assertTrue(roundtripped.getKeywords().contains("foo"));
+	}
+
+	@Test
+	public void testRoundtripAbstract() {
+		Study study = new Study();
+		Assert.assertNull(study.getAbstract());
+		study.setAbstract("This is an abstract");
+		URL resource = study.upload(TEST_SERVER);
+
+		Study roundtripped = new Study(resource);
+		Assert.assertNotNull(roundtripped.getAbstract());
+		Assert.assertEquals(19, roundtripped.getAbstract().length());
+	}
+
+	@Test
+	public void testRoundtripVersionInfo() {
+		Study study = new Study();
+		Assert.assertNull(study.getVersionInfo());
+		study.setVersionInfo("1");
+		URL resource = study.upload(TEST_SERVER);
+
+		Study roundtripped = new Study(resource);
+		Assert.assertNotNull(roundtripped.getVersionInfo());
+		Assert.assertEquals("1", roundtripped.getVersionInfo());
 	}
 }
