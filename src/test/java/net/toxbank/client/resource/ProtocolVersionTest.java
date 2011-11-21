@@ -23,4 +23,54 @@ public class ProtocolVersionTest {
 		Assert.assertTrue(url.toExternalForm().startsWith(TEST_SERVER));
 	}
 
+	@Test
+	public void testGetSetAbstract() {
+		ProtocolVersion version = new ProtocolVersion();
+		version.setAbstract("This is the funniest abstract ever!");
+		Assert.assertEquals("This is the funniest abstract ever!", version.getAbstract());
+	}
+
+	@Test
+	public void testRoundtripAbstract() {
+		ProtocolVersion version = new ProtocolVersion();
+		version.setAbstract("This is the funniest abstract ever!");
+		URL resource = version.upload(TEST_SERVER);
+
+		ProtocolVersion roundtripped = new ProtocolVersion(resource);
+		Assert.assertEquals("This is the funniest abstract ever!", roundtripped.getAbstract());
+	}
+
+	@Test
+	public void testGetSetInfo() {
+		ProtocolVersion version = new ProtocolVersion();
+		version.setInfo("2011-09-15");
+		Assert.assertEquals("2011-09-15", version.getInfo());
+	}
+
+	@Test
+	public void testRoundtripInfo() {
+		ProtocolVersion version = new ProtocolVersion();
+		version.setInfo("2011-09-15");
+		URL resource = version.upload(TEST_SERVER);
+
+		ProtocolVersion roundtripped = new ProtocolVersion(resource);
+		Assert.assertEquals("2011-09-15", roundtripped.getInfo());
+	}
+
+	@Test
+	public void testGetSetSubmissionDate() {
+		ProtocolVersion version = new ProtocolVersion();
+		version.setSubmissionDate("2011-09-15");
+		Assert.assertEquals("2011-09-15", version.getSubmissionDate());
+	}
+
+	@Test
+	public void testRoundtripSubmissionDate() {
+		ProtocolVersion version = new ProtocolVersion();
+		version.setSubmissionDate("2011-09-15");
+		URL resource = version.upload(TEST_SERVER);
+
+		ProtocolVersion roundtripped = new ProtocolVersion(resource);
+		Assert.assertEquals("2011-09-15", roundtripped.getSubmissionDate());
+	}
 }

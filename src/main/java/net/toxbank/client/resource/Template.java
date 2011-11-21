@@ -27,8 +27,9 @@ public class Template {
 	 * Returns an {@link OutputStream} to which the template can be written.
 	 * @return
 	 */
-	public OutputStream upload() {
+	public OutputStream upload(String server) {
 		// FIXME: does this approach even work??
 		return null;
 	}
+
 }
