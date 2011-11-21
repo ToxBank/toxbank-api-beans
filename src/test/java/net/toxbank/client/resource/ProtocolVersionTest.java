@@ -12,7 +12,7 @@ public class ProtocolVersionTest extends AbstractToxBankResourceTest {
 
 	@Before
 	public void setup() {
-		setToxBankResource(new Template());
+		setToxBankResource(new ProtocolVersion());
 	}
 
 	@Test

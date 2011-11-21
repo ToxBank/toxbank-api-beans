@@ -8,7 +8,7 @@ public class AssayTest extends AbstractToxBankResourceTest {
 	
 	@Before
 	public void setup() {
-		setToxBankResource(new Template());
+		setToxBankResource(new Assay());
 	}
 
 	@Test

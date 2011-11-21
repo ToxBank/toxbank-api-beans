@@ -14,7 +14,7 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 
 	@Before
 	public void setup() {
-		setToxBankResource(new Template());
+		setToxBankResource(new Protocol());
 	}
 
 	@Test
