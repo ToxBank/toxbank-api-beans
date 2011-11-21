@@ -106,6 +106,57 @@ public class ProtocolTest {
 	}
 
 	@Test
+	public void testGetSetTitle() {
+		Protocol protocol = new Protocol();
+		protocol.setTitle("Title");
+		Assert.assertEquals("Title", protocol.getTitle());
+	}
+
+	@Test
+	public void testRoundtripTitle() {
+		Protocol protocol = new Protocol();
+		protocol.setTitle("Title");
+		URL resource = protocol.upload(TEST_SERVER);
+
+		Protocol roundtripped = new Protocol(resource);
+		Assert.assertEquals("Title", roundtripped.getTitle());
+	}
+
+	@Test
+	public void testGetSetIdentifier() {
+		Protocol protocol = new Protocol();
+		protocol.setIdentifier("Title");
+		Assert.assertEquals("Title", protocol.getIdentifier());
+	}
+
+	@Test
+	public void testRoundtripIdentifier() {
+		Protocol protocol = new Protocol();
+		protocol.setIdentifier("Title");
+		URL resource = protocol.upload(TEST_SERVER);
+
+		Protocol roundtripped = new Protocol(resource);
+		Assert.assertEquals("Title", roundtripped.getIdentifier());
+	}
+
+	@Test
+	public void testGetSetAbstract() {
+		Protocol protocol = new Protocol();
+		protocol.setAbstract("This is the funniest abstract ever!");
+		Assert.assertEquals("This is the funniest abstract ever!", protocol.getAbstract());
+	}
+
+	@Test
+	public void testRoundtripAbstract() {
+		Protocol protocol = new Protocol();
+		protocol.setAbstract("This is the funniest abstract ever!");
+		URL resource = protocol.upload(TEST_SERVER);
+
+		Protocol roundtripped = new Protocol(resource);
+		Assert.assertEquals("This is the funniest abstract ever!", roundtripped.getAbstract());
+	}
+
+	@Test
 	public void testGetSetAuthor() {
 		Protocol protocol = new Protocol();
 		Assert.assertNull(protocol.getAuthor());

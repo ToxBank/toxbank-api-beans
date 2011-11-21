@@ -9,6 +9,9 @@ public class Protocol {
 	private URL organisation;
 	private User author;
 	private List<String> keywords;
+	private String title;
+	private String identifier;
+	private String abstrakt;
 
 	public Protocol() {}
 	
@@ -102,5 +105,29 @@ public class Protocol {
 
 	public URL getOrganisation() {
 		return this.organisation;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setIdentifier(String identifier) {
+		this.identifier = identifier;
+	}
+
+	public String getIdentifier() {
+		return identifier;
+	}
+
+	public void setAbstract(String abstrakt) {
+		this.abstrakt = abstrakt;
+	}
+
+	public String getAbstract() {
+		return abstrakt;
 	}
 }
