@@ -2,11 +2,13 @@ package net.toxbank.client.resource;
 
 import java.net.URL;
 
-public class ProtocolVersion {
+public class ProtocolVersion extends AbstractToxBankResource {
 
 	private String abstrakt;
 	private String info;
 	private String submissionDate;
+	private boolean isSearchable = false;
+	private ProtocolVersion previousVersion;
 
 	public ProtocolVersion() {}
 	
@@ -43,5 +45,21 @@ public class ProtocolVersion {
 
 	public String getSubmissionDate() {
 		return submissionDate;
+	}
+
+	public void setSearchable(boolean isSearchable) {
+		this.isSearchable = isSearchable;
+	}
+
+	public boolean isSearchable() {
+		return isSearchable;
+	}
+
+	public void setPreviousVersion(ProtocolVersion previousVersion) {
+		this.previousVersion = previousVersion;
+	}
+
+	public ProtocolVersion getPreviousVersion() {
+		return previousVersion;
 	}
 }

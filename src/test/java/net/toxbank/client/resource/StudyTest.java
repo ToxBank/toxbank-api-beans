@@ -1,14 +1,13 @@
 package net.toxbank.client.resource;
 
 import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URL;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-public class StudyTest {
+public class StudyTest extends AbstractToxBankResourceTest {
 	
 	private final static String TEST_SERVER = "http://demo.toxbank.net/";
 
@@ -103,7 +102,6 @@ public class StudyTest {
 	@Test
 	public void testRoundtripVersions() throws MalformedURLException {
 		Study study = new Study(new URL(TEST_SERVER + "protocol/1"));
-		List<Study> versions = study.getVersions();
 		URL resource = study.upload(TEST_SERVER);
 
 		Study roundtripped = new Study(resource);

@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 
-public class Protocol {
+public class Protocol extends AbstractToxBankResource {
 
 	private URL organisation;
 	private User author;

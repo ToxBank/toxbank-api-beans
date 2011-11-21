@@ -5,11 +5,17 @@ import java.net.URL;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-public class UserTest {
+public class UserTest extends AbstractToxBankResourceTest {
 	
 	private final static String TEST_SERVER = "http://demo.toxbank.net/";
+
+	@Before
+	public void setup() {
+		setToxBankResource(new Template());
+	}
 
 	@Test
 	public void testConstructor() {

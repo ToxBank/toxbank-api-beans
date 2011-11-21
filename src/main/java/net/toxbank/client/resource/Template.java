@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
 
-public class Template {
+public class Template extends AbstractToxBankResource {
 
 	public Template() {}
 	

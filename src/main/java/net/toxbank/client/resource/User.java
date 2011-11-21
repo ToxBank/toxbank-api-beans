@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 
-public class User {
+public class User extends AbstractToxBankResource {
 
 	public User() {}
 

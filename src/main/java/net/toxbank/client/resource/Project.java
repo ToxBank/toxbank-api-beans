@@ -1,5 +1,5 @@
 package net.toxbank.client.resource;
 
-public class Project {
+public class Project extends AbstractToxBankResource {
 
 }

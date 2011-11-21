@@ -3,11 +3,17 @@ package net.toxbank.client.resource;
 import java.net.URL;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-public class ProtocolVersionTest {
+public class ProtocolVersionTest extends AbstractToxBankResourceTest {
 
 	private final static String TEST_SERVER = "http://demo.toxbank.net/";
+
+	@Before
+	public void setup() {
+		setToxBankResource(new Template());
+	}
 
 	@Test
 	public void testConstructor() {
@@ -72,5 +78,26 @@ public class ProtocolVersionTest {
 
 		ProtocolVersion roundtripped = new ProtocolVersion(resource);
 		Assert.assertEquals("2011-09-15", roundtripped.getSubmissionDate());
+	}
+
+	@Test
+	public void testGetSetIsSearchable() {
+		ProtocolVersion version = new ProtocolVersion();
+		Assert.assertFalse(version.isSearchable());
+		version.setSearchable(true);
+		Assert.assertTrue(version.isSearchable());
+		version.setSearchable(false);
+		Assert.assertFalse(version.isSearchable());
+	}
+
+	@Test
+	public void testRoundtripSearchable() {
+		ProtocolVersion version = new ProtocolVersion();
+		Assert.assertFalse(version.isSearchable());
+		version.setSearchable(true);
+		URL resource = version.upload(TEST_SERVER);
+
+		ProtocolVersion roundtripped = new ProtocolVersion(resource);
+		Assert.assertTrue(roundtripped.isSearchable());
 	}
 }

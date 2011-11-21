@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 
-public class Study {
+public class Study extends AbstractToxBankResource {
 
 	private List<String> keywords;
 	private String abstrakt;
