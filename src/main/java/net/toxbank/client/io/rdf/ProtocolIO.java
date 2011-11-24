@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import net.toxbank.client.resource.Protocol;
+import net.toxbank.client.resource.User;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -42,6 +43,10 @@ public class ProtocolIO implements IOClass<Protocol> {
 			if (protocol.getOrganisation() != null)
 				res.addProperty(TOXBANK.HASPROJECT,
 					toAddTo.createResource(protocol.getOrganisation().toString())
+				);
+			if (protocol.getAuthor() != null)
+				res.addProperty(TOXBANK.HASAUTHOR,
+					toAddTo.createResource(protocol.getAuthor().getResourceURL().toString())
 				);
 		}
 		return toAddTo;
@@ -85,6 +90,18 @@ public class ProtocolIO implements IOClass<Protocol> {
 				} catch (MalformedURLException e) {
 					throw new IllegalArgumentException(
 						"Found a organization with an invalid URI:" + res.getURI()
+					);
+				}
+			if (res.getProperty(TOXBANK.HASAUTHOR) != null)
+				try {
+					User author = new User();
+					author.setResourceURL(
+						new URL(res.getProperty(TOXBANK.HASAUTHOR).getResource().getURI())
+					);
+					protocol.setAuthor(author);
+				} catch (MalformedURLException e) {
+					throw new IllegalArgumentException(
+						"Found an author with an invalid URI:" + res.getURI()
 					);
 				}
 			protocols.add(protocol);

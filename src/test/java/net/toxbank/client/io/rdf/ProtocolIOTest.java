@@ -6,6 +6,7 @@ import java.util.List;
 
 import junit.framework.Assert;
 import net.toxbank.client.resource.Protocol;
+import net.toxbank.client.resource.User;
 
 import org.junit.Test;
 
@@ -124,5 +125,22 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 
 		Assert.assertNotNull(roundtripped.getOrganisation());
 		Assert.assertEquals("http://www.toxbank.net/", roundtripped.getOrganisation().toString());
+	}
+
+	@Test
+	public void testRoundtripAuthor() throws MalformedURLException {
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		User author = new User();
+		author.setResourceURL(new URL("http://example.org/testUser/B.Bub"));
+		protocol.setAuthor(author);
+
+		Protocol roundtripped = roundtripSingleProtocol(protocol);
+
+		Assert.assertNotNull(roundtripped.getAuthor());
+		Assert.assertEquals(
+			"http://example.org/testUser/B.Bub",
+			roundtripped.getAuthor().getResourceURL().toString()
+		);
 	}
 }
