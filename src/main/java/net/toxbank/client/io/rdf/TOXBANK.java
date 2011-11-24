@@ -4,6 +4,9 @@ import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceFactory;
 
+/**
+ * Java API to the ToxBank API OWL.
+ */
 public class TOXBANK {
 
 	public static final String URI ="http://onto.toxbank.net/api/";
@@ -18,5 +21,5 @@ public class TOXBANK {
 
     public static final Resource PROTOCOL = resource("Protocol");
     
-//    public static final Property HASATOM = property("hasAtom");
+    public static final Property HASABSTRACT = property("hasAbstract");
 }

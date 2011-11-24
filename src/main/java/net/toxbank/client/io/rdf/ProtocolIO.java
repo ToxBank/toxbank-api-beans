@@ -12,6 +12,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class ProtocolIO implements IOClass<Protocol> {
@@ -24,11 +25,14 @@ public class ProtocolIO implements IOClass<Protocol> {
 			if (protocol.getResourceURL() == null) {
 				throw new IllegalArgumentException("All protocols must have resource URIs.");
 			}
-			toAddTo.add(
-			    toAddTo.createResource(protocol.getResourceURL().toString()),
-			    RDF.type,
-			    TOXBANK.PROTOCOL
-			);
+			Resource res = toAddTo.createResource(protocol.getResourceURL().toString());
+			toAddTo.add(res, RDF.type, TOXBANK.PROTOCOL);
+			if (protocol.getTitle() != null)
+				res.addLiteral(DCTerms.title, protocol.getTitle());
+			if (protocol.getIdentifier() != null)
+				res.addLiteral(DCTerms.identifier, protocol.getIdentifier());
+			if (protocol.getAbstract() != null)
+				res.addLiteral(TOXBANK.HASABSTRACT, protocol.getAbstract());
 		}
 		return toAddTo;
 	}
@@ -43,6 +47,7 @@ public class ProtocolIO implements IOClass<Protocol> {
 		while (iter.hasNext()) {
 			Protocol protocol = new Protocol();
 			Resource res = iter.next();
+			System.out.println(res);
 			try {
 				protocol.setResourceURL(
 					new URL(res.getURI())
@@ -52,6 +57,12 @@ public class ProtocolIO implements IOClass<Protocol> {
 					"Found resource with an invalid URI:" + res.getURI()
 				);
 			}
+			if (res.getProperty(DCTerms.title) != null)
+				protocol.setTitle(res.getProperty(DCTerms.title).getString());
+			if (res.getProperty(DCTerms.identifier) != null)
+				protocol.setIdentifier(res.getProperty(DCTerms.identifier).getString());
+			if (res.getProperty(TOXBANK.HASABSTRACT) != null)
+				protocol.setAbstract(res.getProperty(TOXBANK.HASABSTRACT).getString());
 			protocols.add(protocol);
 		}
 
