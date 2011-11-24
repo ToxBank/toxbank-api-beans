@@ -37,7 +37,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		);
 
 		List<Protocol> roundTrippedProtocols = ioClass.fromJena(model);
-		Serializer.toRDFXML(System.out, model);
+//		Serializer.toRDFXML(System.out, model);
 		Assert.assertEquals(1, roundTrippedProtocols.size());
 		Protocol roundTrippedProtocol = roundTrippedProtocols.get(0);
 		return roundTrippedProtocol;
