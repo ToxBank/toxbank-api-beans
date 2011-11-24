@@ -115,6 +115,10 @@ public class Protocol extends AbstractToxBankResource {
 		return this.organisation;
 	}
 
+	public void setOrganisation(URL organisation) {
+		this.organisation = organisation;
+	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}

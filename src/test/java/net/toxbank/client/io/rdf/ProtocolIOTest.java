@@ -37,7 +37,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		);
 
 		List<Protocol> roundTrippedProtocols = ioClass.fromJena(model);
-//		Serializer.toTurtle(System.out, model);
+		Serializer.toTurtle(System.out, model);
 		Assert.assertEquals(1, roundTrippedProtocols.size());
 		Protocol roundTrippedProtocol = roundTrippedProtocols.get(0);
 		return roundTrippedProtocol;
@@ -112,5 +112,17 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		Assert.assertEquals(2, keywords.size());
 		Assert.assertTrue(keywords.contains("key"));
 		Assert.assertTrue(keywords.contains("word"));
+	}
+
+	@Test
+	public void testRoundtripOrganization() throws MalformedURLException {
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setOrganisation(new URL("http://www.toxbank.net/"));
+
+		Protocol roundtripped = roundtripSingleProtocol(protocol);
+
+		Assert.assertNotNull(roundtripped.getOrganisation());
+		Assert.assertEquals("http://www.toxbank.net/", roundtripped.getOrganisation().toString());
 	}
 }

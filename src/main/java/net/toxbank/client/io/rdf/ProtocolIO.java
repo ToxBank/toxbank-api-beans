@@ -39,6 +39,10 @@ public class ProtocolIO implements IOClass<Protocol> {
 				for (String keyword : keywords)
 					res.addLiteral(TOXBANK.HASKEYWORD, keyword);
 			}
+			if (protocol.getOrganisation() != null)
+				res.addProperty(TOXBANK.HASPROJECT,
+					toAddTo.createResource(protocol.getOrganisation().toString())
+				);
 		}
 		return toAddTo;
 	}
@@ -73,6 +77,16 @@ public class ProtocolIO implements IOClass<Protocol> {
 			while (keywords.hasNext()) {
 				protocol.addKeyword(keywords.next().getString());
 			}
+			if (res.getProperty(TOXBANK.HASPROJECT) != null)
+				try {
+					protocol.setOrganisation(
+						new URL(res.getProperty(TOXBANK.HASPROJECT).getResource().getURI())
+					);
+				} catch (MalformedURLException e) {
+					throw new IllegalArgumentException(
+						"Found a organization with an invalid URI:" + res.getURI()
+					);
+				}
 			protocols.add(protocol);
 		}
 
