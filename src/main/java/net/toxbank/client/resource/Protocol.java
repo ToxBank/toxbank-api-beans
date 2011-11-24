@@ -1,6 +1,7 @@
 package net.toxbank.client.resource;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,9 +27,16 @@ public class Protocol extends AbstractToxBankResource {
 	// bean methods
 	
 	public void addKeyword(String keyword) {
+		if (keyword == null) return;
+
+		if (keywords == null) keywords = new ArrayList<String>();
+		keywords.add(keyword);
 	}
 
 	public void removeKeyword(String keyword) {
+		if (keyword == null || keywords == null) return;
+		
+		if (keywords.contains(keyword)) keywords.remove(keyword);
 	}
 
 	public List<String> getKeywords() {

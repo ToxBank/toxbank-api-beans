@@ -12,6 +12,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
@@ -33,6 +34,11 @@ public class ProtocolIO implements IOClass<Protocol> {
 				res.addLiteral(DCTerms.identifier, protocol.getIdentifier());
 			if (protocol.getAbstract() != null)
 				res.addLiteral(TOXBANK.HASABSTRACT, protocol.getAbstract());
+			List<String> keywords = protocol.getKeywords();
+			if (keywords != null) {
+				for (String keyword : keywords)
+					res.addLiteral(TOXBANK.HASKEYWORD, keyword);
+			}
 		}
 		return toAddTo;
 	}
@@ -63,6 +69,10 @@ public class ProtocolIO implements IOClass<Protocol> {
 				protocol.setIdentifier(res.getProperty(DCTerms.identifier).getString());
 			if (res.getProperty(TOXBANK.HASABSTRACT) != null)
 				protocol.setAbstract(res.getProperty(TOXBANK.HASABSTRACT).getString());
+			StmtIterator keywords = res.listProperties(TOXBANK.HASKEYWORD);
+			while (keywords.hasNext()) {
+				protocol.addKeyword(keywords.next().getString());
+			}
 			protocols.add(protocol);
 		}
 

@@ -97,4 +97,20 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 
 		Assert.assertEquals("This is the funniest abstract ever!", roundtripped.getAbstract());
 	}
+
+	@Test
+	public void testRoundtripKeywords() throws MalformedURLException {
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.addKeyword("key");
+		protocol.addKeyword("word");
+
+		Protocol roundtripped = roundtripSingleProtocol(protocol);
+
+		List<String> keywords = roundtripped.getKeywords();
+		Assert.assertNotNull(keywords);
+		Assert.assertEquals(2, keywords.size());
+		Assert.assertTrue(keywords.contains("key"));
+		Assert.assertTrue(keywords.contains("word"));
+	}
 }
