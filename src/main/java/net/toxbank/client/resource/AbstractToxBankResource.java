@@ -2,7 +2,7 @@ package net.toxbank.client.resource;
 
 import java.net.URL;
 
-public abstract class AbstractToxBankResource {
+public abstract class AbstractToxBankResource implements IToxBankResource {
 
 	private URL resourceURL;
 
