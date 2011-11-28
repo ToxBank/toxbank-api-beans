@@ -13,16 +13,9 @@ public class ProtocolVersion extends AbstractToxBankResource {
 	public ProtocolVersion() {}
 	
 	public ProtocolVersion(URL identifier) {
+		setResourceURL(identifier);
 	}
 	
-	/**
-	 * Described in this <a href="http://api.toxbank.net/index.php/API_Protocol:Uploadt">API documentation</a>.
-	 */
-	public URL upload(String server) {
-		// FIXME: implement uploading this protocol to the server
-		return null;
-	}
-
 	public void setAbstract(String abstrakt) {
 		this.abstrakt = abstrakt;
 	}
