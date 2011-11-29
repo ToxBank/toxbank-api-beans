@@ -1,16 +1,11 @@
 package net.toxbank.client.resource;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class StudyTest extends AbstractToxBankResourceTest {
 	
-	private final static String TEST_SERVER = "http://demo.toxbank.net/";
-
 	@Before
 	public void setup() {
 		setToxBankResource(new Study());
@@ -20,16 +15,6 @@ public class StudyTest extends AbstractToxBankResourceTest {
 	public void testConstructor() {
 		Study clazz = new Study();
 		Assert.assertNotNull(clazz);
-	}
-
-	@Test
-	public void testRetrieveMetadata() throws MalformedURLException {
-		Study study = new Study(new URL(TEST_SERVER + "protocol/1"));
-		Assert.assertNotNull(study);
-		Assert.assertEquals(
-			TEST_SERVER + "organization/1",
-			study.getOwner()
-		);
 	}
 
 	@Test
