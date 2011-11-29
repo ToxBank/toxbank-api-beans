@@ -11,6 +11,15 @@ public class Protocol extends AbstractToxBankResource {
 	 * 
 	 */
 	private static final long serialVersionUID = -8372109619710612869L;
+	private Project project;
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
 	private Organisation organisation;
 	private User owner;
 	private List<String> keywords;
