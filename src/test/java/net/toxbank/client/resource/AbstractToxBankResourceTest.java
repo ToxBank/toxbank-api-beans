@@ -25,4 +25,14 @@ public abstract class AbstractToxBankResourceTest {
 		Assert.assertEquals("http://example.org/test", resource.getResourceURL().toString());
 	}
 
+	@Test
+	public void testGetSetTitle() throws MalformedURLException {
+		Assert.assertNotNull(
+			"The unit test must use setToxBankResource() to set the resource in a @BeforeClass method",
+			resource
+		);
+		resource.setTitle("Some Test Object");
+		Assert.assertNotNull(resource.getTitle());
+		Assert.assertEquals("Some Test Object", resource.getTitle());
+	}
 }

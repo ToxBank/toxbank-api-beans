@@ -8,7 +8,9 @@ public abstract class AbstractToxBankResource implements IToxBankResource {
 	 * 
 	 */
 	private static final long serialVersionUID = -8819428763217419573L;
+
 	private URL resourceURL;
+	private String title;
 
 	public void setResourceURL(URL resourceURL) {
 		this.resourceURL = resourceURL;
@@ -18,4 +20,11 @@ public abstract class AbstractToxBankResource implements IToxBankResource {
 		return resourceURL;
 	}
 	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getTitle() {
+		return title;
+	}
 }

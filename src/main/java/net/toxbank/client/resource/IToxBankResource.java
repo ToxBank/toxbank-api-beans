@@ -6,7 +6,11 @@ import java.net.URL;
 public interface IToxBankResource extends Serializable {
 
 	public void setResourceURL(URL resourceURL);
-	
+
 	public URL getResourceURL();
-	
+
+	public void setTitle(String title);
+
+	public String getTitle();
+
 }
