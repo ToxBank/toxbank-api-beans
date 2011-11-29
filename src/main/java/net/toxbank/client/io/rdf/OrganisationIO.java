@@ -22,7 +22,7 @@ public class OrganisationIO implements IOClass<Organisation> {
 
 		for (Organisation org : resources) {
 			if (org.getResourceURL() == null) {
-				throw new IllegalArgumentException("All protocols must have resource URIs.");
+				throw new IllegalArgumentException("All organisations must have resource URIs.");
 			}
 			Resource res = toAddTo.createResource(org.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, TOXBANK.ORGANIZATION);

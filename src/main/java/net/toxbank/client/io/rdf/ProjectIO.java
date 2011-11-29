@@ -22,7 +22,7 @@ public class ProjectIO implements IOClass<Project> {
 
 		for (Project project : projects) {
 			if (project.getResourceURL() == null) {
-				throw new IllegalArgumentException("All protocols must have resource URIs.");
+				throw new IllegalArgumentException("All projects must have resource URIs.");
 			}
 			Resource res = toAddTo.createResource(project.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, TOXBANK.PROJECT);

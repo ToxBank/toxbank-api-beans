@@ -27,7 +27,7 @@ public class UserIO implements IOClass<User> {
 
 		for (User user : users) {
 			if (user.getResourceURL() == null) {
-				throw new IllegalArgumentException("All protocols must have resource URIs.");
+				throw new IllegalArgumentException("All users must have resource URIs.");
 			}
 			Resource res = toAddTo.createResource(user.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, FOAF.Person);
