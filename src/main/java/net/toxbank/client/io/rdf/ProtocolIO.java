@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import net.toxbank.client.resource.Organisation;
 import net.toxbank.client.resource.Protocol;
 import net.toxbank.client.resource.User;
 
@@ -18,6 +19,8 @@ import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class ProtocolIO implements IOClass<Protocol> {
+
+	private OrganisationIO organisationIO = new OrganisationIO();
 
 	public Model toJena(Model toAddTo, Protocol... protocols) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
@@ -40,10 +43,15 @@ public class ProtocolIO implements IOClass<Protocol> {
 				for (String keyword : keywords)
 					res.addLiteral(TOXBANK.HASKEYWORD, keyword);
 			}
-			if (protocol.getOrganisation() != null)
+			if (protocol.getOrganisation() != null) {
 				res.addProperty(TOXBANK.HASPROJECT,
-					toAddTo.createResource(protocol.getOrganisation().toString())
+					toAddTo.createResource(
+						protocol.getOrganisation().getResourceURL().toString()
+					)
 				);
+				organisationIO.toJena(toAddTo, protocol.getOrganisation());
+			}
+			    
 			if (protocol.getAuthor() != null)
 				res.addProperty(TOXBANK.HASAUTHOR,
 					toAddTo.createResource(protocol.getAuthor().getResourceURL().toString())
@@ -84,9 +92,11 @@ public class ProtocolIO implements IOClass<Protocol> {
 			}
 			if (res.getProperty(TOXBANK.HASPROJECT) != null)
 				try {
-					protocol.setOrganisation(
+					Organisation org = new Organisation();
+					org.setResourceURL(
 						new URL(res.getProperty(TOXBANK.HASPROJECT).getResource().getURI())
 					);
+					protocol.setOrganisation(org);
 				} catch (MalformedURLException e) {
 					throw new IllegalArgumentException(
 						"Found a organization with an invalid URI:" + res.getURI()

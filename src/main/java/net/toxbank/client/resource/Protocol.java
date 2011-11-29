@@ -11,7 +11,7 @@ public class Protocol extends AbstractToxBankResource {
 	 * 
 	 */
 	private static final long serialVersionUID = -8372109619710612869L;
-	private URL organisation;
+	private Organisation organisation;
 	private User author;
 	private List<String> keywords;
 	private String title;
@@ -52,11 +52,11 @@ public class Protocol extends AbstractToxBankResource {
 		return author;
 	}
 
-	public URL getOrganisation() {
+	public Organisation getOrganisation() {
 		return this.organisation;
 	}
 
-	public void setOrganisation(URL organisation) {
+	public void setOrganisation(Organisation organisation) {
 		this.organisation = organisation;
 	}
 
