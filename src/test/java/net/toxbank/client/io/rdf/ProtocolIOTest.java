@@ -134,19 +134,47 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	}
 
 	@Test
-	public void testRoundtripAuthor() throws MalformedURLException {
+	public void testRoundtripOwner() throws MalformedURLException {
 		Protocol protocol = new Protocol();
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
-		User author = new User();
-		author.setResourceURL(new URL("http://example.org/testUser/B.Bub"));
-		protocol.setAuthor(author);
+		User owner = new User();
+		owner.setResourceURL(new URL("http://example.org/testUser/B.Bub"));
+		protocol.setOwner(owner);
 
 		Protocol roundtripped = roundtripSingleProtocol(protocol);
 
-		Assert.assertNotNull(roundtripped.getAuthor());
+		Assert.assertNotNull(roundtripped.getOwner());
 		Assert.assertEquals(
 			"http://example.org/testUser/B.Bub",
-			roundtripped.getAuthor().getResourceURL().toString()
+			roundtripped.getOwner().getResourceURL().toString()
+		);
+	}
+
+	@Test
+	public void testRoundtripAuthors() throws MalformedURLException {
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		User bub = new User();
+		bub.setResourceURL(new URL("http://example.org/testUser/B.Bub"));
+		protocol.addAuthor(bub);
+		User adder = new User();
+		adder.setResourceURL(new URL("http://example.org/testUser/B.Adder"));
+		protocol.addAuthor(adder);
+
+		Protocol roundtripped = roundtripSingleProtocol(protocol);
+
+		List<User> authors = roundtripped.getAuthors();
+		Assert.assertNotNull(authors);
+		Assert.assertEquals(2, authors.size());
+		
+		// we don't know the order
+		Assert.assertTrue(
+			roundtripped.getAuthors().get(0).getResourceURL().toString().equals("http://example.org/testUser/B.Bub") ||
+			roundtripped.getAuthors().get(1).getResourceURL().toString().equals("http://example.org/testUser/B.Bub")
+		);
+		Assert.assertTrue(
+				roundtripped.getAuthors().get(0).getResourceURL().toString().equals("http://example.org/testUser/B.Adder") ||
+				roundtripped.getAuthors().get(1).getResourceURL().toString().equals("http://example.org/testUser/B.Adder")
 		);
 	}
 }

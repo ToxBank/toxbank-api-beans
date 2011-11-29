@@ -51,11 +51,22 @@ public class ProtocolIO implements IOClass<Protocol> {
 				);
 				organisationIO.toJena(toAddTo, protocol.getOrganisation());
 			}
-			    
-			if (protocol.getAuthor() != null)
-				res.addProperty(TOXBANK.HASAUTHOR,
-					toAddTo.createResource(protocol.getAuthor().getResourceURL().toString())
+
+			if (protocol.getOwner() != null) {
+				Resource ownerRes = toAddTo.createResource(
+					protocol.getOwner().getResourceURL().toString()
 				);
+				res.addProperty(TOXBANK.HASOWNER, ownerRes);
+			}
+			List<User> authors = protocol.getAuthors();
+			if (authors != null)
+				for (User author : authors) {
+					res.addProperty(TOXBANK.HASAUTHOR,
+						toAddTo.createResource(
+							author.getResourceURL().toString()
+						)
+					);
+				}
 		}
 		return toAddTo;
 	}
@@ -90,6 +101,19 @@ public class ProtocolIO implements IOClass<Protocol> {
 			while (keywords.hasNext()) {
 				protocol.addKeyword(keywords.next().getString());
 			}
+			StmtIterator authors = res.listProperties(TOXBANK.HASAUTHOR);
+			while (authors.hasNext()) {
+				Resource authorRes = authors.next().getResource();
+				User author = new User();
+				try {
+					author.setResourceURL(new URL(authorRes.getURI()));
+				} catch (MalformedURLException e) {
+					throw new IllegalArgumentException(
+						"Found a organization with an invalid URI:" + authorRes.getURI()
+					);
+				}
+				protocol.addAuthor(author);
+			}
 			if (res.getProperty(TOXBANK.HASPROJECT) != null)
 				try {
 					Organisation org = new Organisation();
@@ -102,13 +126,13 @@ public class ProtocolIO implements IOClass<Protocol> {
 						"Found a organization with an invalid URI:" + res.getURI()
 					);
 				}
-			if (res.getProperty(TOXBANK.HASAUTHOR) != null)
+			if (res.getProperty(TOXBANK.HASOWNER) != null)
 				try {
 					User author = new User();
 					author.setResourceURL(
-						new URL(res.getProperty(TOXBANK.HASAUTHOR).getResource().getURI())
+						new URL(res.getProperty(TOXBANK.HASOWNER).getResource().getURI())
 					);
-					protocol.setAuthor(author);
+					protocol.setOwner(author);
 				} catch (MalformedURLException e) {
 					throw new IllegalArgumentException(
 						"Found an author with an invalid URI:" + res.getURI()
