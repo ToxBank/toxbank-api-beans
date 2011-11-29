@@ -16,6 +16,8 @@ public class User extends AbstractToxBankResource {
 	 * 
 	 */
 	private static final long serialVersionUID = 9147403734724679765L;
+	private String userName;
+
 	private Organisation seuratProject;
 	private Organisation institute;
 	private String firstname;
@@ -24,6 +26,13 @@ public class User extends AbstractToxBankResource {
 	private URL weblog;
 	private List<Account> accounts;
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public String getFirstname() {
 		return firstname;
