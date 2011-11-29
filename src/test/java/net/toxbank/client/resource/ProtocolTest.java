@@ -30,6 +30,19 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 	}
 
 	@Test
+	public void testGetSetAuthors() {
+		Protocol protocol = new Protocol();
+		Assert.assertEquals(0, protocol.getAuthors().size());
+		User user = new User();
+		protocol.addAuthor(user);
+		Assert.assertEquals(1, protocol.getAuthors().size());
+		Assert.assertTrue(protocol.getAuthors().contains(user));
+		protocol.removeAuthor(user);
+		Assert.assertEquals(0, protocol.getAuthors().size());
+		Assert.assertFalse(protocol.getAuthors().contains(user));
+	}
+
+	@Test
 	public void testGetSetTitle() {
 		Protocol protocol = new Protocol();
 		protocol.setTitle("Title");
@@ -51,12 +64,12 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 	}
 
 	@Test
-	public void testGetSetAuthor() {
+	public void testGetSetOwner() {
 		Protocol protocol = new Protocol();
-		Assert.assertNull(protocol.getAuthor());
+		Assert.assertNull(protocol.getOwner());
 		User user = new User();
-		protocol.setAuthor(user);
-		Assert.assertNotNull(protocol.getAuthor());
-		Assert.assertEquals(user, protocol.getAuthor());
+		protocol.setOwner(user);
+		Assert.assertNotNull(protocol.getOwner());
+		Assert.assertEquals(user, protocol.getOwner());
 	}
 }
