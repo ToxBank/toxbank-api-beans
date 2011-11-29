@@ -2,6 +2,7 @@ package net.toxbank.client.resource;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Protocol extends AbstractToxBankResource {
@@ -35,6 +36,7 @@ public class Protocol extends AbstractToxBankResource {
 	}
 
 	public List<String> getKeywords() {
+		if (keywords == null) return Collections.emptyList();
 		return keywords;
 	}
 
