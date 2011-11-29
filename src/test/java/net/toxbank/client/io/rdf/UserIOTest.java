@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.List;
 
 import junit.framework.Assert;
+import net.toxbank.client.resource.Account;
 import net.toxbank.client.resource.User;
 
 import org.junit.Test;
@@ -65,4 +66,18 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 		Assert.assertNull(roundtripped.getTitle());
 	}
 
+	@Test
+	public void testRoundtripAccount() throws MalformedURLException {
+		User user = new User();
+		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
+		Account account = new Account();
+		account.setService("http://friendfeed.com/");
+		account.setAccountName("egonw");
+		user.addAccount(account);
+
+		User roundtripped = roundtripSingleUser(user);
+
+		Assert.assertEquals(1, roundtripped.getAccounts().size());
+		Assert.assertEquals("egonw", roundtripped.getAccounts().get(0).getAccountName());
+	}
 }

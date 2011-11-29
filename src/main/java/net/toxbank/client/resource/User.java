@@ -1,6 +1,8 @@
 package net.toxbank.client.resource;
 
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,6 +55,25 @@ public class User extends AbstractToxBankResource {
 
 	public List<Account> getAccounts() {
 		return accounts;
+	}
+
+	public void addAccount(Account account) {
+		if (account == null) return; // nothing to add
+		if (accounts == null) accounts = new ArrayList<Account>();
+		accounts.add(account);
+		
+		// make sure the account has a resource URI
+		if (account.getResourceURL() == null &&
+			this.getResourceURL() != null) {
+			try {
+				// IMPORTANT: this URI pattern is used in the roundtripping
+				account.setResourceURL(
+					new URL(this.getResourceURL().toString() + "/accounts/" + accounts.size())
+				);
+			} catch (MalformedURLException e) {
+				// OK, forget it...
+			}
+		}
 	}
 
 	public User() {}
