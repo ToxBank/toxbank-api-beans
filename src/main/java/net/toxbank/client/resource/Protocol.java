@@ -14,7 +14,6 @@ public class Protocol extends AbstractToxBankResource {
 	private Organisation organisation;
 	private User author;
 	private List<String> keywords;
-	private String title;
 	private String identifier;
 	private String abstrakt;
 
@@ -58,14 +57,6 @@ public class Protocol extends AbstractToxBankResource {
 
 	public void setOrganisation(Organisation organisation) {
 		this.organisation = organisation;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getTitle() {
-		return title;
 	}
 
 	public void setIdentifier(String identifier) {
