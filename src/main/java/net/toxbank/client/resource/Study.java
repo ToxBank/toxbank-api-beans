@@ -7,6 +7,10 @@ import java.util.List;
 
 public class Study extends AbstractToxBankResource {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3315631380923817346L;
 	private List<String> keywords;
 	private String abstrakt;
 	private boolean isSummarySearchable;

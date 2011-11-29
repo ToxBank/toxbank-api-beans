@@ -7,6 +7,10 @@ import java.util.List;
 
 public class Protocol extends AbstractToxBankResource {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8372109619710612869L;
 	private URL organisation;
 	private User author;
 	private List<String> keywords;

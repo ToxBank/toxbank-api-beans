@@ -4,6 +4,10 @@ import java.net.URL;
 
 public class ProtocolVersion extends AbstractToxBankResource {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2275484439005829487L;
 	private String abstrakt;
 	private String info;
 	private String submissionDate;

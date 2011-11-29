@@ -1,8 +1,9 @@
 package net.toxbank.client.resource;
 
+import java.io.Serializable;
 import java.net.URL;
 
-public interface IToxBankResource {
+public interface IToxBankResource extends Serializable {
 
 	public void setResourceURL(URL resourceURL);
 	

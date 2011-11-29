@@ -12,6 +12,10 @@ import java.util.List;
  */
 public class User extends AbstractToxBankResource {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9147403734724679765L;
 	private Organisation seuratProject;
 	private Organisation institute;
 	private String title;

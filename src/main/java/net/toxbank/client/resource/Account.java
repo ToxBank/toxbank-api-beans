@@ -7,6 +7,10 @@ package net.toxbank.client.resource;
  */
 public class Account extends AbstractToxBankResource {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3429767766313633591L;
 	private String service;
 	private String accountName;
 
