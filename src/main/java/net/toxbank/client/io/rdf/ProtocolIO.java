@@ -45,6 +45,8 @@ public class ProtocolIO implements IOClass<Protocol> {
 					res.addLiteral(TOXBANK.HASKEYWORD, keyword);
 			}
 			if (protocol.getProject() != null) {
+				if (protocol.getProject().getResourceURL()==null)
+					throw new IllegalArgumentException(String.format(msg_InvalidURI, "project",res.getURI()));				
 				res.addProperty(TOXBANK.HASPROJECT,
 					toAddTo.createResource(
 						protocol.getProject().getResourceURL().toString()
@@ -53,6 +55,8 @@ public class ProtocolIO implements IOClass<Protocol> {
 				projectIO.toJena(toAddTo, protocol.getOrganisation());
 			}			
 			if (protocol.getOrganisation() != null) {
+				if (protocol.getOrganisation().getResourceURL()==null)
+					throw new IllegalArgumentException(String.format(msg_InvalidURI, "organisation",res.getURI()));				
 				res.addProperty(TOXBANK.HASORGANISATION,
 					toAddTo.createResource(
 						protocol.getOrganisation().getResourceURL().toString()
@@ -62,6 +66,9 @@ public class ProtocolIO implements IOClass<Protocol> {
 			}
 
 			if (protocol.getOwner() != null) {
+				if (protocol.getOwner().getResourceURL()==null)
+					throw new IllegalArgumentException(String.format(msg_InvalidURI, "protocol owner",res.getURI()));
+					
 				Resource ownerRes = toAddTo.createResource(
 					protocol.getOwner().getResourceURL().toString()
 				);
@@ -70,6 +77,8 @@ public class ProtocolIO implements IOClass<Protocol> {
 			List<User> authors = protocol.getAuthors();
 			if (authors != null)
 				for (User author : authors) {
+					if (author.getResourceURL()==null)
+						throw new IllegalArgumentException(String.format(msg_InvalidURI, "author",res.getURI()));
 					res.addProperty(TOXBANK.HASAUTHOR,
 						toAddTo.createResource(
 							author.getResourceURL().toString()
