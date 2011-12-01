@@ -12,6 +12,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class OrganisationIO implements IOClass<Organisation> {
@@ -25,6 +26,8 @@ public class OrganisationIO implements IOClass<Organisation> {
 			}
 			Resource res = toAddTo.createResource(org.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, TOXBANK.ORGANIZATION);
+			if (org.getTitle() != null)
+				res.addLiteral(DCTerms.title, org.getTitle());
 		}
 		return toAddTo;
 	}
@@ -43,6 +46,8 @@ public class OrganisationIO implements IOClass<Organisation> {
 				org.setResourceURL(
 					new URL(res.getURI())
 				);
+				if (res.getProperty(DCTerms.title) != null)
+					org.setTitle(res.getProperty(DCTerms.title).getString());				
 			} catch (MalformedURLException e) {
 				throw new IllegalArgumentException(String.format(msg_InvalidURI,"an organisation",res.getURI()));
 			}

@@ -19,12 +19,17 @@ public class ProjectIOTest extends AbstractIOClassTest<Project> {
 	@Test
 	public void testRoundtripResourceURI() throws Exception {
 		Project testResource = new Project();
-		testResource.setResourceURL(new URL("http://example.org/users/JohnDoe/account/1"));
+		testResource.setResourceURL(new URL("http://example.org/project/ToxBank"));
+		testResource.setTitle("ToxBank");
 		Project roundTrippedResource = roundtripSingleProject(testResource);
 		Assert.assertEquals(
-			"http://example.org/users/JohnDoe/account/1",
+			"http://example.org/project/ToxBank",
 			roundTrippedResource.getResourceURL().toString()
 		);
+		Assert.assertEquals(
+				"ToxBank",
+				roundTrippedResource.getTitle()
+			);		
 	}
 
 	private Project roundtripSingleProject(Project testProtocol) {

@@ -12,6 +12,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class ProjectIO implements IOClass<Project> {
@@ -25,6 +26,8 @@ public class ProjectIO implements IOClass<Project> {
 				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "projects"));
 			}
 			Resource res = toAddTo.createResource(project.getResourceURL().toString());
+			if (project.getTitle() != null)
+				res.addLiteral(DCTerms.title, project.getTitle());			
 			toAddTo.add(res, RDF.type, TOXBANK.PROJECT);
 		}
 		return toAddTo;
@@ -45,6 +48,8 @@ public class ProjectIO implements IOClass<Project> {
 				project.setResourceURL(
 					new URL(res.getURI())
 				);
+				if (res.getProperty(DCTerms.title) != null)
+					project.setTitle(res.getProperty(DCTerms.title).getString());				
 			} catch (MalformedURLException e) {
 				throw new IllegalArgumentException(String.format(msg_InvalidURI,"a project",res.getURI()));
 			}

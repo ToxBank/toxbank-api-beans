@@ -20,11 +20,16 @@ public class OrganisationIOTest extends AbstractIOClassTest<Organisation> {
 	public void testRoundtripResourceURI() throws Exception {
 		Organisation testResource = new Organisation();
 		testResource.setResourceURL(new URL("http://example.org/organisation/ToxBank"));
+		testResource.setTitle("ToxBank");
 		Organisation roundTrippedResource = roundtripSingleOrganisation(testResource);
 		Assert.assertEquals(
 			"http://example.org/organisation/ToxBank",
 			roundTrippedResource.getResourceURL().toString()
 		);
+		Assert.assertEquals(
+				"ToxBank",
+				roundTrippedResource.getTitle()
+			);
 	}
 
 	private Organisation roundtripSingleOrganisation(Organisation testProtocol) {
