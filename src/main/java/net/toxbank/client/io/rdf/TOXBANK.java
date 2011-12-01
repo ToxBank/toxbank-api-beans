@@ -33,6 +33,7 @@ public class TOXBANK {
     public static final Property HASTEMPLATE = property("hasTemplate");
     public static final Property ISSUMMARYSEARCHABLE = property("isSummarySearchable");
     public static final Property HASPROJECT = property("hasProject");
+    public static final Property HASORGANISATION = property("hasOrganisation");
     public static final Property HASDOCUMENT = property("hasDocument");
     public static final Property HASVERSIONINFO = property("hasVersionInfo");
 }

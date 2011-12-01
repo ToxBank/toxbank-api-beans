@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import net.toxbank.client.resource.Organisation;
+import net.toxbank.client.resource.Project;
 import net.toxbank.client.resource.Protocol;
 import net.toxbank.client.resource.User;
 
@@ -19,8 +20,8 @@ import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class ProtocolIO implements IOClass<Protocol> {
-
 	private OrganisationIO organisationIO = new OrganisationIO();
+	private OrganisationIO projectIO = new OrganisationIO();
 
 	public Model toJena(Model toAddTo, Protocol... protocols) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
@@ -28,7 +29,7 @@ public class ProtocolIO implements IOClass<Protocol> {
 
 		for (Protocol protocol : protocols) {
 			if (protocol.getResourceURL() == null) {
-				throw new IllegalArgumentException("All protocols must have resource URIs.");
+				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "protocols"));
 			}
 			Resource res = toAddTo.createResource(protocol.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, TOXBANK.PROTOCOL);
@@ -43,8 +44,16 @@ public class ProtocolIO implements IOClass<Protocol> {
 				for (String keyword : keywords)
 					res.addLiteral(TOXBANK.HASKEYWORD, keyword);
 			}
-			if (protocol.getOrganisation() != null) {
+			if (protocol.getProject() != null) {
 				res.addProperty(TOXBANK.HASPROJECT,
+					toAddTo.createResource(
+						protocol.getProject().getResourceURL().toString()
+					)
+				);
+				projectIO.toJena(toAddTo, protocol.getOrganisation());
+			}			
+			if (protocol.getOrganisation() != null) {
+				res.addProperty(TOXBANK.HASORGANISATION,
 					toAddTo.createResource(
 						protocol.getOrganisation().getResourceURL().toString()
 					)
@@ -81,15 +90,12 @@ public class ProtocolIO implements IOClass<Protocol> {
 		while (iter.hasNext()) {
 			Protocol protocol = new Protocol();
 			Resource res = iter.next();
-			System.out.println(res);
 			try {
 				protocol.setResourceURL(
 					new URL(res.getURI())
 				);
 			} catch (MalformedURLException e) {
-				throw new IllegalArgumentException(
-					"Found resource with an invalid URI:" + res.getURI()
-				);
+				throw new IllegalArgumentException(String.format(msg_InvalidURI, "protocol",res.getURI()));
 			}
 			if (res.getProperty(DCTerms.title) != null)
 				protocol.setTitle(res.getProperty(DCTerms.title).getString());
@@ -101,42 +107,52 @@ public class ProtocolIO implements IOClass<Protocol> {
 			while (keywords.hasNext()) {
 				protocol.addKeyword(keywords.next().getString());
 			}
+			
+			String uri = null;
 			StmtIterator authors = res.listProperties(TOXBANK.HASAUTHOR);
 			while (authors.hasNext()) {
 				Resource authorRes = authors.next().getResource();
 				User author = new User();
 				try {
-					author.setResourceURL(new URL(authorRes.getURI()));
+					uri = authorRes.getURI();
+					author.setResourceURL(new URL(uri));
 				} catch (MalformedURLException e) {
-					throw new IllegalArgumentException(
-						"Found a organization with an invalid URI:" + authorRes.getURI()
-					);
+					throw new IllegalArgumentException(String.format(msg_InvalidURI,"an author",uri));
 				}
 				protocol.addAuthor(author);
 			}
 			if (res.getProperty(TOXBANK.HASPROJECT) != null)
 				try {
+					Project project = new Project();
+					uri = res.getProperty(TOXBANK.HASPROJECT).getResource().getURI();
+					project.setResourceURL(new URL(uri));
+					protocol.setProject(project);
+				} catch (MalformedURLException e) {
+					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a project",uri));
+				}
+				
+			if (res.getProperty(TOXBANK.HASORGANISATION) != null)
+				try {
 					Organisation org = new Organisation();
-					org.setResourceURL(
-						new URL(res.getProperty(TOXBANK.HASPROJECT).getResource().getURI())
-					);
+					uri = res.getProperty(TOXBANK.HASORGANISATION).getResource().getURI();
+					org.setResourceURL(new URL(uri));
 					protocol.setOrganisation(org);
 				} catch (MalformedURLException e) {
-					throw new IllegalArgumentException(
-						"Found a organization with an invalid URI:" + res.getURI()
-					);
+					throw new IllegalArgumentException(String.format(msg_InvalidURI,"an organisation",uri));
 				}
+			
+		
 			if (res.getProperty(TOXBANK.HASOWNER) != null)
 				try {
+					uri = res.getProperty(TOXBANK.HASOWNER).getResource().getURI();		
 					User author = new User();
+					
 					author.setResourceURL(
-						new URL(res.getProperty(TOXBANK.HASOWNER).getResource().getURI())
+						new URL(uri)
 					);
 					protocol.setOwner(author);
 				} catch (MalformedURLException e) {
-					throw new IllegalArgumentException(
-						"Found an author with an invalid URI:" + res.getURI()
-					);
+					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a protocol owner",uri));
 				}
 			protocols.add(protocol);
 		}

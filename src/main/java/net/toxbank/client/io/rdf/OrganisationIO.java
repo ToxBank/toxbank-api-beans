@@ -15,14 +15,13 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class OrganisationIO implements IOClass<Organisation> {
-
 	public Model toJena(Model toAddTo, Organisation... resources) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
 		if (resources == null) return toAddTo;
 
 		for (Organisation org : resources) {
 			if (org.getResourceURL() == null) {
-				throw new IllegalArgumentException("All organisations must have resource URIs.");
+				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "organisations"));
 			}
 			Resource res = toAddTo.createResource(org.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, TOXBANK.ORGANIZATION);
@@ -40,15 +39,12 @@ public class OrganisationIO implements IOClass<Organisation> {
 		while (iter.hasNext()) {
 			Organisation org = new Organisation();
 			Resource res = iter.next();
-			System.out.println(res);
 			try {
 				org.setResourceURL(
 					new URL(res.getURI())
 				);
 			} catch (MalformedURLException e) {
-				throw new IllegalArgumentException(
-					"Found resource with an invalid URI:" + res.getURI()
-				);
+				throw new IllegalArgumentException(String.format(msg_InvalidURI,"an organisation",res.getURI()));
 			}
 			organisations.add(org);
 		}

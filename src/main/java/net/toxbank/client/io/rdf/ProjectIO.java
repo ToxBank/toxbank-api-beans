@@ -15,14 +15,14 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class ProjectIO implements IOClass<Project> {
-
+	public final String message =  "All projects must have resource URIs.";
 	public Model toJena(Model toAddTo, Project... projects) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
 		if (projects == null) return toAddTo;
 
 		for (Project project : projects) {
 			if (project.getResourceURL() == null) {
-				throw new IllegalArgumentException("All projects must have resource URIs.");
+				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "projects"));
 			}
 			Resource res = toAddTo.createResource(project.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, TOXBANK.PROJECT);
@@ -46,9 +46,7 @@ public class ProjectIO implements IOClass<Project> {
 					new URL(res.getURI())
 				);
 			} catch (MalformedURLException e) {
-				throw new IllegalArgumentException(
-					"Found resource with an invalid URI:" + res.getURI()
-				);
+				throw new IllegalArgumentException(String.format(msg_InvalidURI,"a project",res.getURI()));
 			}
 			projects.add(project);
 		}

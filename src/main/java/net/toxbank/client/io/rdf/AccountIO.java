@@ -16,14 +16,13 @@ import com.hp.hpl.jena.sparql.vocabulary.FOAF;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class AccountIO implements IOClass<Account> {
-
 	public Model toJena(Model toAddTo, Account... accounts) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
 		if (accounts == null) return toAddTo;
 
 		for (Account account : accounts) {
 			if (account.getResourceURL() == null) {
-				throw new IllegalArgumentException("All protocols must have resource URIs.");
+				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "accounts"));
 			}
 			Resource res = toAddTo.createResource(account.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, FOAF.OnlineAccount);
@@ -45,14 +44,12 @@ public class AccountIO implements IOClass<Account> {
 		while (iter.hasNext()) {
 			Account account = new Account();
 			Resource res = iter.next();
-			System.out.println(res);
 			try {
 				account.setResourceURL(
 					new URL(res.getURI())
 				);
 			} catch (MalformedURLException e) {
-				throw new IllegalArgumentException(
-					"Found resource with an invalid URI:" + res.getURI()
+				throw new IllegalArgumentException(String.format(msg_InvalidURI,"an account",res.getURI())
 				);
 			}
 			if (res.getProperty(FOAF.accountName) != null)

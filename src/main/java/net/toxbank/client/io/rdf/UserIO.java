@@ -18,7 +18,6 @@ import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class UserIO implements IOClass<User> {
-
 	private AccountIO accountIO = new AccountIO();
 
 	public Model toJena(Model toAddTo, User... users) {
@@ -27,7 +26,7 @@ public class UserIO implements IOClass<User> {
 
 		for (User user : users) {
 			if (user.getResourceURL() == null) {
-				throw new IllegalArgumentException("All users must have resource URIs.");
+				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI,"user"));
 			}
 			Resource res = toAddTo.createResource(user.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, FOAF.Person);
@@ -58,9 +57,7 @@ public class UserIO implements IOClass<User> {
 					new URL(res.getURI())
 				);
 			} catch (MalformedURLException e) {
-				throw new IllegalArgumentException(
-					"Found resource with an invalid URI:" + res.getURI()
-				);
+				throw new IllegalArgumentException(String.format(msg_InvalidURI,res.getURI()));
 			}
 			if (res.getProperty(DCTerms.title) != null)
 				user.setTitle(res.getProperty(DCTerms.title).getString());
