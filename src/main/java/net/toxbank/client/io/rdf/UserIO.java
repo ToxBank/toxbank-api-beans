@@ -32,6 +32,10 @@ public class UserIO implements IOClass<User> {
 			toAddTo.add(res, RDF.type, FOAF.Person);
 			if (user.getTitle() != null)
 				res.addLiteral(DCTerms.title, user.getTitle());
+			if (user.getHomepage() != null)
+				res.addLiteral(FOAF.homepage, user.getHomepage());
+			if (user.getWeblog() != null)
+				res.addLiteral(FOAF.weblog, user.getWeblog());
 			if (user.getAccounts() != null) {
 				for (Account account : user.getAccounts()) {
 					accountIO.toJena(toAddTo, account);
@@ -61,6 +65,28 @@ public class UserIO implements IOClass<User> {
 			}
 			if (res.getProperty(DCTerms.title) != null)
 				user.setTitle(res.getProperty(DCTerms.title).getString());
+			if (res.getProperty(FOAF.weblog) != null)
+				try {
+					user.setWeblog(new URL(res.getProperty(FOAF.weblog).getString()));
+				} catch (MalformedURLException e) {
+					throw new IllegalArgumentException(
+						String.format(
+							msg_InvalidURI,
+							res.getProperty(FOAF.weblog).getString()
+						)
+					);
+				}
+				if (res.getProperty(FOAF.homepage) != null)
+					try {
+						user.setHomepage(new URL(res.getProperty(FOAF.homepage).getString()));
+					} catch (MalformedURLException e) {
+						throw new IllegalArgumentException(
+							String.format(
+								msg_InvalidURI,
+								res.getProperty(FOAF.homepage).getString()
+							)
+						);
+					}
 			List<Account> accounts = accountIO.fromJena(source);
 			for (Account account : accounts) {
 				// Important: assuming here that the account uri is an extension

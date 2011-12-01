@@ -56,6 +56,28 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 	}
 
 	@Test
+	public void testRoundtripHomepage() throws MalformedURLException {
+		User user = new User();
+		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
+		user.setHomepage(new URL("http://egonw.github.com/"));
+
+		User roundtripped = roundtripSingleUser(user);
+
+		Assert.assertEquals("http://egonw.github.com/", roundtripped.getHomepage().toString());
+	}
+
+	@Test
+	public void testRoundtripWeblog() throws MalformedURLException {
+		User user = new User();
+		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
+		user.setWeblog(new URL("http://chem-bla-ics.blogspot.com/"));
+
+		User roundtripped = roundtripSingleUser(user);
+
+		Assert.assertEquals("http://chem-bla-ics.blogspot.com/", roundtripped.getWeblog().toString());
+	}
+
+	@Test
 	public void testRoundtripTitle_Null() throws MalformedURLException {
 		User user = new User();
 		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
