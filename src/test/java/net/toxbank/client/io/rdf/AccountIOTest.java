@@ -1,5 +1,9 @@
 package net.toxbank.client.io.rdf;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -28,7 +32,7 @@ public class AccountIOTest extends AbstractIOClassTest<Account> {
 		);
 	}
 
-	private Account roundtripSingleAccount(Account testProtocol) {
+	private Account roundtripSingleAccount(Account testProtocol) throws IOException {
 		AccountIO ioClass = getIOClass();
 		
 		Model model = ioClass.toJena(
@@ -37,14 +41,18 @@ public class AccountIOTest extends AbstractIOClassTest<Account> {
 		);
 
 		List<Account> roundTrippedResources = ioClass.fromJena(model);
-		Serializer.toTurtle(System.out, model);
+		
+		OutputStream out = getResourceStream(testProtocol,"n3");
+		Serializer.toTurtle(out, model);
+		out.close();
 		Assert.assertEquals(1, roundTrippedResources.size());
 		Account roundTrippedClass = roundTrippedResources.get(0);
 		return roundTrippedClass;
 	}
 
+
 	@Test
-	public void testRoundtripAccountName() throws MalformedURLException {
+	public void testRoundtripAccountName() throws MalformedURLException,IOException {
 		Account testResource = new Account();
 		testResource.setResourceURL(new URL("http://example.org/users/JohnDoe/account/1"));
 		testResource.setAccountName("johndoe");
@@ -55,7 +63,7 @@ public class AccountIOTest extends AbstractIOClassTest<Account> {
 	}
 
 	@Test
-	public void testRoundtripAccountName_Null() throws MalformedURLException {
+	public void testRoundtripAccountName_Null() throws MalformedURLException,IOException {
 		Account testResource = new Account();
 		testResource.setResourceURL(new URL("http://example.org/users/JohnDoe/account/1"));
 		testResource.setAccountName(null);
@@ -66,7 +74,7 @@ public class AccountIOTest extends AbstractIOClassTest<Account> {
 	}
 
 	@Test
-	public void testRoundtripService() throws MalformedURLException {
+	public void testRoundtripService() throws MalformedURLException,IOException {
 		Account testResource = new Account();
 		testResource.setResourceURL(new URL("http://example.org/users/JohnDoe/account/1"));
 		testResource.setService("http://www.twitter.com/");
@@ -77,7 +85,7 @@ public class AccountIOTest extends AbstractIOClassTest<Account> {
 	}
 
 	@Test
-	public void testRoundtripService_Null() throws MalformedURLException {
+	public void testRoundtripService_Null() throws MalformedURLException,IOException {
 		Account testResource = new Account();
 		testResource.setResourceURL(new URL("http://example.org/users/JohnDoe/account/1"));
 		testResource.setService(null);

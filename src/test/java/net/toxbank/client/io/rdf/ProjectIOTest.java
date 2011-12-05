@@ -1,5 +1,8 @@
 package net.toxbank.client.io.rdf;
 
+import java.io.IOError;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.List;
 
@@ -32,7 +35,7 @@ public class ProjectIOTest extends AbstractIOClassTest<Project> {
 			);		
 	}
 
-	private Project roundtripSingleProject(Project testProtocol) {
+	private Project roundtripSingleProject(Project testProtocol) throws IOException {
 		ProjectIO ioClass = getIOClass();
 		
 		Model model = ioClass.toJena(
@@ -41,7 +44,9 @@ public class ProjectIOTest extends AbstractIOClassTest<Project> {
 		);
 
 		List<Project> roundTrippedResources = ioClass.fromJena(model);
-		Serializer.toTurtle(System.out, model);
+		OutputStream out = getResourceStream(testProtocol,"n3");
+		Serializer.toTurtle(out, model);
+		out.close();
 		Assert.assertEquals(1, roundTrippedResources.size());
 		Project roundTrippedClass = roundTrippedResources.get(0);
 		return roundTrippedClass;

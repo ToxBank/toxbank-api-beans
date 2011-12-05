@@ -1,5 +1,7 @@
 package net.toxbank.client.io.rdf;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -29,7 +31,7 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 		);
 	}
 
-	private User roundtripSingleUser(User testProtocol) {
+	private User roundtripSingleUser(User testProtocol) throws IOException {
 		UserIO ioClass = getIOClass();
 		
 		Model model = ioClass.toJena(
@@ -38,14 +40,16 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 		);
 
 		List<User> roundTrippedUsers = ioClass.fromJena(model);
-		Serializer.toTurtle(System.out, model);
+		OutputStream out = getResourceStream(testProtocol,"n3");
+		Serializer.toTurtle(out, model);
+		out.close();
 		Assert.assertEquals(1, roundTrippedUsers.size());
 		User roundTrippedClass = roundTrippedUsers.get(0);
 		return roundTrippedClass;
 	}
 
 	@Test
-	public void testRoundtripTitle() throws MalformedURLException {
+	public void testRoundtripTitle() throws MalformedURLException, IOException {
 		User user = new User();
 		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
 		user.setTitle("Title");
@@ -56,7 +60,7 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 	}
 
 	@Test
-	public void testRoundtripHomepage() throws MalformedURLException {
+	public void testRoundtripHomepage() throws MalformedURLException , IOException{
 		User user = new User();
 		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
 		user.setHomepage(new URL("http://egonw.github.com/"));
@@ -67,7 +71,7 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 	}
 
 	@Test
-	public void testRoundtripWeblog() throws MalformedURLException {
+	public void testRoundtripWeblog() throws MalformedURLException, IOException {
 		User user = new User();
 		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
 		user.setWeblog(new URL("http://chem-bla-ics.blogspot.com/"));
@@ -78,7 +82,7 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 	}
 
 	@Test
-	public void testRoundtripTitle_Null() throws MalformedURLException {
+	public void testRoundtripTitle_Null() throws MalformedURLException, IOException {
 		User user = new User();
 		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
 		user.setTitle(null);
@@ -89,7 +93,7 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 	}
 
 	@Test
-	public void testRoundtripAccount() throws MalformedURLException {
+	public void testRoundtripAccount() throws MalformedURLException, IOException {
 		User user = new User();
 		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
 		Account account = new Account();
@@ -104,7 +108,7 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 	}
 	
 	@Test
-	public void testRoundtripFirstName() throws MalformedURLException {
+	public void testRoundtripFirstName() throws MalformedURLException , IOException{
 		User user = new User();
 		user.setResourceURL(new URL("http://example.org/testUser/AJ"));
 		user.setFirstname("Anna");
