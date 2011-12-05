@@ -12,6 +12,18 @@ public class Protocol extends AbstractToxBankResource {
 	 */
 	private static final long serialVersionUID = -8372109619710612869L;
 	private Project project;
+	public static final String id_prefix="SEURAT-Protocol";
+	public static final String id_pattern=String.format("%s%s",id_prefix,"-%d-%d"); 
+	
+	protected int version;
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
+	}
+	
 	public Project getProject() {
 		return project;
 	}
