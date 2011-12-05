@@ -36,6 +36,10 @@ public class UserIO implements IOClass<User> {
 				res.addLiteral(FOAF.homepage, user.getHomepage());
 			if (user.getWeblog() != null)
 				res.addLiteral(FOAF.weblog, user.getWeblog());
+			if (user.getFirstname() != null)
+				res.addLiteral(FOAF.givenname, user.getFirstname());
+			if (user.getLastname() != null)
+				res.addLiteral(FOAF.family_name, user.getLastname());			
 			if (user.getAccounts() != null) {
 				for (Account account : user.getAccounts()) {
 					accountIO.toJena(toAddTo, account);
@@ -65,6 +69,10 @@ public class UserIO implements IOClass<User> {
 			}
 			if (res.getProperty(DCTerms.title) != null)
 				user.setTitle(res.getProperty(DCTerms.title).getString());
+			if (res.getProperty(FOAF.givenname) != null)
+				user.setFirstname(res.getProperty(FOAF.givenname).getString());
+			if (res.getProperty(FOAF.family_name) != null)
+				user.setLastname(res.getProperty(FOAF.family_name).getString());			
 			if (res.getProperty(FOAF.weblog) != null)
 				try {
 					user.setWeblog(new URL(res.getProperty(FOAF.weblog).getString()));
