@@ -31,6 +31,7 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 
 	@Test
 	public void testGetSetAuthors() {
+		
 		Protocol protocol = new Protocol();
 		Assert.assertEquals(0, protocol.getAuthors().size());
 		User user = new User();
