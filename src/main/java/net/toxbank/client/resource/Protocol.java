@@ -35,7 +35,7 @@ public class Protocol extends AbstractToxBankResource {
 	private Organisation organisation;
 	private User owner;
 	private List<String> keywords;
-	private List<User> authors;
+	private ToxBankResourceSet<User> authors;
 	private String identifier;
 	private String abstrakt;
 
@@ -61,25 +61,24 @@ public class Protocol extends AbstractToxBankResource {
 	}
 
 	public List<String> getKeywords() {
-		if (keywords == null) return Collections.emptyList();
+		if (keywords == null) keywords = Collections.emptyList();
 		return keywords;
 	}
 
 	public void addAuthor(User author) {
 		if (author == null) return;
 
-		if (authors == null) authors = new ArrayList<User>();
+		if (authors == null) authors = new ToxBankResourceSet<User>();
 		authors.add(author);
 	}
 
 	public void removeAuthor(User author) {
 		if (author == null || authors == null) return;
-		
 		if (authors.contains(author)) authors.remove(author);
 	}
 
-	public List<User> getAuthors() {
-		if (authors == null) return Collections.emptyList();
+	public ToxBankResourceSet<User> getAuthors() {
+		if (authors == null) authors = new ToxBankResourceSet<User>();
 		return authors;
 	}
 
