@@ -9,6 +9,7 @@ import java.util.List;
 import junit.framework.Assert;
 import net.toxbank.client.resource.Organisation;
 import net.toxbank.client.resource.Protocol;
+import net.toxbank.client.resource.ToxBankResourceSet;
 import net.toxbank.client.resource.User;
 
 import org.junit.Test;
@@ -166,7 +167,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 
 		Protocol roundtripped = roundtripSingleProtocol(protocol);
 
-		List<User> authors = roundtripped.getAuthors();
+		ToxBankResourceSet<User> authors = roundtripped.getAuthors();
 		Assert.assertNotNull(authors);
 		Assert.assertEquals(2, authors.size());
 		

@@ -9,6 +9,7 @@ import java.util.List;
 import net.toxbank.client.resource.Organisation;
 import net.toxbank.client.resource.Project;
 import net.toxbank.client.resource.Protocol;
+import net.toxbank.client.resource.ToxBankResourceSet;
 import net.toxbank.client.resource.User;
 
 import com.hp.hpl.jena.rdf.model.Model;
@@ -74,7 +75,7 @@ public class ProtocolIO implements IOClass<Protocol> {
 				);
 				res.addProperty(TOXBANK.HASOWNER, ownerRes);
 			}
-			List<User> authors = protocol.getAuthors();
+			ToxBankResourceSet<User> authors = protocol.getAuthors();
 			if (authors != null)
 				for (User author : authors) {
 					if (author.getResourceURL()==null)
