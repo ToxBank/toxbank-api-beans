@@ -61,7 +61,7 @@ public class Protocol extends AbstractToxBankResource {
 	}
 
 	public List<String> getKeywords() {
-		if (keywords == null) keywords = Collections.emptyList();
+		if (keywords == null) keywords =  new ArrayList<String>();
 		return keywords;
 	}
 
