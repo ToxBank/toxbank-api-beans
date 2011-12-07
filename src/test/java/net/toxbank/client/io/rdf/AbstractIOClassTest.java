@@ -16,6 +16,8 @@ import com.hp.hpl.jena.rdf.model.Model;
 
 public abstract class AbstractIOClassTest<T extends IToxBankResource> {
 
+	private static int counter = 0;
+
 	public IOClass<T> getIOClass() {
 		Assert.fail("This method must be overwritten");
 		return null;
@@ -37,8 +39,15 @@ public abstract class AbstractIOClassTest<T extends IToxBankResource> {
 	}
 	
 	 protected OutputStream getResourceStream(Object object,String ext) throws IOException {
+		 counter++;
 		  URL url = getClass().getClassLoader().getResource("");
-		  String f = String.format("%s%s.%s",url.getFile(),object.getClass().getName(),ext);
+		  String f = String.format(
+		      "%s%s.%s.%s",
+		      url.getFile(),
+		      object.getClass().getName(),
+		      counter,
+		      ext
+		  );
 		  return new FileOutputStream(new File(f));
 	 }
 
