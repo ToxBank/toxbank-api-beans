@@ -73,4 +73,28 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 		Assert.assertNotNull(protocol.getOwner());
 		Assert.assertEquals(user, protocol.getOwner());
 	}
+
+	@Test
+	public void testGetSetInfo() {
+		Protocol version = new Protocol();
+		version.setInfo("2011-09-15");
+		Assert.assertEquals("2011-09-15", version.getInfo());
+	}
+
+	@Test
+	public void testGetSetSubmissionDate() {
+		Protocol version = new Protocol();
+		version.setSubmissionDate("2011-09-15");
+		Assert.assertEquals("2011-09-15", version.getSubmissionDate());
+	}
+
+	@Test
+	public void testGetSetIsSearchable() {
+		Protocol version = new Protocol();
+		Assert.assertFalse(version.isSearchable());
+		version.setSearchable(true);
+		Assert.assertTrue(version.isSearchable());
+		version.setSearchable(false);
+		Assert.assertFalse(version.isSearchable());
+	}
 }

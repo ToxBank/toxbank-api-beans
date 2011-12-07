@@ -2,20 +2,35 @@ package net.toxbank.client.resource;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Protocol extends AbstractToxBankResource {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8372109619710612869L;
+	private static final long serialVersionUID = -8372109619715612869L;
 	private Project project;
 	public static final String id_prefix="SEURAT-Protocol";
 	public static final String id_pattern=String.format("%s%s",id_prefix,"-%d-%d"); 
-	
+
 	protected int version;
+	private Organisation organisation;
+	private User owner;
+	private List<String> keywords;
+	private ToxBankResourceSet<User> authors;
+	private String identifier;
+	private String abstrakt;
+	private String info;
+	private String submissionDate;
+	private boolean isSearchable = false;
+	private Protocol previousVersion;
+
+	public Protocol() {}
+	
+	public Protocol(URL identifier) {
+		setResourceURL(identifier);
+	}
+	
+	// bean methods
+	
 	public int getVersion() {
 		return version;
 	}
@@ -32,21 +47,38 @@ public class Protocol extends AbstractToxBankResource {
 		this.project = project;
 	}
 
-	private Organisation organisation;
-	private User owner;
-	private List<String> keywords;
-	private ToxBankResourceSet<User> authors;
-	private String identifier;
-	private String abstrakt;
-
-	public Protocol() {}
-	
-	public Protocol(URL identifier) {
-		setResourceURL(identifier);
+	public void setPreviousVersion(Protocol previousVersion) {
+		this.previousVersion = previousVersion;
 	}
-	
-	// bean methods
-	
+
+	public Protocol getPreviousVersion() {
+		return previousVersion;
+	}
+
+	public void setSearchable(boolean isSearchable) {
+		this.isSearchable = isSearchable;
+	}
+
+	public boolean isSearchable() {
+		return isSearchable;
+	}
+
+	public void setSubmissionDate(String submissionDate) {
+		this.submissionDate = submissionDate;
+	}
+
+	public String getSubmissionDate() {
+		return submissionDate;
+	}
+
+	public void setInfo(String info) {
+		this.info = info;
+	}
+
+	public String getInfo() {
+		return info;
+	}
+
 	public void addKeyword(String keyword) {
 		if (keyword == null) return;
 
