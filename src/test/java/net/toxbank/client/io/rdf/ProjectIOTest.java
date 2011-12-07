@@ -1,6 +1,5 @@
 package net.toxbank.client.io.rdf;
 
-import java.io.IOError;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URL;
