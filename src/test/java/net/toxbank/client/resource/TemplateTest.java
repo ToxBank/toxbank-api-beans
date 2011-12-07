@@ -8,7 +8,7 @@ public class TemplateTest extends AbstractToxBankResourceTest {
 
 	@Before
 	public void setup() {
-		setToxBankResource(new Template());
+		setToxBankResource((IToxBankResource)new Template());
 	}
 
 	@Test

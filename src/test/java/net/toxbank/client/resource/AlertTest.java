@@ -8,7 +8,7 @@ public class AlertTest extends AbstractToxBankResourceTest {
 	
 	@Before
 	public void setup() {
-		setToxBankResource(new Alert());
+		setToxBankResource((IToxBankResource)new Alert());
 	}
 
 	@Test

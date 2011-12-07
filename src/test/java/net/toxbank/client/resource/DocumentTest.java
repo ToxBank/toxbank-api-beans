@@ -8,7 +8,7 @@ public class DocumentTest extends AbstractToxBankResourceTest {
 	
 	@Before
 	public void setup() {
-		setToxBankResource(new Document());
+		setToxBankResource((IToxBankResource)new Document());
 	}
 
 	@Test

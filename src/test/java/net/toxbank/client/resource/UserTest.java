@@ -11,7 +11,7 @@ public class UserTest extends AbstractToxBankResourceTest {
 
 	@Before
 	public void setup() {
-		setToxBankResource(new User());
+		setToxBankResource((IToxBankResource)new User());
 	}
 
 	@Test

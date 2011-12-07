@@ -8,7 +8,7 @@ public class ToxBankResourceSetTest extends AbstractToxBankResourceTest {
 
 	@Before
 	public void setup() {
-		setToxBankResource(new ToxBankResourceSet<Integer>());
+		setToxBankResource((IToxBankResource)new ToxBankResourceSet<Integer>());
 	}
 
 	@Test
