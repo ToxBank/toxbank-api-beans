@@ -59,7 +59,6 @@ public class UserIO implements IOClass<User> {
 		while (iter.hasNext()) {
 			User user = new User();
 			Resource res = iter.next();
-			System.out.println(res);
 			try {
 				user.setResourceURL(
 					new URL(res.getURI())

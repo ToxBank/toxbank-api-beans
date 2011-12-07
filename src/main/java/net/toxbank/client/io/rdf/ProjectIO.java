@@ -43,7 +43,6 @@ public class ProjectIO implements IOClass<Project> {
 		while (iter.hasNext()) {
 			Project project = new Project();
 			Resource res = iter.next();
-			System.out.println(res);
 			try {
 				project.setResourceURL(
 					new URL(res.getURI())
