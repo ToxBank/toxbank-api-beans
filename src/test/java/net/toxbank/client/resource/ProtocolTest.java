@@ -8,7 +8,7 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 
 	@Before
 	public void setup() {
-		setToxBankResource((IToxBankResource)new Protocol());
+		setToxBankResource(new Protocol());
 	}
 
 	@Test

@@ -8,7 +8,7 @@ public class ProjectTest extends AbstractToxBankResourceTest {
 	
 	@Before
 	public void setup() {
-		setToxBankResource((IToxBankResource)new Project());
+		setToxBankResource(new Project());
 	}
 
 	@Test

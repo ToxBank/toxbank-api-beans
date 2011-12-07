@@ -8,7 +8,7 @@ public class OrganisationTest extends AbstractToxBankResourceTest {
 	
 	@Before
 	public void setup() {
-		setToxBankResource((IToxBankResource)new Organisation());
+		setToxBankResource(new Organisation());
 	}
 
 	@Test
