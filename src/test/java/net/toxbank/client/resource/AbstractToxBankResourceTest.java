@@ -8,9 +8,9 @@ import org.junit.Test;
 
 public abstract class AbstractToxBankResourceTest {
 
-	private AbstractToxBankResource resource;
+	private IToxBankResource resource;
 
-	public void setToxBankResource(AbstractToxBankResource resourz) {
+	public void setToxBankResource(IToxBankResource resourz) {
 		this.resource = resourz;
 	}
 
