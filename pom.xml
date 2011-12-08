@@ -8,12 +8,12 @@
      <distributionManagement>
 
     <snapshotRepository>
-  		<id>ambit-plovdiv-snapshots</id>
-  		<url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/snapshots</url>
+  		<id>toxbank-snapshots</id>
+  		<url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/toxbank-snapshots</url>
 	 </snapshotRepository>
 	<repository>
-        <id>ambit-plovdiv-releases</id>
-        <url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/releases</url>
+        <id>toxbank-releases</id>
+        <url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/toxbank-releases</url>
     </repository>
   </distributionManagement>
   
