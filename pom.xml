@@ -4,6 +4,19 @@
   <artifactId>toxbank-api-beans</artifactId>
   <name>ToxBank API Beans</name>
   <version>0.0.1-SNAPSHOT</version>
+  
+     <distributionManagement>
+
+    <snapshotRepository>
+  		<id>ambit-plovdiv-snapshots</id>
+  		<url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/snapshots</url>
+	 </snapshotRepository>
+	<repository>
+        <id>ambit-plovdiv-releases</id>
+        <url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/releases</url>
+    </repository>
+  </distributionManagement>
+  
   <licenses>
     <license>
       <name>LGPL3</name>
@@ -54,6 +67,7 @@
     	<artifactId>arq-extra</artifactId>
     	<version>2.7.0</version>
     </dependency>        
+
   </dependencies>
   <properties>
     <junit.version>4.8.1</junit.version>
