@@ -20,6 +20,32 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 		return new UserIO();
 	}
 
+	/**
+	 * A full example, if only to get a rich .n3 document on Jenkins, and also
+	 * see if a full example does not crash. No special assertions made.
+	 */
+	@Test
+	public void testFullExample() throws Exception {
+		User user = new User();
+		user.setResourceURL(new URL("http://example.org/testUser/JohnDoe"));
+		user.setTitle("Title");
+		user.setHomepage(new URL("http://egonw.github.com/"));
+		user.setWeblog(new URL("http://chem-bla-ics.blogspot.com/"));
+		Account account = new Account();
+		account.setService("http://friendfeed.com/");
+		account.setAccountName("egonw");
+		user.addAccount(account);
+		account = new Account();
+		account.setService("http://opentox.org/");
+		account.setAccountName("bhardy");
+		user.addAccount(account);
+		user.setFirstname("Anna");
+		user.setLastname("Johansson");
+
+		// just roundtrip and hope we do not get an exception
+		Assert.assertNotNull(roundtripSingleUser(user));
+	}
+
 	@Test
 	public void testRoundtripResourceURI() throws Exception {
 		User testProtocol = new User();
