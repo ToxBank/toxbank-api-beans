@@ -13,6 +13,7 @@ public class Protocol extends AbstractToxBankResource {
 
 	protected int version;
 	private Document document;
+	private Template dataTemplate;
 	private Project project;
 	private Organisation organisation;
 	private User owner;
@@ -41,6 +42,15 @@ public class Protocol extends AbstractToxBankResource {
 	public void setDocument(Document document) {
 		this.document = document;
 	}
+	
+	public Template getDataTemplate() {
+		return dataTemplate;
+	}
+
+	public void setDataTemplate(Template dataTemplate) {
+		this.dataTemplate = dataTemplate;
+	}
+	
 	
 	public int getVersion() {
 		return version;

@@ -110,4 +110,14 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 		Assert.assertNotNull(protocol.getDocument());
 		Assert.assertEquals(doc, protocol.getDocument());
 	}	
+	
+	@Test
+	public void testGetSetDataTemplate() throws Exception {
+		Protocol protocol = new Protocol();
+		Assert.assertNull(protocol.getDataTemplate());
+		Template dataTemplate = new Template(new URL("http://example.com/SEURAT-Protocol-1-1/datatemplate"));
+		protocol.setDataTemplate(dataTemplate);
+		Assert.assertNotNull(protocol.getDataTemplate());
+		Assert.assertEquals(dataTemplate, protocol.getDataTemplate());
+	}		
 }

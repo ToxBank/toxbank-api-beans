@@ -12,7 +12,7 @@ public class Template extends AbstractToxBankResource {
 	public Template() {}
 	
 	public Template(URL identifier) {
-		setResourceURL(identifier);
+		super(identifier);
 	}
 
 }

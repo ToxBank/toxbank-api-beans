@@ -10,6 +10,7 @@ import net.toxbank.client.resource.Document;
 import net.toxbank.client.resource.Organisation;
 import net.toxbank.client.resource.Project;
 import net.toxbank.client.resource.Protocol;
+import net.toxbank.client.resource.Template;
 import net.toxbank.client.resource.ToxBankResourceSet;
 import net.toxbank.client.resource.User;
 
@@ -92,11 +93,21 @@ public class ProtocolIO implements IOClass<Protocol> {
 				if (protocol.getDocument().getResourceURL()==null)
 					throw new IllegalArgumentException(String.format(msg_InvalidURI, "document",res.getURI()));
 					
-				Resource ownerRes = toAddTo.createResource(
+				Resource documentRes = toAddTo.createResource(
 					protocol.getDocument().getResourceURL().toString()
 				);
-				res.addProperty(TOXBANK.HASDOCUMENT, ownerRes);
+				res.addProperty(TOXBANK.HASDOCUMENT, documentRes);
 			}
+			
+			if (protocol.getDataTemplate() != null) {
+				if (protocol.getDataTemplate().getResourceURL()==null)
+					throw new IllegalArgumentException(String.format(msg_InvalidURI, "data template",res.getURI()));
+					
+				Resource templateRes = toAddTo.createResource(
+					protocol.getDataTemplate().getResourceURL().toString()
+				);
+				res.addProperty(TOXBANK.HASTEMPLATE, templateRes);
+			}			
 		}
 		return toAddTo;
 	}
@@ -185,7 +196,18 @@ public class ProtocolIO implements IOClass<Protocol> {
 					protocol.setDocument(document);
 				} catch (MalformedURLException e) {
 					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a document",uri));
-				}				
+				}	
+				
+			if (res.getProperty(TOXBANK.HASTEMPLATE) != null)
+				try {
+					uri = res.getProperty(TOXBANK.HASTEMPLATE).getResource().getURI();		
+					Template dataTemplate = new Template(new URL(uri));
+					
+					protocol.setDataTemplate(dataTemplate);
+				} catch (MalformedURLException e) {
+					throw new IllegalArgumentException(String.format(msg_InvalidURI,"data template",uri));
+				}						 
+	
 			protocols.add(protocol);
 		}
 

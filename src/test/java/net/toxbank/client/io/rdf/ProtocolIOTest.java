@@ -10,6 +10,7 @@ import junit.framework.Assert;
 import net.toxbank.client.resource.Document;
 import net.toxbank.client.resource.Organisation;
 import net.toxbank.client.resource.Protocol;
+import net.toxbank.client.resource.Template;
 import net.toxbank.client.resource.ToxBankResourceSet;
 import net.toxbank.client.resource.User;
 
@@ -199,4 +200,20 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 			roundtripped.getDocument().getResourceURL().toString()
 		);
 	}	
+	
+	@Test
+	public void testRoundtripDataTemplate() throws MalformedURLException, IOException {
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		Template dataTemplate = new Template(new URL("http://example.org/testDataTemplate"));
+		protocol.setDataTemplate(dataTemplate);
+
+		Protocol roundtripped = roundtripSingleProtocol(protocol);
+
+		Assert.assertNotNull(roundtripped.getDataTemplate());
+		Assert.assertEquals(
+			"http://example.org/testDataTemplate",
+			roundtripped.getDataTemplate().getResourceURL().toString()
+		);
+	}		
 }
