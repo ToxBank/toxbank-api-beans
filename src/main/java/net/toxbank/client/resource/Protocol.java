@@ -26,6 +26,7 @@ public class Protocol extends AbstractToxBankResource {
 	private boolean isSearchable = false;
 	private Protocol previousVersion;
 
+
 	public Protocol() {}
 	
 	public Protocol(URL identifier) {
@@ -166,4 +167,5 @@ public class Protocol extends AbstractToxBankResource {
 	public String getAbstract() {
 		return abstrakt;
 	}
+
 }

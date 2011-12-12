@@ -120,4 +120,5 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 		Assert.assertNotNull(protocol.getDataTemplate());
 		Assert.assertEquals(dataTemplate, protocol.getDataTemplate());
 	}		
+	
 }
