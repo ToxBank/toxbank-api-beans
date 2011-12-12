@@ -7,11 +7,13 @@ import java.util.List;
 public class Protocol extends AbstractToxBankResource {
 
 	private static final long serialVersionUID = -8372109619715612869L;
-	private Project project;
+
 	public static final String id_prefix="SEURAT-Protocol";
 	public static final String id_pattern=String.format("%s%s",id_prefix,"-%d-%d"); 
 
 	protected int version;
+	private Document document;
+	private Project project;
 	private Organisation organisation;
 	private User owner;
 	private List<String> keywords;
@@ -30,6 +32,15 @@ public class Protocol extends AbstractToxBankResource {
 	}
 	
 	// bean methods
+	
+	
+	public Document getDocument() {
+		return document;
+	}
+
+	public void setDocument(Document document) {
+		this.document = document;
+	}
 	
 	public int getVersion() {
 		return version;

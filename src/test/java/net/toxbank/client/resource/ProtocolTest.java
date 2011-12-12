@@ -1,5 +1,7 @@
 package net.toxbank.client.resource;
 
+import java.net.URL;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -97,4 +99,15 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 		version.setSearchable(false);
 		Assert.assertFalse(version.isSearchable());
 	}
+	
+
+	@Test
+	public void testGetSetDocument() throws Exception {
+		Protocol protocol = new Protocol();
+		Assert.assertNull(protocol.getDocument());
+		Document doc = new Document(new URL("http://example.com/SEURAT-Protocol-1-1/document"));
+		protocol.setDocument(doc);
+		Assert.assertNotNull(protocol.getDocument());
+		Assert.assertEquals(doc, protocol.getDocument());
+	}	
 }

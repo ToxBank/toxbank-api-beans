@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import net.toxbank.client.resource.Document;
 import net.toxbank.client.resource.Organisation;
 import net.toxbank.client.resource.Project;
 import net.toxbank.client.resource.Protocol;
@@ -86,6 +87,16 @@ public class ProtocolIO implements IOClass<Protocol> {
 						)
 					);
 				}
+			
+			if (protocol.getDocument() != null) {
+				if (protocol.getDocument().getResourceURL()==null)
+					throw new IllegalArgumentException(String.format(msg_InvalidURI, "document",res.getURI()));
+					
+				Resource ownerRes = toAddTo.createResource(
+					protocol.getDocument().getResourceURL().toString()
+				);
+				res.addProperty(TOXBANK.HASDOCUMENT, ownerRes);
+			}
 		}
 		return toAddTo;
 	}
@@ -164,6 +175,17 @@ public class ProtocolIO implements IOClass<Protocol> {
 				} catch (MalformedURLException e) {
 					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a protocol owner",uri));
 				}
+				
+ 
+			if (res.getProperty(TOXBANK.HASDOCUMENT) != null)
+				try {
+					uri = res.getProperty(TOXBANK.HASDOCUMENT).getResource().getURI();		
+					Document document = new Document(new URL(uri));
+					
+					protocol.setDocument(document);
+				} catch (MalformedURLException e) {
+					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a document",uri));
+				}				
 			protocols.add(protocol);
 		}
 

@@ -11,6 +11,14 @@ public abstract class AbstractToxBankResource implements IToxBankResource {
 
 	private URL resourceURL;
 	private String title;
+	
+	public AbstractToxBankResource(URL resourceURL) {
+		setResourceURL(resourceURL);
+	}
+
+	public AbstractToxBankResource() {
+		this(null);
+	}
 
 	public void setResourceURL(URL resourceURL) {
 		this.resourceURL = resourceURL;
