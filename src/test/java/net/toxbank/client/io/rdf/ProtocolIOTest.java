@@ -227,4 +227,15 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 
 		Assert.assertTrue(roundtripped.isSearchable());
 	}	
+	
+	@Test
+	public void testRoundtripVersion() throws MalformedURLException, IOException {
+		Protocol protocol = new Protocol();
+		protocol.setVersion(78);
+		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+
+		Protocol roundtripped = roundtripSingleProtocol(protocol);
+
+		Assert.assertEquals(78,roundtripped.getVersion());
+	}	
 }

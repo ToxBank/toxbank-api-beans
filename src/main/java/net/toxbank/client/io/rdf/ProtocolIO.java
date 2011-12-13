@@ -36,7 +36,9 @@ public class ProtocolIO implements IOClass<Protocol> {
 			}
 			Resource res = toAddTo.createResource(protocol.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, TOXBANK.PROTOCOL);
-			res.addLiteral(TOXBANK.ISSUMMARYSEARCHABLE, protocol.isSearchable());			
+			res.addLiteral(TOXBANK.ISSUMMARYSEARCHABLE, protocol.isSearchable());
+			
+			res.addLiteral(TOXBANK.HASVERSIONINFO, protocol.getVersion());
 			
 			if (protocol.getTitle() != null)
 				res.addLiteral(DCTerms.title, protocol.getTitle());
@@ -111,6 +113,7 @@ public class ProtocolIO implements IOClass<Protocol> {
 				);
 				res.addProperty(TOXBANK.HASTEMPLATE, templateRes);
 			}			
+			
 		}
 		return toAddTo;
 	}
@@ -136,6 +139,11 @@ public class ProtocolIO implements IOClass<Protocol> {
 				protocol.setSearchable(res.getProperty(TOXBANK.ISSUMMARYSEARCHABLE).getBoolean());
 			} catch (Exception x) {
 				protocol.setSearchable(false);
+			}
+			try {
+				protocol.setVersion(res.getProperty(TOXBANK.HASVERSIONINFO).getInt());
+			} catch (Exception x) {
+				protocol.setVersion(0);
 			}
 			
 			if (res.getProperty(DCTerms.title) != null)
