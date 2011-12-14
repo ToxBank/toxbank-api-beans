@@ -12,7 +12,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>TOXBANK - The Java ToxBank API client software.</title>
+    <title>TOXBANK - The Java ToxBank API client software</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -77,12 +77,12 @@
             <ul>
               
     <li class="none">
-              <strong>Home</strong>
-        </li>
+                    <a href="index.html">Home</a>
+          </li>
               
     <li class="none">
-                    <a href="maven.html">Maven dependency</a>
-          </li>
+              <strong>Maven dependency</strong>
+        </li>
           </ul>
               <h5>Project Documentation</h5>
             <ul>
@@ -143,11 +143,41 @@
       <div id="contentBox">
         <div class="section"><h2>Toxbank API beans</h2>
 <p>The Java ToxBank API client software.</p>
-<ul><li>Use as <a href="maven.html">Maven dependency</a>.</li>
-<li>Download from the <a href="http://ambit.uni-plovdiv.bg:8083/nexus/index.html#nexus-search;quick~toxbank-beans" class="externalLink">Maven repository</a></li>
-<li>View source at <a href="https://github.com/ToxBank/toxbank-api-beans" class="externalLink">GitHub</a></li>
-<li><a href="./apidocs/index.html">JavaDoc</a></li>
-</ul>
+<div class="section"><h3>Code</h3>
+<p><a href="https://github.com/ToxBank/toxbank-api-beans" class="externalLink">GitHub</a></p>
+</div>
+<div class="section"><h3>Maven</h3>
+<p>Use as <a href="http://maven.apache.org" class="externalLink">Maven</a> dependency:</p>
+<p><a href="http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/releases/ambit/opentox-opensso/1.0.0/" class="externalLink">Release</a></p>
+<div class="source"><pre>
+        No stable release yet
+        
+    &lt;repository&gt;
+        &lt;id&gt;toxbank-releases&lt;/id&gt;
+        &lt;url&gt;http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/toxbank-releases/&lt;/url&gt;
+        &lt;snapshots&gt;
+               &lt;enabled&gt;false&lt;/enabled&gt;
+         &lt;/snapshots&gt;
+    &lt;/repository&gt;
+    </pre>
+</div>
+<p><a href="http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/toxbank-snapshots/" class="externalLink">Snapshots</a></p>
+<div class="source"><pre>
+        &lt;dependency&gt;
+      &lt;groupId&gt;net.toxbank&lt;/groupId&gt;
+      &lt;artifactId&gt;toxbank-api-beans&lt;/artifactId&gt;
+      &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;
+   
+    &lt;repository&gt;
+        &lt;id&gt;toxbank-snapshots&lt;/id&gt;
+        &lt;url&gt;http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/toxbank-snapshots&lt;/url&gt;
+        &lt;snapshots&gt;
+               &lt;enabled&gt;true&lt;/enabled&gt;
+        &lt;/snapshots&gt;
+    &lt;/repository&gt;</pre>
+</div>
+</div>
 </div>
 
       </div>
