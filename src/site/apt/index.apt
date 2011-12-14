@@ -11,6 +11,8 @@ Toxbank API beans
   
    * Use as  {{{maven.html}Maven dependency}}.
 
+   * Download {{{https://github.com/ToxBank/toxbank-api-beans/zipball/master}https://github.com/ToxBank/toxbank-api-beans/zipball/master}}
+   
    * Download from the {{{http://ambit.uni-plovdiv.bg:8083/nexus/index.html#nexus-search;quick~toxbank-beans}Maven repository}}
       
    * View source at  {{{https://github.com/ToxBank/toxbank-api-beans}GitHub}}
