@@ -2,6 +2,7 @@ package net.toxbank.client.io.rdf;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
@@ -29,6 +30,20 @@ public class DocumentIOTest extends AbstractIOClassTest<Document> {
 		);
 	}
 
+	@Test
+	public void testRoundtripLicense() throws MalformedURLException,IOException {
+		Document testResource = new Document();
+		testResource.setResourceURL(new URL("http://example.org/doc/1"));
+		testResource.setLicense(new URL("http://creativecommons.org/publicdomain/zero/1.0/"));
+
+		Document roundtripped = roundtripSingleResource(testResource);
+
+		Assert.assertEquals(
+			"http://creativecommons.org/publicdomain/zero/1.0/",
+			roundtripped.getLicense().toString()
+		);
+	}
+
 	private Document roundtripSingleResource(Document testResource) throws IOException {
 		DocumentIO ioClass = getIOClass();
 		
@@ -37,11 +52,13 @@ public class DocumentIOTest extends AbstractIOClassTest<Document> {
 			testResource
 		);
 
-		List<Document> roundTrippedResources = ioClass.fromJena(model);
-		
 		OutputStream out = getResourceStream(testResource,"n3");
 		Serializer.toTurtle(out, model);
 		out.close();
+		Serializer.toTurtle(System.out, model);
+
+		List<Document> roundTrippedResources = ioClass.fromJena(model);
+		
 		Assert.assertEquals(1, roundTrippedResources.size());
 		Document roundTrippedClass = roundTrippedResources.get(0);
 		return roundTrippedClass;
