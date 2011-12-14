@@ -28,6 +28,7 @@ public class TOXBANK {
     public static final Resource ALERT = resource("Alert");
     public static final Resource ASSAY = resource("Assay");
     public static final Resource TEMPLATE = resource("Template");
+    public static final Resource DOCUMENT = resource("Document");
     
     public static final Property HASABSTRACT = property("hasAbstract");
     public static final Property HASAUTHOR = property("hasAuthor");
