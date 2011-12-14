@@ -1,0 +1,18 @@
+ -----
+ The Java ToxBank API client software.
+ -----
+ Background
+ -----
+ Dec 2011
+
+Toxbank API beans
+~~~~~~~  
+  The Java ToxBank API client software.
+  
+   * Use as  {{{maven.html}Maven dependency}}.
+
+   * Download from the {{{http://ambit.uni-plovdiv.bg:8083/nexus/index.html#nexus-search;quick~toxbank-beans}Maven repository}}
+      
+   * View source at  {{{https://github.com/ToxBank/toxbank-api-beans}GitHub}}
+   
+   * {{{./apidocs/index.html}JavaDoc}}
