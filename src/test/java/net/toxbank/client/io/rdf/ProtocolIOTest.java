@@ -55,7 +55,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		protocol.setLicense(new URL("http://creativecommons.org/licenses/by-sa/3.0/"));
 
 		// just roundtrip and hope we do not get an exception
-		Assert.assertNotNull(roundtripSingleResource(protocol));
+		Assert.assertNotNull(roundtripSingleResource(protocol, true));
 	}
 
 	@Test
