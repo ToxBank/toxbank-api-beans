@@ -52,9 +52,24 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		michael.setFirstname("Michael");
 		michael.setLastname("Speer");
 		protocol.addAuthor(michael);
+		protocol.setLicense(new URL("http://creativecommons.org/licenses/by-sa/3.0/"));
 
 		// just roundtrip and hope we do not get an exception
 		Assert.assertNotNull(roundtripSingleResource(protocol));
+	}
+
+	@Test
+	public void testRoundtripLicense() throws MalformedURLException,IOException {
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL("http://example.org/doc/1"));
+		protocol.setLicense(new URL("http://creativecommons.org/publicdomain/zero/1.0/"));
+
+		Protocol roundtripped = roundtripSingleResource(protocol);
+
+		Assert.assertEquals(
+			"http://creativecommons.org/publicdomain/zero/1.0/",
+			roundtripped.getLicense().toString()
+		);
 	}
 
 	@Test

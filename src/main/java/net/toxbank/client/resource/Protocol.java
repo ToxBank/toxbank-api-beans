@@ -25,7 +25,7 @@ public class Protocol extends AbstractToxBankResource {
 	private String submissionDate;
 	private boolean isSearchable = false;
 	private Protocol previousVersion;
-
+	private URL license;
 
 	public Protocol() {}
 	
@@ -35,6 +35,12 @@ public class Protocol extends AbstractToxBankResource {
 	
 	// bean methods
 	
+	public void setLicense(URL license) {
+		this.license = license;
+	}
+	public URL getLicense() {
+		return license;
+	}
 	
 	public Document getDocument() {
 		return document;

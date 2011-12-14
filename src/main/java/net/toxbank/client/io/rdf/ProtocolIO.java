@@ -113,7 +113,11 @@ public class ProtocolIO implements IOClass<Protocol> {
 				);
 				res.addProperty(TOXBANK.HASTEMPLATE, templateRes);
 			}			
-			
+			if (protocol.getLicense() != null) {
+				toAddTo.add(res, DCTerms.license, toAddTo.createResource(
+					protocol.getLicense().toString()
+				));
+			}
 		}
 		return toAddTo;
 	}
@@ -224,7 +228,14 @@ public class ProtocolIO implements IOClass<Protocol> {
 				} catch (MalformedURLException e) {
 					throw new IllegalArgumentException(String.format(msg_InvalidURI,"data template",uri));
 				}						 
-	
+			if (res.getProperty(DCTerms.license) != null)
+				try {
+					protocol.setLicense(new URL(res.getProperty(DCTerms.license).getObject().toString()));
+				} catch (MalformedURLException e) {
+					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a license",res.getProperty(DCTerms.license).getObject())
+					);
+				}
+
 			protocols.add(protocol);
 		}
 
