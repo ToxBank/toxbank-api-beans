@@ -24,6 +24,36 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		return new ProtocolIO();
 	}
 
+	/**
+	 * A full example, if only to get a rich .n3 document on Jenkins, and also
+	 * see if a full example does not crash. No special assertions made.
+	 */
+	@Test
+	public void testFullExample() throws Exception {
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL("http://example.org/openwetware/DNA_Quantification"));
+		Document doc = new Document();
+		doc.setResourceURL(new URL("http://openwetware.org/wiki/DNA_Quantification"));
+		protocol.setDocument(doc);
+		protocol.setTitle("DNA Quantification");
+		protocol.setIdentifier("DNA_Quantification");
+		protocol.setAbstract("This protocol uses a spectrophotometer to quantify the amount " +
+				"(μg/mL or ng/μL) of DNA and then uses a simple equation to convert this " +
+				"mass concentration into a molar concentration. The molar concentration is " +
+				"much more useful for most enzymatic processes.");
+		protocol.addKeyword("DNA");
+		protocol.addKeyword("quantification");
+		protocol.addKeyword("spectrophotometer");
+		Organisation org = new Organisation();
+		org.setResourceURL(new URL("http://openwetware.org/"));
+		protocol.setOrganisation(org);
+		User michael = new User();
+		michael.setResourceURL(new URL("http://openwetware.org/wiki/User:Michael_A._Speer"));
+		michael.setFirstname("Michael");
+		michael.setLastname("Speer");
+		protocol.addAuthor(michael);
+	}
+
 	@Test
 	public void testRoundtripResourceURI() throws Exception {
 		Protocol testProtocol = new Protocol();
