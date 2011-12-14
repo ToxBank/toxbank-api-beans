@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./UserIO.html" title="&lt;TABLE&gt;" alt="" coords="15,465,323,570"/>
+<area shape="rect" id="node2_1" href="./TOXBANK.html" title="&lt;TABLE&gt;" alt="" coords="2107,11,2368,405"/>
+<area shape="rect" id="node3_2" href="./TemplateIO.html" title="&lt;TABLE&gt;" alt="" coords="369,465,724,570"/>
+<area shape="rect" id="node4_3" href="./StudyIO.html" title="&lt;TABLE&gt;" alt="" coords="769,465,1095,570"/>
+<area shape="rect" id="node5_4" href="./Serializer.html" title="&lt;TABLE&gt;" alt="" coords="2414,155,2735,261"/>
+<area shape="rect" id="node6_5" href="./ProtocolIO.html" title="&lt;TABLE&gt;" alt="" coords="1140,465,1489,570"/>
+<area shape="rect" id="node7_6" href="./ProjectIO.html" title="&lt;TABLE&gt;" alt="" coords="1535,465,1871,570"/>
+<area shape="rect" id="node8_7" href="./OrganisationIO.html" title="&lt;TABLE&gt;" alt="" coords="1916,465,2295,570"/>
+<area shape="rect" id="node9_8" href="./IOClass.html" title="&lt;TABLE&gt;" alt="" coords="1747,147,2061,269"/>
+<area shape="rect" id="node10_9" href="./DocumentIO.html" title="&lt;TABLE&gt;" alt="" coords="2341,465,2702,570"/>
+<area shape="rect" id="node11_10" href="./AssayIO.html" title="&lt;TABLE&gt;" alt="" coords="2748,465,3087,570"/>
+<area shape="rect" id="node12_11" href="./AlertIO.html" title="&lt;TABLE&gt;" alt="" coords="3133,465,3462,570"/>
+<area shape="rect" id="node13_12" href="./AccountIO.html" title="&lt;TABLE&gt;" alt="" coords="3508,465,3857,570"/>
+</map>

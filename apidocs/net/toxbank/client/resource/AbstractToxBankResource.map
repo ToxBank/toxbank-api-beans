@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node1_0" href="./User.html" title="&lt;TABLE&gt;" alt="" coords="15,566,315,911"/>
+<area shape="rect" id="node2_1" href="./Template.html" title="&lt;TABLE&gt;" alt="" coords="361,694,540,783"/>
+<area shape="rect" id="node3_2" href="./Study.html" title="&lt;TABLE&gt;" alt="" coords="585,558,953,919"/>
+<area shape="rect" id="node4_3" href="./Protocol.html" title="&lt;TABLE&gt;" alt="" coords="999,422,1302,1055"/>
+<area shape="rect" id="node5_4" href="./IToxBankResource.html" title="&lt;TABLE&gt;" alt="" coords="1343,11,1593,149"/>
+<area shape="rect" id="node11_5" href="./AbstractToxBankResource.html" title="&lt;TABLE&gt;" alt="" coords="1314,209,1622,362"/>
+<area shape="rect" id="node6_6" href="./Group.html" title="&lt;TABLE&gt;" alt="" coords="1348,686,1588,791"/>
+<area shape="rect" id="node7_7" href="./Document.html" title="&lt;TABLE&gt;" alt="" coords="1634,694,1846,783"/>
+<area shape="rect" id="node8_8" href="./Assay.html" title="&lt;TABLE&gt;" alt="" coords="1892,702,1969,775"/>
+<area shape="rect" id="node9_9" href="./Alert.html" title="&lt;TABLE&gt;" alt="" coords="2015,702,2083,775"/>
+<area shape="rect" id="node10_10" href="./Account.html" title="&lt;TABLE&gt;" alt="" coords="2129,670,2396,807"/>
+</map>
