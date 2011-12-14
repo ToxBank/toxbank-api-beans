@@ -84,13 +84,19 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	}
 
 	private Protocol roundtripSingleResource(Protocol testProtocol) throws IOException {
+		return roundtripSingleResource(testProtocol, false);
+	}
+
+	private Protocol roundtripSingleResource(Protocol testProtocol, boolean full) throws IOException {
 		ProtocolIO ioClass = getIOClass();
 		
 		Model model = ioClass.toJena(
 			null, // create a new class
 			testProtocol
 		);
-		OutputStream out = getResourceStream(testProtocol,"n3");
+		OutputStream out = getResourceStream(testProtocol,
+			full ? "full.n3" : "n3"
+		);
 		Serializer.toTurtle(out, model);
 		out.close();
 		List<Protocol> roundTrippedProtocols = ioClass.fromJena(model);

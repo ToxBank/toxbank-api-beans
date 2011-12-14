@@ -42,10 +42,10 @@ public abstract class AbstractIOClassTest<T extends IToxBankResource> {
 		 counter++;
 		  URL url = getClass().getClassLoader().getResource("");
 		  String f = String.format(
-		      "%s%s.%s.%s",
+		      "%s%s.%s%s",
 		      url.getFile(),
 		      object.getClass().getName(),
-		      counter,
+		      ext.contains("full") ? "" : counter + ".",
 		      ext
 		  );
 		  return new FileOutputStream(new File(f));

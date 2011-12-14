@@ -22,14 +22,14 @@ public class DocumentIOTest extends AbstractIOClassTest<Document> {
 	public void testRoundtripResourceURI() throws Exception {
 		Document testResource = new Document();
 		testResource.setResourceURL(new URL("http://example.org/doc/1"));
-		Document roundTrippedResource = roundtripSingleResource(testResource);
+		Document roundTrippedResource = roundtripSingleResource(testResource, true);
 		Assert.assertEquals(
 			"http://example.org/doc/1",
 			roundTrippedResource.getResourceURL().toString()
 		);
 	}
 
-	private Document roundtripSingleResource(Document testResource) throws IOException {
+	private Document roundtripSingleResource(Document testResource, boolean full) throws IOException {
 		DocumentIO ioClass = getIOClass();
 		
 		Model model = ioClass.toJena(
@@ -37,10 +37,11 @@ public class DocumentIOTest extends AbstractIOClassTest<Document> {
 			testResource
 		);
 
-		OutputStream out = getResourceStream(testResource,"n3");
+		OutputStream out = getResourceStream(testResource,
+			full ? "full.n3" : "n3"
+		);
 		Serializer.toTurtle(out, model);
 		out.close();
-		Serializer.toTurtle(System.out, model);
 
 		List<Document> roundTrippedResources = ioClass.fromJena(model);
 		

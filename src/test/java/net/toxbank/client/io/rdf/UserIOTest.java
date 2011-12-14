@@ -43,7 +43,7 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 		user.setLastname("Johansson");
 
 		// just roundtrip and hope we do not get an exception
-		Assert.assertNotNull(roundtripSingleUser(user));
+		Assert.assertNotNull(roundtripSingleUser(user, true));
 	}
 
 	@Test
@@ -58,6 +58,10 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 	}
 
 	private User roundtripSingleUser(User testProtocol) throws IOException {
+		return roundtripSingleUser(testProtocol, false);
+	}
+
+	private User roundtripSingleUser(User testProtocol, boolean full) throws IOException {
 		UserIO ioClass = getIOClass();
 		
 		Model model = ioClass.toJena(
@@ -66,7 +70,9 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 		);
 
 		List<User> roundTrippedUsers = ioClass.fromJena(model);
-		OutputStream out = getResourceStream(testProtocol,"n3");
+		OutputStream out = getResourceStream(testProtocol,
+			full ? "full.n3" : "n3"
+		);
 		Serializer.toTurtle(out, model);
 		out.close();
 		Assert.assertEquals(1, roundTrippedUsers.size());
