@@ -52,20 +52,23 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		michael.setFirstname("Michael");
 		michael.setLastname("Speer");
 		protocol.addAuthor(michael);
+
+		// just roundtrip and hope we do not get an exception
+		Assert.assertNotNull(roundtripSingleResource(protocol));
 	}
 
 	@Test
 	public void testRoundtripResourceURI() throws Exception {
 		Protocol testProtocol = new Protocol();
 		testProtocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
-		Protocol roundTrippedProtocol = roundtripSingleProtocol(testProtocol);
+		Protocol roundTrippedProtocol = roundtripSingleResource(testProtocol);
 		Assert.assertEquals(
 			"http://example.org/testProtocol/666",
 			roundTrippedProtocol.getResourceURL().toString()
 		);
 	}
 
-	private Protocol roundtripSingleProtocol(Protocol testProtocol) throws IOException {
+	private Protocol roundtripSingleResource(Protocol testProtocol) throws IOException {
 		ProtocolIO ioClass = getIOClass();
 		
 		Model model = ioClass.toJena(
@@ -87,7 +90,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
 		protocol.setTitle("Title");
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertEquals("Title", roundtripped.getTitle());
 	}
@@ -98,7 +101,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
 		protocol.setTitle(null);
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertNull(roundtripped.getTitle());
 	}
@@ -109,7 +112,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
 		protocol.setIdentifier("Title");
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertEquals("Title", roundtripped.getIdentifier());
 	}
@@ -120,7 +123,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
 		protocol.setIdentifier(null);
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertEquals(null, roundtripped.getIdentifier());
 	}
@@ -131,7 +134,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
 		protocol.setAbstract("This is the funniest abstract ever!");
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertEquals("This is the funniest abstract ever!", roundtripped.getAbstract());
 	}
@@ -143,7 +146,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		protocol.addKeyword("key");
 		protocol.addKeyword("word");
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		List<String> keywords = roundtripped.getKeywords();
 		Assert.assertNotNull(keywords);
@@ -160,7 +163,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		org.setResourceURL(new URL("http://www.toxbank.net/"));
 		protocol.setOrganisation(org);
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertNotNull(roundtripped.getOrganisation());
 		Assert.assertEquals(
@@ -177,7 +180,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		owner.setResourceURL(new URL("http://example.org/testUser/B.Bub"));
 		protocol.setOwner(owner);
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertNotNull(roundtripped.getOwner());
 		Assert.assertEquals(
@@ -197,7 +200,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		adder.setResourceURL(new URL("http://example.org/testUser/B.Adder"));
 		protocol.addAuthor(adder);
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		ToxBankResourceSet<User> authors = roundtripped.getAuthors();
 		Assert.assertNotNull(authors);
@@ -222,7 +225,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		doc.setResourceURL(new URL("http://example.org/testDocument"));
 		protocol.setDocument(doc);
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertNotNull(roundtripped.getDocument());
 		Assert.assertEquals(
@@ -238,7 +241,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		Template dataTemplate = new Template(new URL("http://example.org/testDataTemplate"));
 		protocol.setDataTemplate(dataTemplate);
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertNotNull(roundtripped.getDataTemplate());
 		Assert.assertEquals(
@@ -253,7 +256,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
 		protocol.setSearchable(true);
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertTrue(roundtripped.isSearchable());
 	}	
@@ -264,7 +267,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		protocol.setVersion(78);
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
 
-		Protocol roundtripped = roundtripSingleProtocol(protocol);
+		Protocol roundtripped = roundtripSingleResource(protocol);
 
 		Assert.assertEquals(78,roundtripped.getVersion());
 	}	
