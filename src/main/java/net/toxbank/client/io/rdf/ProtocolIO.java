@@ -10,6 +10,7 @@ import net.toxbank.client.resource.Document;
 import net.toxbank.client.resource.Organisation;
 import net.toxbank.client.resource.Project;
 import net.toxbank.client.resource.Protocol;
+import net.toxbank.client.resource.Protocol.STATUS;
 import net.toxbank.client.resource.Template;
 import net.toxbank.client.resource.ToxBankResourceSet;
 import net.toxbank.client.resource.User;
@@ -42,6 +43,9 @@ public class ProtocolIO implements IOClass<Protocol> {
 			
 			if (protocol.getTitle() != null)
 				res.addLiteral(DCTerms.title, protocol.getTitle());
+
+			if (protocol.getStatus() != null)
+				res.addLiteral(TOXBANK.HASSTATUS, protocol.getStatus().name());
 
 			if (protocol.getIdentifier() != null)
 				res.addLiteral(DCTerms.identifier, protocol.getIdentifier());
@@ -152,6 +156,11 @@ public class ProtocolIO implements IOClass<Protocol> {
 			
 			if (res.getProperty(DCTerms.title) != null)
 				protocol.setTitle(res.getProperty(DCTerms.title).getString());
+			if (res.getProperty(TOXBANK.HASSTATUS) != null) try {
+				protocol.setStatus(Protocol.STATUS.valueOf(res.getProperty(TOXBANK.HASSTATUS).getString()));
+			} catch (Exception x) {
+				protocol.setStatus(STATUS.RESEARCH); 
+			}
 			if (res.getProperty(DCTerms.identifier) != null)
 				protocol.setIdentifier(res.getProperty(DCTerms.identifier).getString());
 			if (res.getProperty(TOXBANK.HASABSTRACT) != null)

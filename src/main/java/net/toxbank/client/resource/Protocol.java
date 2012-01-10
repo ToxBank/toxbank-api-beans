@@ -5,13 +5,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Protocol extends AbstractToxBankResource {
-
+	public enum STATUS {RESEARCH,SOP};
 	private static final long serialVersionUID = -8372109619715612869L;
 
 	public static final String id_prefix="SEURAT-Protocol";
 	public static final String id_pattern=String.format("%s%s",id_prefix,"-%d-%d"); 
 
 	protected int version;
+	private STATUS status = STATUS.RESEARCH;
+	public STATUS getStatus() {
+		return status;
+	}
+
+	public void setStatus(STATUS status) {
+		this.status = status;
+	}
+
 	private Document document;
 	private Template dataTemplate;
 	private Project project;
