@@ -61,21 +61,23 @@ public class UserTest extends AbstractToxBankResourceTest {
 	}
 
 	@Test
-	public void testGetSetSeuratProject() throws MalformedURLException {
+	public void testGetSetProjects() throws MalformedURLException {
 		User user = new User();
-		Assert.assertNull(user.getSeuratProject());
-		Organisation seuratProject = new Organisation();
-		user.setSeuratProject(seuratProject);
-		Assert.assertEquals(seuratProject, user.getSeuratProject());
+		Assert.assertNull(user.getProjects());
+		Project seuratProject = new Project();
+		user.addProject(seuratProject);
+		Assert.assertEquals(1, user.getProjects().size());
+		Assert.assertEquals(seuratProject, user.getProjects().get(0));
 	}
 
 	@Test
-	public void testGetSetInstitute() throws MalformedURLException {
+	public void testGetSetOrganisations() throws MalformedURLException {
 		User user = new User();
-		Assert.assertNull(user.getInstitute());
+		Assert.assertNull(user.getOrganisation());
 		Organisation karolinska = new Organisation();
-		user.setInstitute(karolinska);
-		Assert.assertEquals(karolinska, user.getInstitute());
+		user.addOrganisation(karolinska);
+		Assert.assertEquals(1, user.getOrganisation().size());
+		Assert.assertEquals(karolinska, user.getOrganisation().get(0));
 	}
 
 }

@@ -18,8 +18,8 @@ public class User extends AbstractToxBankResource {
 	private static final long serialVersionUID = 9147403734724679765L;
 	private String userName;
 
-	private Organisation seuratProject;
-	private Organisation institute;
+	private List<Project> projects;
+	private List<Organisation> organisations;
 	private String firstname;
 	private String lastname;
 	private URL homepage;
@@ -86,22 +86,31 @@ public class User extends AbstractToxBankResource {
 	public User(URL identifier) {
 		setResourceURL(identifier);
 	}
-	
-	public void setSeuratProject(Organisation seuratProject) {
-		this.seuratProject = seuratProject;
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+	public void addProject(Project project) {
+		if (project == null) return;
+		if (projects == null) this.projects = new ArrayList<Project>();
+		projects.add(project);		
 	}
 
-	public Organisation getSeuratProject() {
-		return seuratProject;
+	public List<Project> getProjects() {
+		return projects;
 	}
 
-	public void setInstitute(Organisation institute) {
-		this.institute = institute;
+	public void setOrganisations(List<Organisation> orgs) {
+		this.organisations = orgs;
 	}
 
-	public Organisation getInstitute() {
-		return institute;
+	public List<Organisation> getOrganisation() {
+		return organisations;
 	}
+	public void addOrganisation(Organisation org) {
+		if (org == null) return;
+		if (organisations == null) this.organisations = new ArrayList<Organisation>();
+		organisations.add(org);		
+	}	
 
 	public void setWeblog(URL weblog) {
 		this.weblog = weblog;
