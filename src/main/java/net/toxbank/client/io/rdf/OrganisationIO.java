@@ -34,8 +34,11 @@ public class OrganisationIO implements IOClass<Organisation> {
 
 	public List<Organisation> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();
+		return fromJena(source,source.listResourcesWithProperty(RDF.type, TOXBANK.ORGANIZATION));
+	}
+	public List<Organisation> fromJena(Model source, ResIterator iter) {
+		if (source == null) return Collections.emptyList();
 
-		ResIterator iter = source.listResourcesWithProperty(RDF.type, TOXBANK.ORGANIZATION);
 		if (!iter.hasNext()) return Collections.emptyList();
 
 		List<Organisation> organisations = new ArrayList<Organisation>();

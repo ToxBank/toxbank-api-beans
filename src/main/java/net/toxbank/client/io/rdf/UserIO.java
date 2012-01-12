@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.List;
 
 import net.toxbank.client.resource.Account;
+import net.toxbank.client.resource.Organisation;
+import net.toxbank.client.resource.Project;
 import net.toxbank.client.resource.User;
 
 import com.hp.hpl.jena.rdf.model.Model;
@@ -19,6 +21,8 @@ import com.hp.hpl.jena.vocabulary.RDF;
 
 public class UserIO implements IOClass<User> {
 	private AccountIO accountIO = new AccountIO();
+	private OrganisationIO organisationIO;
+	private ProjectIO projectIO;
 
 	public Model toJena(Model toAddTo, User... users) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
@@ -43,6 +47,26 @@ public class UserIO implements IOClass<User> {
 			if (user.getAccounts() != null) {
 				for (Account account : user.getAccounts()) {
 					accountIO.toJena(toAddTo, account);
+				}
+			}
+			//orgs
+			if (user.getOrganisations()!=null) {
+				if (organisationIO==null)  organisationIO = new OrganisationIO();
+				for (Organisation org: user.getOrganisations()) {
+					if (org.getResourceURL()==null)
+						throw new IllegalArgumentException(String.format(msg_InvalidURI, "organisation",res.getURI()));			
+					organisationIO.toJena(toAddTo, org);
+					toAddTo.createResource(org.getResourceURL().toString()).addProperty(TOXBANK.HASMEMBER,res);
+				}
+			}
+			//projects
+			if (user.getProjects()!=null) {
+				if (projectIO==null)  projectIO = new ProjectIO();
+				for (Project project: user.getProjects()) {
+					if (project.getResourceURL()==null)
+						throw new IllegalArgumentException(String.format(msg_InvalidURI, "project",res.getURI()));			
+					projectIO.toJena(toAddTo, project);
+					toAddTo.createResource(project.getResourceURL().toString()).addProperty(TOXBANK.HASPROJECTMEMBER,res);
 				}
 			}
 		}
@@ -104,6 +128,15 @@ public class UserIO implements IOClass<User> {
 					user.addAccount(account);
 				}
 			}
+			
+			if (projectIO==null)  projectIO = new ProjectIO();
+			List<Project> projects = projectIO.fromJena(source,source.listResourcesWithProperty(TOXBANK.HASPROJECTMEMBER,res));
+			user.setProjects(projects);
+			
+			if (organisationIO==null)  organisationIO = new OrganisationIO();
+			List<Organisation> orgs = organisationIO.fromJena(source,source.listResourcesWithProperty(TOXBANK.HASMEMBER,res));
+			user.setOrganisations(orgs);
+			
 			users.add(user);
 		}
 

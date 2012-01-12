@@ -73,11 +73,11 @@ public class UserTest extends AbstractToxBankResourceTest {
 	@Test
 	public void testGetSetOrganisations() throws MalformedURLException {
 		User user = new User();
-		Assert.assertNull(user.getOrganisation());
+		Assert.assertNull(user.getOrganisations());
 		Organisation karolinska = new Organisation();
 		user.addOrganisation(karolinska);
-		Assert.assertEquals(1, user.getOrganisation().size());
-		Assert.assertEquals(karolinska, user.getOrganisation().get(0));
+		Assert.assertEquals(1, user.getOrganisations().size());
+		Assert.assertEquals(karolinska, user.getOrganisations().get(0));
 	}
 
 }

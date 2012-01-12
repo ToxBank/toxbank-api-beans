@@ -18,8 +18,8 @@ public class User extends AbstractToxBankResource {
 	private static final long serialVersionUID = 9147403734724679765L;
 	private String userName;
 
-	private List<Project> projects;
-	private List<Organisation> organisations;
+	private ToxBankResourceSet<Project> projects;
+	private ToxBankResourceSet<Organisation> organisations;
 	private String firstname;
 	private String lastname;
 	private URL homepage;
@@ -86,29 +86,38 @@ public class User extends AbstractToxBankResource {
 	public User(URL identifier) {
 		setResourceURL(identifier);
 	}
-	public void setProjects(List<Project> projects) {
+	public void setProjects(ToxBankResourceSet<Project> projects) {
 		this.projects = projects;
 	}
+	
+	public void setProjects(List<Project> projects) {
+		this.projects = new ToxBankResourceSet<Project>(projects);
+	}
+		
 	public void addProject(Project project) {
 		if (project == null) return;
-		if (projects == null) this.projects = new ArrayList<Project>();
+		if (projects == null) this.projects = new ToxBankResourceSet<Project>();
 		projects.add(project);		
 	}
 
-	public List<Project> getProjects() {
+	public ToxBankResourceSet<Project> getProjects() {
 		return projects;
 	}
 
-	public void setOrganisations(List<Organisation> orgs) {
+	public void setOrganisations(ToxBankResourceSet<Organisation> orgs) {
 		this.organisations = orgs;
 	}
 
-	public List<Organisation> getOrganisation() {
+	public void setOrganisations(List<Organisation> orgs) {
+		this.organisations = new ToxBankResourceSet<Organisation>(orgs);
+	}
+	
+	public ToxBankResourceSet<Organisation> getOrganisations() {
 		return organisations;
 	}
 	public void addOrganisation(Organisation org) {
 		if (org == null) return;
-		if (organisations == null) this.organisations = new ArrayList<Organisation>();
+		if (organisations == null) this.organisations = new ToxBankResourceSet<Organisation>();
 		organisations.add(org);		
 	}	
 

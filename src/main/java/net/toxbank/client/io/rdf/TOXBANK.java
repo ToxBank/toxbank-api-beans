@@ -41,4 +41,6 @@ public class TOXBANK {
     public static final Property HASDOCUMENT = property("hasDocument");
     public static final Property HASVERSIONINFO = property("hasVersionInfo");
     public static final Property HASSTATUS = property("hasStatus");
+    public static final Property HASPROJECTMEMBER = property("hasProjectMember");
+    public static final Property HASMEMBER = property("hasMember");
 }

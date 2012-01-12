@@ -35,8 +35,12 @@ public class ProjectIO implements IOClass<Project> {
 
 	public List<Project> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();
+		return fromJena(source,source.listResourcesWithProperty(RDF.type, TOXBANK.PROJECT));
+	}
+	
+	public List<Project> fromJena(Model source, ResIterator iter) {
+		if (source == null) return Collections.emptyList();
 
-		ResIterator iter = source.listResourcesWithProperty(RDF.type, TOXBANK.PROJECT);
 		if (!iter.hasNext()) return Collections.emptyList();
 
 		List<Project> projects = new ArrayList<Project>();
