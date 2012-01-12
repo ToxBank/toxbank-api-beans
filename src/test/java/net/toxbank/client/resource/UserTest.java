@@ -59,6 +59,14 @@ public class UserTest extends AbstractToxBankResourceTest {
 		user.setWeblog(new URL("http://chem-bla-ics.blogspot.com/"));
 		Assert.assertEquals("http://chem-bla-ics.blogspot.com/", user.getWeblog().toString());
 	}
+	
+	@Test
+	public void testGetSetToxbankAccount() throws MalformedURLException {
+		User user = new User();
+		Assert.assertNull(user.getUserName());
+		user.setUserName("guest");
+		Assert.assertEquals("guest", user.getUserName().toString());
+	}
 
 	@Test
 	public void testGetSetProjects() throws MalformedURLException {
