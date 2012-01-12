@@ -41,4 +41,8 @@ public class ToxBankResourceSet<T> extends ArrayList<T>  implements IToxBankReso
 	public String getTitle() {
 		return title;
 	}
+	@Override
+	public String toString() {
+		return getResourceURL()==null?super.toString():getResourceURL().toString();
+	}
 }

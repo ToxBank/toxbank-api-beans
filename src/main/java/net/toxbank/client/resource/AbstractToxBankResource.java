@@ -35,4 +35,7 @@ public abstract class AbstractToxBankResource implements IToxBankResource {
 	public String getTitle() {
 		return title;
 	}
+	public String toString() {
+		return getResourceURL()==null?super.toString():getResourceURL().toString();
+	}
 }
