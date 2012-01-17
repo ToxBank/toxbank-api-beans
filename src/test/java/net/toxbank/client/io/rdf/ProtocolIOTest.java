@@ -119,6 +119,17 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 
 
 	@Test
+	public void testRoundtripTimestamp() throws MalformedURLException, IOException {
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setTimeModified(1326788365L);
+
+		Protocol roundtripped = roundtripSingleResource(protocol);
+
+		Assert.assertEquals(new Long(1326788365L),roundtripped.getTimeModified());
+	}
+	
+	@Test
 	public void testRoundtripStatus() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));

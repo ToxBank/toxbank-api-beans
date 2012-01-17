@@ -35,6 +35,15 @@ public class Protocol extends AbstractToxBankResource {
 	private boolean isSearchable = false;
 	private Protocol previousVersion;
 	private URL license;
+	protected Long modified;
+
+	public Long getTimeModified() {
+		return modified;
+	}
+
+	public void setTimeModified(Long timeUpdated) {
+		this.modified = timeUpdated;
+	}
 
 	public Protocol() {}
 	

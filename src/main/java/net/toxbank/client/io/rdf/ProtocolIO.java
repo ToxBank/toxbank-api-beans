@@ -44,13 +44,18 @@ public class ProtocolIO implements IOClass<Protocol> {
 			if (protocol.getTitle() != null)
 				res.addLiteral(DCTerms.title, protocol.getTitle());
 
+			if (protocol.getTimeModified() != null)
+				res.addLiteral(DCTerms.modified, protocol.getTimeModified());
+			
 			if (protocol.getStatus() != null)
 				res.addLiteral(TOXBANK.HASSTATUS, protocol.getStatus().name());
 
 			if (protocol.getIdentifier() != null)
 				res.addLiteral(DCTerms.identifier, protocol.getIdentifier());
+			
 			if (protocol.getAbstract() != null)
 				res.addLiteral(TOXBANK.HASABSTRACT, protocol.getAbstract());
+			
 			List<String> keywords = protocol.getKeywords();
 			if (keywords != null) {
 				for (String keyword : keywords)
@@ -152,6 +157,12 @@ public class ProtocolIO implements IOClass<Protocol> {
 				protocol.setVersion(res.getProperty(TOXBANK.HASVERSIONINFO).getInt());
 			} catch (Exception x) {
 				protocol.setVersion(0);
+			}
+			
+			try {
+				protocol.setTimeModified(res.getProperty(DCTerms.modified).getLong());
+			} catch (Exception x) {
+				protocol.setTimeModified(null);
 			}
 			
 			if (res.getProperty(DCTerms.title) != null)
