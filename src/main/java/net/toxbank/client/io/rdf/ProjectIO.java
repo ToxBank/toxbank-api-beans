@@ -27,7 +27,9 @@ public class ProjectIO implements IOClass<Project> {
 			}
 			Resource res = toAddTo.createResource(project.getResourceURL().toString());
 			if (project.getTitle() != null)
-				res.addLiteral(DCTerms.title, project.getTitle());			
+				res.addLiteral(DCTerms.title, project.getTitle());		
+			if (project.getGroupName() != null)
+				res.addLiteral(TOXBANK.HASTBACCOUNT, project.getGroupName());			
 			toAddTo.add(res, RDF.type, TOXBANK.PROJECT);
 		}
 		return toAddTo;
@@ -52,7 +54,10 @@ public class ProjectIO implements IOClass<Project> {
 					new URL(res.getURI())
 				);
 				if (res.getProperty(DCTerms.title) != null)
-					project.setTitle(res.getProperty(DCTerms.title).getString());				
+					project.setTitle(res.getProperty(DCTerms.title).getString());
+				
+				if (res.getProperty(TOXBANK.HASTBACCOUNT) != null)
+					project.setGroupName(res.getProperty(TOXBANK.HASTBACCOUNT).getString());
 			} catch (MalformedURLException e) {
 				throw new IllegalArgumentException(String.format(msg_InvalidURI,"a project",res.getURI()));
 			}

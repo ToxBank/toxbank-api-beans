@@ -28,6 +28,8 @@ public class OrganisationIO implements IOClass<Organisation> {
 			toAddTo.add(res, RDF.type, TOXBANK.ORGANIZATION);
 			if (org.getTitle() != null)
 				res.addLiteral(DCTerms.title, org.getTitle());
+			if (org.getGroupName() != null)
+				res.addLiteral(TOXBANK.HASTBACCOUNT, org.getGroupName());
 		}
 		return toAddTo;
 	}
@@ -50,7 +52,11 @@ public class OrganisationIO implements IOClass<Organisation> {
 					new URL(res.getURI())
 				);
 				if (res.getProperty(DCTerms.title) != null)
-					org.setTitle(res.getProperty(DCTerms.title).getString());				
+					org.setTitle(res.getProperty(DCTerms.title).getString());	
+				
+				if (res.getProperty(TOXBANK.HASTBACCOUNT) != null)
+					org.setGroupName(res.getProperty(TOXBANK.HASTBACCOUNT).getString());
+				
 			} catch (MalformedURLException e) {
 				throw new IllegalArgumentException(String.format(msg_InvalidURI,"an organisation",res.getURI()));
 			}
