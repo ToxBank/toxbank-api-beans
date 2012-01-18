@@ -86,8 +86,9 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 	@Test
 	public void testGetSetSubmissionDate() {
 		Protocol version = new Protocol();
-		version.setSubmissionDate("2011-09-15");
-		Assert.assertEquals("2011-09-15", version.getSubmissionDate());
+		long now = System.currentTimeMillis();
+		version.setSubmissionDate(now);
+		Assert.assertEquals(now, version.getSubmissionDate());
 	}
 
 	@Test
