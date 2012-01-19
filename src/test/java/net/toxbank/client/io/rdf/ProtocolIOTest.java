@@ -277,11 +277,13 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		User bub = new User();
 		bub.setFirstname("B");
 		bub.setLastname("Bub");
+		bub.setUserName("a");
 		bub.setResourceURL(new URL("http://example.org/testUser/B.Bub"));
 		protocol.addAuthor(bub);
 		User adder = new User();
 		adder.setFirstname("B");
 		adder.setLastname("Adder");
+		adder.setUserName("b");
 		adder.setResourceURL(new URL("http://example.org/testUser/B.Adder"));
 		protocol.addAuthor(adder);
 
@@ -294,6 +296,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		for (User author: authors) {
 			Assert.assertNotNull(author.getFirstname());
 			Assert.assertNotNull(author.getLastname());
+			Assert.assertNotNull(author.getUserName());
 		}
 		
 		// we don't know the order
