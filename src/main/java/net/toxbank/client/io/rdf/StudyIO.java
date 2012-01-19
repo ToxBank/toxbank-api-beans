@@ -9,7 +9,6 @@ import net.toxbank.client.resource.Organisation;
 import net.toxbank.client.resource.Study;
 
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.DCTerms;
@@ -17,11 +16,10 @@ import com.hp.hpl.jena.vocabulary.RDF;
 
 public class StudyIO extends AbstractIOClass<Study> {
 
-	public Model toJena(Model toAddTo, Study... studies) {
-		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
-		if (studies == null) return toAddTo;
+	@Override
+	public Resource objectToJena(Model toAddTo, Study study)
+			throws IllegalArgumentException {
 
-		for (Study study : studies) {
 			if (study.getResourceURL() == null) {
 				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "Studies"));
 			}
@@ -43,8 +41,8 @@ public class StudyIO extends AbstractIOClass<Study> {
 				);
 				res.addProperty(TOXBANK.HASOWNER, ownerRes);
 			}
-		}
-		return toAddTo;
+
+		return res;
 	}
 	
 	public List<Study> fromJena(Model source) {

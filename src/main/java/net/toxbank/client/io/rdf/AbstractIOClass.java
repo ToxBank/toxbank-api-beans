@@ -7,6 +7,7 @@ import java.util.List;
 import net.toxbank.client.resource.IToxBankResource;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.ResIterator;
@@ -14,6 +15,21 @@ import com.hp.hpl.jena.rdf.model.Resource;
 
 public abstract class AbstractIOClass<T extends IToxBankResource> implements IOClass<T> {
 
+	
+	public Model toJena(Model toAddTo, T... resources) throws IllegalArgumentException {
+
+		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
+		if (resources == null) return toAddTo;
+
+		for (T resource : resources) {
+			if (resource.getResourceURL() == null) {
+				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, resource.getClass().getName()));
+			}
+			objectToJena(toAddTo,resource);
+		}
+		return toAddTo;
+	}	
+	public abstract Resource objectToJena(Model toAddTo, T object) throws IllegalArgumentException;
 	/**
 	 * To handle {@link listResourcesWithProperty}
 	 * @param source

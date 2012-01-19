@@ -15,7 +15,6 @@ import net.toxbank.client.resource.ToxBankResourceSet;
 import net.toxbank.client.resource.User;
 
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.DCTerms;
@@ -24,12 +23,12 @@ import com.hp.hpl.jena.vocabulary.RDF;
 public class ProtocolIO extends AbstractIOClass<Protocol> {
 	private OrganisationIO organisationIO = new OrganisationIO();
 	private ProjectIO projectIO = new ProjectIO();
+	private UserIO userIO = new UserIO();
 
-	public Model toJena(Model toAddTo, Protocol... protocols) {
-		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
-		if (protocols == null) return toAddTo;
+	@Override
+	public Resource objectToJena(Model toAddTo, Protocol protocol)
+			throws IllegalArgumentException {
 
-		for (Protocol protocol : protocols) {
 			if (protocol.getResourceURL() == null) {
 				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "protocols"));
 			}
@@ -62,22 +61,14 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 			if (protocol.getProject() != null) {
 				if (protocol.getProject().getResourceURL()==null)
 					throw new IllegalArgumentException(String.format(msg_InvalidURI, "project",res.getURI()));				
-				res.addProperty(TOXBANK.HASPROJECT,
-					toAddTo.createResource(
-						protocol.getProject().getResourceURL().toString()
-					)
-				);
-				projectIO.toJena(toAddTo, protocol.getProject());
+				Resource project = projectIO.objectToJena(toAddTo, protocol.getProject());
+				res.addProperty(TOXBANK.HASPROJECT,project);
 			}			
 			if (protocol.getOrganisation() != null) {
 				if (protocol.getOrganisation().getResourceURL()==null)
 					throw new IllegalArgumentException(String.format(msg_InvalidURI, "organisation",res.getURI()));				
-				res.addProperty(TOXBANK.HASORGANISATION,
-					toAddTo.createResource(
-						protocol.getOrganisation().getResourceURL().toString()
-					)
-				);
-				organisationIO.toJena(toAddTo, protocol.getOrganisation());
+				Resource org = organisationIO.objectToJena(toAddTo, protocol.getOrganisation());
+				res.addProperty(TOXBANK.HASORGANISATION,org);
 			}
 
 			if (protocol.getOwner() != null) {
@@ -94,11 +85,8 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 				for (User author : authors) {
 					if (author.getResourceURL()==null)
 						throw new IllegalArgumentException(String.format(msg_InvalidURI, "author",res.getURI()));
-					res.addProperty(TOXBANK.HASAUTHOR,
-						toAddTo.createResource(
-							author.getResourceURL().toString()
-						)
-					);
+					Resource user = userIO.objectToJena(toAddTo,author);
+					res.addProperty(TOXBANK.HASAUTHOR,user);
 				}
 			
 			if (protocol.getDocument() != null) {
@@ -125,8 +113,8 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 					protocol.getLicense().toString()
 				));
 			}
-		}
-		return toAddTo;
+
+		return res;
 	}
 
 	public List<Protocol> fromJena(Model source) {
@@ -181,13 +169,7 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 			StmtIterator authors = res.listProperties(TOXBANK.HASAUTHOR);
 			while (authors.hasNext()) {
 				Resource authorRes = authors.next().getResource();
-				User author = new User();
-				try {
-					uri = authorRes.getURI();
-					author.setResourceURL(new URL(uri));
-				} catch (MalformedURLException e) {
-					throw new IllegalArgumentException(String.format(msg_InvalidURI,"an author",uri));
-				}
+				User author = userIO.fromJena(source, authorRes);
 				protocol.addAuthor(author);
 			}
 			if (res.getProperty(TOXBANK.HASPROJECT) != null) {

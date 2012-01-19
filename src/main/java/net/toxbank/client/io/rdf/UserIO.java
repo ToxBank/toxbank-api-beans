@@ -11,7 +11,6 @@ import net.toxbank.client.resource.Project;
 import net.toxbank.client.resource.User;
 
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.sparql.vocabulary.FOAF;
 import com.hp.hpl.jena.vocabulary.DCTerms;
@@ -22,11 +21,10 @@ public class UserIO extends AbstractIOClass<User> {
 	private OrganisationIO organisationIO;
 	private ProjectIO projectIO;
 
-	public Model toJena(Model toAddTo, User... users) {
-		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
-		if (users == null) return toAddTo;
+	@Override
+	public Resource objectToJena(Model toAddTo, User user)
+			throws IllegalArgumentException {
 
-		for (User user : users) {
 			if (user.getResourceURL() == null) {
 				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI,"user"));
 			}
@@ -46,7 +44,7 @@ public class UserIO extends AbstractIOClass<User> {
 				res.addLiteral(TOXBANK.HASTBACCOUNT, user.getUserName());		
 			if (user.getAccounts() != null) {
 				for (Account account : user.getAccounts()) {
-					accountIO.toJena(toAddTo, account);
+					accountIO.objectToJena(toAddTo, account);
 				}
 			}
 			//orgs
@@ -55,7 +53,7 @@ public class UserIO extends AbstractIOClass<User> {
 				for (Organisation org: user.getOrganisations()) {
 					if (org.getResourceURL()==null)
 						throw new IllegalArgumentException(String.format(msg_InvalidURI, "organisation",res.getURI()));			
-					organisationIO.toJena(toAddTo, org);
+					organisationIO.objectToJena(toAddTo, org);
 					toAddTo.createResource(org.getResourceURL().toString()).addProperty(TOXBANK.HASMEMBER,res);
 				}
 			}
@@ -65,12 +63,12 @@ public class UserIO extends AbstractIOClass<User> {
 				for (Project project: user.getProjects()) {
 					if (project.getResourceURL()==null)
 						throw new IllegalArgumentException(String.format(msg_InvalidURI, "project",res.getURI()));			
-					projectIO.toJena(toAddTo, project);
+					projectIO.objectToJena(toAddTo, project);
 					toAddTo.createResource(project.getResourceURL().toString()).addProperty(TOXBANK.HASPROJECTMEMBER,res);
 				}
 			}
-		}
-		return toAddTo;
+
+		return res;
 	}
 	public List<User> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();

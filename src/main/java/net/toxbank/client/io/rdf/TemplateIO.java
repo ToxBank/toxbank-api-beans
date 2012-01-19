@@ -8,24 +8,21 @@ import java.util.List;
 import net.toxbank.client.resource.Template;
 
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 public class TemplateIO extends AbstractIOClass<Template> {
 
-	public Model toJena(Model toAddTo, Template... accounts) {
-		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
-		if (accounts == null) return toAddTo;
+	@Override
+	public Resource objectToJena(Model toAddTo, Template template)
+			throws IllegalArgumentException {
 
-		for (Template template : accounts) {
 			if (template.getResourceURL() == null) {
 				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "templates"));
 			}
 			Resource res = toAddTo.createResource(template.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, TOXBANK.TEMPLATE);
-		}
-		return toAddTo;
+		return res;
 	}
 
 	public List<Template> fromJena(Model source) {

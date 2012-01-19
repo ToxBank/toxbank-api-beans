@@ -275,9 +275,13 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		Protocol protocol = new Protocol();
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
 		User bub = new User();
+		bub.setFirstname("B");
+		bub.setLastname("Bub");
 		bub.setResourceURL(new URL("http://example.org/testUser/B.Bub"));
 		protocol.addAuthor(bub);
 		User adder = new User();
+		adder.setFirstname("B");
+		adder.setLastname("Adder");
 		adder.setResourceURL(new URL("http://example.org/testUser/B.Adder"));
 		protocol.addAuthor(adder);
 
@@ -286,6 +290,11 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		ToxBankResourceSet<User> authors = roundtripped.getAuthors();
 		Assert.assertNotNull(authors);
 		Assert.assertEquals(2, authors.size());
+		
+		for (User author: authors) {
+			Assert.assertNotNull(author.getFirstname());
+			Assert.assertNotNull(author.getLastname());
+		}
 		
 		// we don't know the order
 		Assert.assertTrue(
