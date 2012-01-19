@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.io.rdf.ProjectIO
-	c288 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ProjectIO.html">
+	c308 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ProjectIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ProjectIO </td></tr>
 		</table></td></tr>
@@ -17,26 +17,28 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + ProjectIO() </td></tr>
-			<tr><td align="left"> + toJena(toAddTo : Model, projects : Project[]) : Model </td></tr>
+			<tr><td align="left"> + objectToJena(toAddTo : Model, project : Project) : Resource </td></tr>
 			<tr><td align="left"> + fromJena(source : Model) : List&lt;Project&gt; </td></tr>
+			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Project </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.io.rdf.IOClass<T extends net.toxbank.client.resource.IToxBankResource>
-	c290 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./IOClass.html">
+	// net.toxbank.client.io.rdf.AbstractIOClass<T extends net.toxbank.client.resource.IToxBankResource>
+	c315 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractIOClass.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> &laquo;interface&raquo; </td></tr>
-			<tr><td> IOClass&lt;T extends IToxBankResource&gt; </td></tr>
+			<tr><td><font face="ariali"> AbstractIOClass&lt;T extends IToxBankResource&gt; </font></td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + msg_ResourceWithoutURI : String </td></tr>
-			<tr><td align="left"> + msg_InvalidURI : String </td></tr>
+			<tr><td align="left">  </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td align="left"> + AbstractIOClass() </td></tr>
 			<tr><td align="left"> + toJena(toAddTo : Model, resources : T[]) : Model </td></tr>
-			<tr><td align="left"> + fromJena(source : Model) : List&lt;T&gt; </td></tr>
+			<tr><td align="left"><font face="ariali" point-size="10.0"> + objectToJena(toAddTo : Model, object : T) : Resource </font></td></tr>
+			<tr><td align="left"> # fromJena(source : Model, iter : ResIterator) : List&lt;T&gt; </td></tr>
+			<tr><td align="left"> # fromJena(source : Model, iter : NodeIterator) : List&lt;T&gt; </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	//net.toxbank.client.io.rdf.ProjectIO implements net.toxbank.client.io.rdf.IOClass<T extends net.toxbank.client.resource.IToxBankResource>
-	c290:p -> c288:p [dir=back,arrowtail=empty,style=dashed];
+	//net.toxbank.client.io.rdf.ProjectIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Project>
+	c315:p -> c308:p [dir=back,arrowtail=empty];
 }
 

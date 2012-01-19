@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.resource.ToxBankResourceSet<T>
-	c520 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ToxBankResourceSet.html">
+	c587 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ToxBankResourceSet.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ToxBankResourceSet&lt;T&gt; </td></tr>
 		</table></td></tr>
@@ -23,10 +23,11 @@ digraph G {
 			<tr><td align="left"> + getResourceURL() : URL </td></tr>
 			<tr><td align="left"> + setTitle(title : String) </td></tr>
 			<tr><td align="left"> + getTitle() : String </td></tr>
+			<tr><td align="left"> + toString() : String </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.IToxBankResource
-	c526 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./IToxBankResource.html">
+	c594 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./IToxBankResource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> IToxBankResource </td></tr>
@@ -42,11 +43,11 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.resource.ToxBankResourceSet<T> extends java.util.ArrayList<T>
-	c538:p -> c520:p [dir=back,arrowtail=empty];
+	c606:p -> c587:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.ToxBankResourceSet<T> implements net.toxbank.client.resource.IToxBankResource
-	c526:p -> c520:p [dir=back,arrowtail=empty,style=dashed];
+	c594:p -> c587:p [dir=back,arrowtail=empty,style=dashed];
 	// java.util.ArrayList<E>
-	c538 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/javase/6/docs/api/java/util/ArrayList.html">
+	c606 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/javase/6/docs/api/java/util/ArrayList.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ArrayList&lt;E&gt; </td></tr>
 		</table></td></tr>

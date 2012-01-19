@@ -1,13 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node1_0" href="./UserIO.html" title="&lt;TABLE&gt;" alt="" coords="15,193,323,298"/>
-<area shape="rect" id="node2_1" href="./TemplateIO.html" title="&lt;TABLE&gt;" alt="" coords="369,193,724,298"/>
-<area shape="rect" id="node3_2" href="./StudyIO.html" title="&lt;TABLE&gt;" alt="" coords="769,193,1095,298"/>
-<area shape="rect" id="node4_3" href="./ProtocolIO.html" title="&lt;TABLE&gt;" alt="" coords="1140,193,1489,298"/>
-<area shape="rect" id="node5_4" href="./ProjectIO.html" title="&lt;TABLE&gt;" alt="" coords="1535,193,1871,298"/>
-<area shape="rect" id="node6_5" href="./OrganisationIO.html" title="&lt;TABLE&gt;" alt="" coords="1916,193,2295,298"/>
-<area shape="rect" id="node7_6" href="./IOClass.html" title="&lt;TABLE&gt;" alt="" coords="1747,11,2061,133"/>
-<area shape="rect" id="node8_7" href="./DocumentIO.html" title="&lt;TABLE&gt;" alt="" coords="2341,193,2702,298"/>
-<area shape="rect" id="node9_8" href="./AssayIO.html" title="&lt;TABLE&gt;" alt="" coords="2748,193,3087,298"/>
-<area shape="rect" id="node10_9" href="./AlertIO.html" title="&lt;TABLE&gt;" alt="" coords="3133,193,3462,298"/>
-<area shape="rect" id="node11_10" href="./AccountIO.html" title="&lt;TABLE&gt;" alt="" coords="3508,193,3857,298"/>
+<area shape="rect" id="node1_0" href="./IOClass.html" title="&lt;TABLE&gt;" alt="" coords="42,11,355,149"/>
+<area shape="rect" id="node2_1" href="./AbstractIOClass.html" title="&lt;TABLE&gt;" alt="" coords="15,209,382,346"/>
 </map>

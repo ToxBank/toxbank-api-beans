@@ -24,8 +24,9 @@ digraph G {
 			<tr><td align="left"> + testGetSetLastname() </td></tr>
 			<tr><td align="left"> + testGetSetHomepage() </td></tr>
 			<tr><td align="left"> + testGetSetWeblog() </td></tr>
-			<tr><td align="left"> + testGetSetSeuratProject() </td></tr>
-			<tr><td align="left"> + testGetSetInstitute() </td></tr>
+			<tr><td align="left"> + testGetSetToxbankAccount() </td></tr>
+			<tr><td align="left"> + testGetSetProjects() </td></tr>
+			<tr><td align="left"> + testGetSetOrganisations() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.ToxBankResourceSetTest

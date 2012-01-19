@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.resource.Protocol
-	c612 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Protocol.html">
+	c685 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Protocol.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Protocol </td></tr>
 		</table></td></tr>
@@ -16,10 +16,15 @@ digraph G {
 			<tr><td align="left"> + id_prefix : String </td></tr>
 			<tr><td align="left"> + id_pattern : String </td></tr>
 			<tr><td align="left"> # version : int </td></tr>
+			<tr><td align="left"> # modified : Long </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + Protocol() </td></tr>
 			<tr><td align="left"> + Protocol(identifier : URL) </td></tr>
+			<tr><td align="left"> + getStatus() : Protocol.STATUS </td></tr>
+			<tr><td align="left"> + setStatus(status : Protocol.STATUS) </td></tr>
+			<tr><td align="left"> + getTimeModified() : Long </td></tr>
+			<tr><td align="left"> + setTimeModified(timeUpdated : Long) </td></tr>
 			<tr><td align="left"> + setLicense(license : URL) </td></tr>
 			<tr><td align="left"> + getLicense() : URL </td></tr>
 			<tr><td align="left"> + getDocument() : Document </td></tr>
@@ -34,8 +39,8 @@ digraph G {
 			<tr><td align="left"> + getPreviousVersion() : Protocol </td></tr>
 			<tr><td align="left"> + setSearchable(isSearchable : boolean) </td></tr>
 			<tr><td align="left"> + isSearchable() : boolean </td></tr>
-			<tr><td align="left"> + setSubmissionDate(submissionDate : String) </td></tr>
-			<tr><td align="left"> + getSubmissionDate() : String </td></tr>
+			<tr><td align="left"> + setSubmissionDate(submissionDate : long) </td></tr>
+			<tr><td align="left"> + getSubmissionDate() : long </td></tr>
 			<tr><td align="left"> + setInfo(info : String) </td></tr>
 			<tr><td align="left"> + getInfo() : String </td></tr>
 			<tr><td align="left"> + addKeyword(keyword : String) </td></tr>
@@ -55,7 +60,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AbstractToxBankResource
-	c621 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
+	c695 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractToxBankResource </font></td></tr>
 		</table></td></tr>
@@ -69,9 +74,10 @@ digraph G {
 			<tr><td align="left"> + getResourceURL() : URL </td></tr>
 			<tr><td align="left"> + setTitle(title : String) </td></tr>
 			<tr><td align="left"> + getTitle() : String </td></tr>
+			<tr><td align="left"> + toString() : String </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.resource.Protocol extends net.toxbank.client.resource.AbstractToxBankResource
-	c621:p -> c612:p [dir=back,arrowtail=empty];
+	c695:p -> c685:p [dir=back,arrowtail=empty];
 }
 

@@ -23,9 +23,13 @@ digraph G {
 			<tr><td align="left"> + testRoundtripTitle() </td></tr>
 			<tr><td align="left"> + testRoundtripHomepage() </td></tr>
 			<tr><td align="left"> + testRoundtripWeblog() </td></tr>
+			<tr><td align="left"> + testRoundtripUsername() </td></tr>
 			<tr><td align="left"> + testRoundtripTitle_Null() </td></tr>
 			<tr><td align="left"> + testRoundtripAccount() </td></tr>
 			<tr><td align="left"> + testRoundtripFirstName() </td></tr>
+			<tr><td align="left"> + testRoundtripProject() </td></tr>
+			<tr><td align="left"> + testRoundtripOrganisation() </td></tr>
+			<tr><td align="left"> + testRoundtripMultiUsers() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.TemplateIOTest
@@ -75,12 +79,15 @@ digraph G {
 			<tr><td align="left"> + testRoundtripLicense() </td></tr>
 			<tr><td align="left"> + testRoundtripResourceURI() </td></tr>
 			<tr><td align="left"> + testRoundtripTitle() </td></tr>
+			<tr><td align="left"> + testRoundtripTimestamp() </td></tr>
+			<tr><td align="left"> + testRoundtripStatus() </td></tr>
 			<tr><td align="left"> + testRoundtripTitle_Null() </td></tr>
 			<tr><td align="left"> + testRoundtripIdentifier() </td></tr>
 			<tr><td align="left"> + testRoundtripIdentifier_Null() </td></tr>
 			<tr><td align="left"> + testRoundtripAbstract() </td></tr>
 			<tr><td align="left"> + testRoundtripKeywords() </td></tr>
 			<tr><td align="left"> + testRoundtripOrganization() </td></tr>
+			<tr><td align="left"> + testRoundtripProject() </td></tr>
 			<tr><td align="left"> + testRoundtripOwner() </td></tr>
 			<tr><td align="left"> + testRoundtripAuthors() </td></tr>
 			<tr><td align="left"> + testRoundtripDocument() </td></tr>

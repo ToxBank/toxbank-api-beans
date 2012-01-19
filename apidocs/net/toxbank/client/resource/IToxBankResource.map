@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node1_0" href="./ToxBankResourceSet.html" title="&lt;TABLE&gt;" alt="" coords="15,310,289,479"/>
+<area shape="rect" id="node1_0" href="./ToxBankResourceSet.html" title="&lt;TABLE&gt;" alt="" coords="15,310,289,495"/>
 <area shape="rect" id="node2_1" href="./IToxBankResource.html" title="&lt;TABLE&gt;" alt="" coords="195,113,445,250"/>
-<area shape="rect" id="node3_2" href="./AbstractToxBankResource.html" title="&lt;TABLE&gt;" alt="" coords="334,318,642,471"/>
+<area shape="rect" id="node3_2" href="./AbstractToxBankResource.html" title="&lt;TABLE&gt;" alt="" coords="334,318,642,487"/>
 <area shape="rect" id="node5_3" href="http://java.sun.com/javase/6/docs/api/java/io/Serializable.html" title="&lt;TABLE&gt;" alt="" coords="276,11,364,53"/>
 </map>

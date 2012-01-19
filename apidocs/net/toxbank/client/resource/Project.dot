@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.resource.Project
-	c641 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Project.html">
+	c747 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Project.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Project </td></tr>
 		</table></td></tr>
@@ -21,7 +21,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.Group
-	c644 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Group.html">
+	c750 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Group.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Group </td></tr>
 		</table></td></tr>
@@ -35,6 +35,6 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.resource.Project extends net.toxbank.client.resource.Group
-	c644:p -> c641:p [dir=back,arrowtail=empty];
+	c750:p -> c747:p [dir=back,arrowtail=empty];
 }
 

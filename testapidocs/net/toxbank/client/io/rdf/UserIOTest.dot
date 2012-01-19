@@ -23,9 +23,13 @@ digraph G {
 			<tr><td align="left"> + testRoundtripTitle() </td></tr>
 			<tr><td align="left"> + testRoundtripHomepage() </td></tr>
 			<tr><td align="left"> + testRoundtripWeblog() </td></tr>
+			<tr><td align="left"> + testRoundtripUsername() </td></tr>
 			<tr><td align="left"> + testRoundtripTitle_Null() </td></tr>
 			<tr><td align="left"> + testRoundtripAccount() </td></tr>
 			<tr><td align="left"> + testRoundtripFirstName() </td></tr>
+			<tr><td align="left"> + testRoundtripProject() </td></tr>
+			<tr><td align="left"> + testRoundtripOrganisation() </td></tr>
+			<tr><td align="left"> + testRoundtripMultiUsers() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AbstractIOClassTest<T extends net.toxbank.client.resource.IToxBankResource>
