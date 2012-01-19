@@ -2,7 +2,6 @@ package net.toxbank.client.io.rdf;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,12 +9,11 @@ import net.toxbank.client.resource.Account;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.sparql.vocabulary.FOAF;
 import com.hp.hpl.jena.vocabulary.RDF;
 
-public class AccountIO implements IOClass<Account> {
+public class AccountIO extends AbstractIOClass<Account> {
 	public Model toJena(Model toAddTo, Account... accounts) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
 		if (accounts == null) return toAddTo;
@@ -36,14 +34,11 @@ public class AccountIO implements IOClass<Account> {
 
 	public List<Account> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();
-
-		ResIterator iter = source.listResourcesWithProperty(RDF.type, FOAF.OnlineAccount);
-		if (!iter.hasNext()) return Collections.emptyList();
-
-		List<Account> accounts = new ArrayList<Account>();
-		while (iter.hasNext()) {
+		return fromJena(source,source.listResourcesWithProperty(RDF.type, FOAF.OnlineAccount));
+	}
+	
+	public Account fromJena(Model source, Resource res) throws IllegalArgumentException {
 			Account account = new Account();
-			Resource res = iter.next();
 			try {
 				account.setResourceURL(
 					new URL(res.getURI())
@@ -56,10 +51,8 @@ public class AccountIO implements IOClass<Account> {
 				account.setAccountName(res.getProperty(FOAF.accountName).getString());
 			if (res.getProperty(FOAF.accountServiceHomepage) != null)
 				account.setService(res.getProperty(FOAF.accountServiceHomepage).getString());
-			accounts.add(account);
-		}
 
-		return accounts;
+		return account;
 	}
 
 }

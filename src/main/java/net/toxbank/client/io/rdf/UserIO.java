@@ -13,13 +13,13 @@ import net.toxbank.client.resource.User;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.sparql.vocabulary.FOAF;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
-public class UserIO implements IOClass<User> {
+public class UserIO extends AbstractIOClass<User> {
 	private AccountIO accountIO = new AccountIO();
 	private OrganisationIO organisationIO;
 	private ProjectIO projectIO;
@@ -74,18 +74,16 @@ public class UserIO implements IOClass<User> {
 		}
 		return toAddTo;
 	}
-
 	public List<User> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();
+		return fromJena(source,source.listResourcesWithProperty(RDF.type, FOAF.Person));
+	}
 
-		ResIterator iter = source.listResourcesWithProperty(RDF.type, FOAF.Person);
-		if (!iter.hasNext()) return Collections.emptyList();
-
-		List<User> users = new ArrayList<User>();
-		while (iter.hasNext()) {
-			User user = new User();
-			Resource res = iter.next();
+	public User fromJena(Model source, Resource res) {
+		if (source == null) return null;
+		User user = new User();
 			try {
+				
 				user.setResourceURL(
 					new URL(res.getURI())
 				);
@@ -142,10 +140,6 @@ public class UserIO implements IOClass<User> {
 			List<Organisation> orgs = organisationIO.fromJena(source,source.listResourcesWithProperty(TOXBANK.HASMEMBER,res));
 			user.setOrganisations(orgs);
 			
-			users.add(user);
-		}
-
-		return users;
-	}
-
+		return user;
+	}	
 }

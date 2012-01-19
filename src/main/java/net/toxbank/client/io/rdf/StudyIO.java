@@ -2,7 +2,6 @@ package net.toxbank.client.io.rdf;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -11,13 +10,12 @@ import net.toxbank.client.resource.Study;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
-public class StudyIO implements IOClass<Study> {
+public class StudyIO extends AbstractIOClass<Study> {
 
 	public Model toJena(Model toAddTo, Study... studies) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
@@ -48,17 +46,18 @@ public class StudyIO implements IOClass<Study> {
 		}
 		return toAddTo;
 	}
-
+	
 	public List<Study> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();
+		return fromJena(source,source.listResourcesWithProperty(RDF.type, TOXBANK.STUDY));
+	}
+	
+	@Override
+	public Study fromJena(Model source, Resource res)
+			throws IllegalArgumentException {
 
-		ResIterator iter = source.listResourcesWithProperty(RDF.type, TOXBANK.STUDY);
-		if (!iter.hasNext()) return Collections.emptyList();
-
-		List<Study> studies = new ArrayList<Study>();
-		while (iter.hasNext()) {
 			Study study = new Study();
-			Resource res = iter.next();
+
 			try {
 				study.setResourceURL(
 					new URL(res.getURI())
@@ -87,10 +86,8 @@ public class StudyIO implements IOClass<Study> {
 					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a study owner",uri));
 				}
 
-			studies.add(study);
-		}
 
-		return studies;
+		return study;
 	}
 
 }

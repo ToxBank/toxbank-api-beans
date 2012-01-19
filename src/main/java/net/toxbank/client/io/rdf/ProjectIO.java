@@ -2,7 +2,6 @@ package net.toxbank.client.io.rdf;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,12 +9,11 @@ import net.toxbank.client.resource.Project;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
-public class ProjectIO implements IOClass<Project> {
+public class ProjectIO extends AbstractIOClass<Project> {
 	public final String message =  "All projects must have resource URIs.";
 	public Model toJena(Model toAddTo, Project... projects) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
@@ -39,16 +37,10 @@ public class ProjectIO implements IOClass<Project> {
 		if (source == null) return Collections.emptyList();
 		return fromJena(source,source.listResourcesWithProperty(RDF.type, TOXBANK.PROJECT));
 	}
-	
-	public List<Project> fromJena(Model source, ResIterator iter) {
-		if (source == null) return Collections.emptyList();
-
-		if (!iter.hasNext()) return Collections.emptyList();
-
-		List<Project> projects = new ArrayList<Project>();
-		while (iter.hasNext()) {
+	@Override
+	public Project fromJena(Model source, Resource res)
+			throws IllegalArgumentException {
 			Project project = new Project();
-			Resource res = iter.next();
 			try {
 				project.setResourceURL(
 					new URL(res.getURI())
@@ -61,10 +53,7 @@ public class ProjectIO implements IOClass<Project> {
 			} catch (MalformedURLException e) {
 				throw new IllegalArgumentException(String.format(msg_InvalidURI,"a project",res.getURI()));
 			}
-			projects.add(project);
-		}
-
-		return projects;
+		return project;
 	}
 
 }

@@ -2,7 +2,6 @@ package net.toxbank.client.io.rdf;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,11 +9,10 @@ import net.toxbank.client.resource.Template;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
 
-public class TemplateIO implements IOClass<Template> {
+public class TemplateIO extends AbstractIOClass<Template> {
 
 	public Model toJena(Model toAddTo, Template... accounts) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
@@ -32,26 +30,23 @@ public class TemplateIO implements IOClass<Template> {
 
 	public List<Template> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();
-
-		ResIterator iter = source.listResourcesWithProperty(RDF.type, TOXBANK.TEMPLATE);
-		if (!iter.hasNext()) return Collections.emptyList();
-
-		List<Template> accounts = new ArrayList<Template>();
-		while (iter.hasNext()) {
+		return fromJena(source,source.listResourcesWithProperty(RDF.type, TOXBANK.TEMPLATE));
+	}
+	
+	@Override
+	public Template fromJena(Model source, Resource res)
+			throws IllegalArgumentException {
 			Template template = new Template();
-			Resource res = iter.next();
 			try {
 				template.setResourceURL(
 					new URL(res.getURI())
 				);
 			} catch (MalformedURLException e) {
-				throw new IllegalArgumentException(String.format(msg_InvalidURI,"an account",res.getURI())
+				throw new IllegalArgumentException(String.format(msg_InvalidURI,"a template",res.getURI())
 				);
 			}
-			accounts.add(template);
-		}
 
-		return accounts;
+		return template;
 	}
 
 }

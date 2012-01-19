@@ -2,7 +2,6 @@ package net.toxbank.client.io.rdf;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -17,15 +16,14 @@ import net.toxbank.client.resource.User;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
-public class ProtocolIO implements IOClass<Protocol> {
+public class ProtocolIO extends AbstractIOClass<Protocol> {
 	private OrganisationIO organisationIO = new OrganisationIO();
-	private OrganisationIO projectIO = new OrganisationIO();
+	private ProjectIO projectIO = new ProjectIO();
 
 	public Model toJena(Model toAddTo, Protocol... protocols) {
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
@@ -69,7 +67,7 @@ public class ProtocolIO implements IOClass<Protocol> {
 						protocol.getProject().getResourceURL().toString()
 					)
 				);
-				projectIO.toJena(toAddTo, protocol.getOrganisation());
+				projectIO.toJena(toAddTo, protocol.getProject());
 			}			
 			if (protocol.getOrganisation() != null) {
 				if (protocol.getOrganisation().getResourceURL()==null)
@@ -133,14 +131,12 @@ public class ProtocolIO implements IOClass<Protocol> {
 
 	public List<Protocol> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();
-
-		ResIterator iter = source.listResourcesWithProperty(RDF.type, TOXBANK.PROTOCOL);
-		if (!iter.hasNext()) return Collections.emptyList();
-
-		List<Protocol> protocols = new ArrayList<Protocol>();
-		while (iter.hasNext()) {
+		return fromJena(source,source.listResourcesWithProperty(RDF.type, TOXBANK.PROTOCOL));
+	}
+	@Override
+	public Protocol fromJena(Model source, Resource res)
+			throws IllegalArgumentException {
 			Protocol protocol = new Protocol();
-			Resource res = iter.next();
 			try {
 				protocol.setResourceURL(
 					new URL(res.getURI())
@@ -200,6 +196,9 @@ public class ProtocolIO implements IOClass<Protocol> {
 					uri = res.getProperty(TOXBANK.HASPROJECT).getResource().getURI();
 					project.setResourceURL(new URL(uri));
 					protocol.setProject(project);
+					
+					//List<Project> projects = projectIO.fromJena(source,source.listResourcesWithProperty(TOXBANK.HASPROJECT,res));
+					
 				} catch (MalformedURLException e) {
 					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a project",uri));
 				}
@@ -255,11 +254,7 @@ public class ProtocolIO implements IOClass<Protocol> {
 					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a license",res.getProperty(DCTerms.license).getObject())
 					);
 				}
-
-			protocols.add(protocol);
-		}
-
-		return protocols;
+		return protocol;
 	}
 
 }
