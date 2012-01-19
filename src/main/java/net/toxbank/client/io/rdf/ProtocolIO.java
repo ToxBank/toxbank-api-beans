@@ -190,30 +190,16 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 				}
 				protocol.addAuthor(author);
 			}
-			if (res.getProperty(TOXBANK.HASPROJECT) != null)
-				try {
-					Project project = new Project();
-					uri = res.getProperty(TOXBANK.HASPROJECT).getResource().getURI();
-					project.setResourceURL(new URL(uri));
-					protocol.setProject(project);
-					
-					//List<Project> projects = projectIO.fromJena(source,source.listResourcesWithProperty(TOXBANK.HASPROJECT,res));
-					
-				} catch (MalformedURLException e) {
-					throw new IllegalArgumentException(String.format(msg_InvalidURI,"a project",uri));
-				}
+			if (res.getProperty(TOXBANK.HASPROJECT) != null) {
+				Project project = projectIO.fromJena(source,res.getProperty(TOXBANK.HASPROJECT).getResource());
+				protocol.setProject(project);
+			}	
 				
-			if (res.getProperty(TOXBANK.HASORGANISATION) != null)
-				try {
-					Organisation org = new Organisation();
-					uri = res.getProperty(TOXBANK.HASORGANISATION).getResource().getURI();
-					org.setResourceURL(new URL(uri));
-					protocol.setOrganisation(org);
-				} catch (MalformedURLException e) {
-					throw new IllegalArgumentException(String.format(msg_InvalidURI,"an organisation",uri));
-				}
+			if (res.getProperty(TOXBANK.HASORGANISATION) != null) {
+				Organisation org  = organisationIO.fromJena(source,res.getProperty(TOXBANK.HASORGANISATION).getResource());
+				protocol.setOrganisation(org);
+			}
 			
-		
 			if (res.getProperty(TOXBANK.HASOWNER) != null)
 				try {
 					uri = res.getProperty(TOXBANK.HASOWNER).getResource().getURI();		

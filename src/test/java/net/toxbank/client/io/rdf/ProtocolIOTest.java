@@ -9,6 +9,7 @@ import java.util.List;
 import junit.framework.Assert;
 import net.toxbank.client.resource.Document;
 import net.toxbank.client.resource.Organisation;
+import net.toxbank.client.resource.Project;
 import net.toxbank.client.resource.Protocol;
 import net.toxbank.client.resource.Protocol.STATUS;
 import net.toxbank.client.resource.Template;
@@ -205,6 +206,8 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		Protocol protocol = new Protocol();
 		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
 		Organisation org = new Organisation();
+		org.setTitle("TEST");
+		org.setGroupName("test");		
 		org.setResourceURL(new URL("http://www.toxbank.net/"));
 		protocol.setOrganisation(org);
 
@@ -215,8 +218,41 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 			"http://www.toxbank.net/",
 			roundtripped.getOrganisation().getResourceURL().toString()
 		);
+		Assert.assertEquals(
+				"test",
+				roundtripped.getOrganisation().getGroupName()		
+			);
+			Assert.assertEquals(
+					"TEST",
+					roundtripped.getOrganisation().getTitle()		
+			);			
 	}
 
+	@Test
+	public void testRoundtripProject() throws MalformedURLException , IOException{
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		Project prj = new Project();
+		prj.setTitle("Project");
+		prj.setGroupName("project");
+		prj.setResourceURL(new URL("http://www.toxbank.net/"));
+		protocol.setProject(prj);
+
+		Protocol roundtripped = roundtripSingleResource(protocol);
+
+		Assert.assertNotNull(roundtripped.getProject());
+		Assert.assertEquals(
+			"http://www.toxbank.net/",
+			roundtripped.getProject().getResourceURL().toString());
+		Assert.assertEquals(
+			"project",
+			roundtripped.getProject().getGroupName()		
+		);
+		Assert.assertEquals(
+				"Project",
+				roundtripped.getProject().getTitle()		
+		);			
+	}	
 	@Test
 	public void testRoundtripOwner() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
