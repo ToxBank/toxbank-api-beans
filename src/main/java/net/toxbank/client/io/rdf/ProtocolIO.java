@@ -44,6 +44,11 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 			if (protocol.getTimeModified() != null)
 				res.addLiteral(DCTerms.modified, protocol.getTimeModified());
 			
+			if (protocol.getSubmissionDate() != null)
+				res.addLiteral(DCTerms.dateSubmitted, protocol.getSubmissionDate());
+			
+			res.addLiteral(TOXBANK.ISPUBLISHED, protocol.isPublished());
+						
 			if (protocol.getStatus() != null)
 				res.addLiteral(TOXBANK.HASSTATUS, protocol.getStatus().name());
 
@@ -142,13 +147,21 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 			} catch (Exception x) {
 				protocol.setVersion(0);
 			}
-			
+			try {
+				protocol.setPublished(res.getProperty(TOXBANK.ISPUBLISHED).getBoolean());
+			} catch (Exception x) {
+				protocol.setPublished(false);
+			}			
 			try {
 				protocol.setTimeModified(res.getProperty(DCTerms.modified).getLong());
 			} catch (Exception x) {
 				protocol.setTimeModified(null);
 			}
-			
+			try {
+				protocol.setSubmissionDate(res.getProperty(DCTerms.dateSubmitted).getLong());
+			} catch (Exception x) {
+				protocol.setSubmissionDate(null);
+			}			
 			if (res.getProperty(DCTerms.title) != null)
 				protocol.setTitle(res.getProperty(DCTerms.title).getString());
 			if (res.getProperty(TOXBANK.HASSTATUS) != null) try {

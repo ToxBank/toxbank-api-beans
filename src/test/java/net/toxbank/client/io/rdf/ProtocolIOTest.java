@@ -21,7 +21,8 @@ import org.junit.Test;
 import com.hp.hpl.jena.rdf.model.Model;
 
 public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
-
+	protected static final String exampleProtocol = "http://example.org/testProtocol/666";
+	
 	public ProtocolIO getIOClass() {
 		return new ProtocolIO();
 	}
@@ -77,10 +78,10 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripResourceURI() throws Exception {
 		Protocol testProtocol = new Protocol();
-		testProtocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		testProtocol.setResourceURL(new URL(exampleProtocol));
 		Protocol roundTrippedProtocol = roundtripSingleResource(testProtocol);
 		Assert.assertEquals(
-			"http://example.org/testProtocol/666",
+			exampleProtocol,
 			roundTrippedProtocol.getResourceURL().toString()
 		);
 	}
@@ -110,7 +111,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripTitle() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.setTitle("Title");
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
@@ -122,7 +123,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripTimestamp() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.setTimeModified(1326788365L);
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
@@ -131,9 +132,20 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	}
 	
 	@Test
+	public void testRoundtripSubmissionDate() throws MalformedURLException, IOException {
+		Protocol protocol = new Protocol();
+		protocol.setResourceURL(new URL(exampleProtocol));
+		protocol.setSubmissionDate(1326788365L);
+
+		Protocol roundtripped = roundtripSingleResource(protocol);
+
+		Assert.assertEquals(new Long(1326788365L),roundtripped.getSubmissionDate());
+	}
+	
+	@Test
 	public void testRoundtripStatus() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.setStatus(STATUS.SOP);
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
@@ -144,7 +156,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripTitle_Null() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.setTitle(null);
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
@@ -155,7 +167,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripIdentifier() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.setIdentifier("Title");
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
@@ -166,7 +178,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripIdentifier_Null() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.setIdentifier(null);
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
@@ -177,7 +189,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripAbstract() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.setAbstract("This is the funniest abstract ever!");
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
@@ -188,7 +200,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripKeywords() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.addKeyword("key");
 		protocol.addKeyword("word");
 
@@ -204,7 +216,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripOrganization() throws MalformedURLException , IOException{
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		Organisation org = new Organisation();
 		org.setTitle("TEST");
 		org.setGroupName("test");		
@@ -231,7 +243,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripProject() throws MalformedURLException , IOException{
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		Project prj = new Project();
 		prj.setTitle("Project");
 		prj.setGroupName("project");
@@ -256,7 +268,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripOwner() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		User owner = new User();
 		owner.setResourceURL(new URL("http://example.org/testUser/B.Bub"));
 		protocol.setOwner(owner);
@@ -273,7 +285,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripAuthors() throws MalformedURLException , IOException{
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		User bub = new User();
 		bub.setFirstname("B");
 		bub.setLastname("Bub");
@@ -313,7 +325,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripDocument() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		Document doc = new Document();
 		doc.setResourceURL(new URL("http://example.org/testDocument"));
 		protocol.setDocument(doc);
@@ -330,7 +342,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripDataTemplate() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		Template dataTemplate = new Template(new URL("http://example.org/testDataTemplate"));
 		protocol.setDataTemplate(dataTemplate);
 
@@ -346,7 +358,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	@Test
 	public void testRoundtripSearchableFlag() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.setSearchable(true);
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
@@ -358,7 +370,7 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	public void testRoundtripVersion() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
 		protocol.setVersion(78);
-		protocol.setResourceURL(new URL("http://example.org/testProtocol/666"));
+		protocol.setResourceURL(new URL(exampleProtocol));
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
 

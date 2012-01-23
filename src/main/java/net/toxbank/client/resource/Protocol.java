@@ -31,9 +31,18 @@ public class Protocol extends AbstractToxBankResource {
 	private String identifier;
 	private String abstrakt;
 	private String info;
-	private long submissionDate;
+	private Long submissionDate;
 	private boolean isSearchable = false;
 	private Protocol previousVersion;
+	private boolean isPublished = false;
+	public boolean isPublished() {
+		return isPublished;
+	}
+
+	public void setPublished(boolean isPublished) {
+		this.isPublished = isPublished;
+	}
+
 	private URL license;
 	protected Long modified;
 
@@ -109,11 +118,11 @@ public class Protocol extends AbstractToxBankResource {
 		return isSearchable;
 	}
 
-	public void setSubmissionDate(long submissionDate) {
+	public void setSubmissionDate(Long submissionDate) {
 		this.submissionDate = submissionDate;
 	}
 
-	public long getSubmissionDate() {
+	public Long getSubmissionDate() {
 		return submissionDate;
 	}
 
