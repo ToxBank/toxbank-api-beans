@@ -190,11 +190,11 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 	public void testRoundtripAbstract() throws MalformedURLException, IOException {
 		Protocol protocol = new Protocol();
 		protocol.setResourceURL(new URL(exampleProtocol));
-		protocol.setAbstract("This is the funniest abstract ever!");
+		protocol.setAbstract("This\u2122 is the funniest abstract ever!");
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
 
-		Assert.assertEquals("This is the funniest abstract ever!", roundtripped.getAbstract());
+		Assert.assertEquals("This\u2122 is the funniest abstract ever!", roundtripped.getAbstract());
 	}
 
 	@Test
