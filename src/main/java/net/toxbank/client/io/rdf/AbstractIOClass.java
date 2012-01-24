@@ -72,5 +72,14 @@ public abstract class AbstractIOClass<T extends IToxBankResource> implements IOC
 
 		return items;
 	}	
-
+	/**
+	 * to avoid "cannot encode (char)  in context XML" exception when writing to rdf/xml
+	 * @return
+	 */
+	protected String cleanLiteral(String m) {
+		for (int i=1; i < 7;i ++) {
+			if (m.indexOf((char)i)>=0) m=m.replace(((char)i),' ');
+		}
+		return m;
+	}
 }

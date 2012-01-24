@@ -55,9 +55,9 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 			if (protocol.getIdentifier() != null)
 				res.addLiteral(DCTerms.identifier, protocol.getIdentifier());
 			
-			if (protocol.getAbstract() != null)
-				res.addLiteral(TOXBANK.HASABSTRACT, protocol.getAbstract());
-			
+			if (protocol.getAbstract() != null) 
+				res.addLiteral(TOXBANK.HASABSTRACT, cleanLiteral(protocol.getAbstract()));
+
 			List<String> keywords = protocol.getKeywords();
 			if (keywords != null) {
 				for (String keyword : keywords)
