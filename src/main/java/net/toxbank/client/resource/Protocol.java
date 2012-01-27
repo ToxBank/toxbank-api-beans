@@ -32,14 +32,15 @@ public class Protocol extends AbstractToxBankResource {
 	private String abstrakt;
 	private String info;
 	private Long submissionDate;
-	private boolean isSearchable = false;
+	private Boolean isSearchable = false;
 	private Protocol previousVersion;
-	private boolean isPublished = false;
-	public boolean isPublished() {
+	private Boolean isPublished = null;
+	
+	public Boolean isPublished() {
 		return isPublished;
 	}
 
-	public void setPublished(boolean isPublished) {
+	public void setPublished(Boolean isPublished) {
 		this.isPublished = isPublished;
 	}
 
@@ -110,11 +111,11 @@ public class Protocol extends AbstractToxBankResource {
 		return previousVersion;
 	}
 
-	public void setSearchable(boolean isSearchable) {
+	public void setSearchable(Boolean isSearchable) {
 		this.isSearchable = isSearchable;
 	}
 
-	public boolean isSearchable() {
+	public Boolean isSearchable() {
 		return isSearchable;
 	}
 

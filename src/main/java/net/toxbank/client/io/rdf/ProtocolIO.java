@@ -34,7 +34,9 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 			}
 			Resource res = toAddTo.createResource(protocol.getResourceURL().toString());
 			toAddTo.add(res, RDF.type, TOXBANK.PROTOCOL);
-			res.addLiteral(TOXBANK.ISSUMMARYSEARCHABLE, protocol.isSearchable());
+			
+			if (protocol.isSearchable()!=null)
+				res.addLiteral(TOXBANK.ISSUMMARYSEARCHABLE, protocol.isSearchable());
 			
 			res.addLiteral(TOXBANK.HASVERSIONINFO, protocol.getVersion());
 			
@@ -47,7 +49,8 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 			if (protocol.getSubmissionDate() != null)
 				res.addLiteral(DCTerms.dateSubmitted, protocol.getSubmissionDate());
 			
-			res.addLiteral(TOXBANK.ISPUBLISHED, protocol.isPublished());
+			if (protocol.isPublished() != null)
+				res.addLiteral(TOXBANK.ISPUBLISHED, protocol.isPublished());
 						
 			if (protocol.getStatus() != null)
 				res.addLiteral(TOXBANK.HASSTATUS, protocol.getStatus().name());
@@ -150,7 +153,7 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 			try {
 				protocol.setPublished(res.getProperty(TOXBANK.ISPUBLISHED).getBoolean());
 			} catch (Exception x) {
-				protocol.setPublished(false);
+				protocol.setPublished(null);
 			}			
 			try {
 				protocol.setTimeModified(res.getProperty(DCTerms.modified).getLong());
