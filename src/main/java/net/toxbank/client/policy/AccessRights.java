@@ -11,7 +11,15 @@ import java.util.List;
  *
  */
 public class AccessRights {
-	
+	protected String policyID;
+
+	public String getPolicyID() {
+		return policyID;
+	}
+	public void setPolicyID(String policyID) {
+		this.policyID = policyID;
+	}
+
 	protected URL resource;
 	protected List<PolicyRule> rules;
 	
@@ -52,5 +60,12 @@ public class AccessRights {
 	public AccessRights(URL resource,PolicyRule rule) {
 		setResource(resource);
 		if (rule !=null) addRule(rule);
+	}
+	
+
+	@Override
+	public String toString() {
+		
+		return String.format("%s\t%s\n%s\n",getPolicyID()==null?"":getPolicyID(),getResource(),rules);
 	}
 }
