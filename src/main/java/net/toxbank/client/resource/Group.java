@@ -1,5 +1,7 @@
 package net.toxbank.client.resource;
 
+import java.net.URL;
+
 /**
  * Common ancestor for {@link Organisation} and {@link Project}
  */
@@ -11,6 +13,15 @@ public class Group extends AbstractToxBankResource {
 	private static final long serialVersionUID = -6788788684779974881L;
 
 	private String groupName;
+	private URL cluster;
+
+	public URL getCluster() {
+		return cluster;
+	}
+
+	public void setCluster(URL cluster) {
+		this.cluster = cluster;
+	}
 
 	public String getGroupName() {
 		return groupName;

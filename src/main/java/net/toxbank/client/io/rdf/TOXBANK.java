@@ -10,7 +10,8 @@ import com.hp.hpl.jena.rdf.model.ResourceFactory;
 public class TOXBANK {
 
 	public static final String URI ="http://onto.toxbank.net/api/";
-
+	public static final String SEURAT1 = "SEURAT-1";
+	
     private static final Resource resource(String local) {
         return ResourceFactory.createResource(URI + local);
     }
@@ -18,12 +19,13 @@ public class TOXBANK {
     private static final Property property(String local) {
         return ResourceFactory.createProperty(URI, local);
     }
-
+    //TODO consider http://www.w3.org/ns/org#
     public static final Resource ORGANIZATION = resource("Organization");
     public static final Resource PARAMETER = resource("Parameter");
     public static final Resource PROJECT = resource("Project");
     public static final Resource PROTOCOL = resource("Protocol");
     public static final Resource STUDY = resource("Study");
+    //TODO consider http://dvcs.w3.org/hg/gld/people/
     public static final Resource USER = resource("User");
     public static final Resource ALERT = resource("Alert");
     public static final Resource ASSAY = resource("Assay");
@@ -45,4 +47,6 @@ public class TOXBANK {
     public static final Property HASMEMBER = property("hasMember");
     public static final Property HASTBACCOUNT = property("hasAccount");
     public static final Property ISPUBLISHED = property("isPublished");
+    public static final Property SUBORGANISATIONOF = property("subOrganisationOf");
+    
 }

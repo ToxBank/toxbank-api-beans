@@ -9,6 +9,7 @@ import net.toxbank.client.resource.Project;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.ResourceFactory;
 import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
@@ -27,6 +28,11 @@ public class ProjectIO extends AbstractIOClass<Project> {
 		if (project.getGroupName() != null)
 			res.addLiteral(TOXBANK.HASTBACCOUNT, project.getGroupName());			
 		toAddTo.add(res, RDF.type, TOXBANK.PROJECT);
+		
+		if (project.getCluster() != null) {
+			Resource cluster =  ResourceFactory.createResource(project.getCluster().toExternalForm()); 
+			res.addProperty(TOXBANK.SUBORGANISATIONOF,cluster);
+		}
 		return res;
 	}
 
@@ -47,6 +53,12 @@ public class ProjectIO extends AbstractIOClass<Project> {
 				
 				if (res.getProperty(TOXBANK.HASTBACCOUNT) != null)
 					project.setGroupName(res.getProperty(TOXBANK.HASTBACCOUNT).getString());
+				
+				if (res.getProperty(TOXBANK.SUBORGANISATIONOF) != null) try {
+					Resource cluster = res.getPropertyResourceValue(TOXBANK.SUBORGANISATIONOF);
+					project.setCluster(new URL(cluster.getURI()));
+				} catch (Exception x) {project.setCluster(null);}
+
 			} catch (MalformedURLException e) {
 				throw new IllegalArgumentException(String.format(msg_InvalidURI,"a project",res.getURI()));
 			}

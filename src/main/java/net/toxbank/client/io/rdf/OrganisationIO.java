@@ -9,6 +9,7 @@ import net.toxbank.client.resource.Organisation;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.ResourceFactory;
 import com.hp.hpl.jena.vocabulary.DCTerms;
 import com.hp.hpl.jena.vocabulary.RDF;
 
@@ -26,6 +27,7 @@ public class OrganisationIO extends AbstractIOClass<Organisation> {
 			res.addLiteral(DCTerms.title, org.getTitle());
 		if (org.getGroupName() != null)
 			res.addLiteral(TOXBANK.HASTBACCOUNT, org.getGroupName());
+
 		return res;
 	}
 	public List<Organisation> fromJena(Model source) {
