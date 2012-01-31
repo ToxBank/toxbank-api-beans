@@ -10,7 +10,13 @@ import net.toxbank.client.resource.IToxBankResource;
  *
  */
 public class PolicyRule<T extends IToxBankResource> {
-
+	protected String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	protected T subject;
 
 	public enum Method {
@@ -91,7 +97,7 @@ public class PolicyRule<T extends IToxBankResource> {
 	public String[] getActionsAsArray() {
 		ArrayList<String> a = new ArrayList<String>();
 		for (Method method : Method.values()) {
-			if (actions[method.ordinal()]) a.add(method.toString());
+			if (actions[method.ordinal()]) a.add(method.name());
 		}
 		return a.toArray(new String[a.size()]);
 	}
