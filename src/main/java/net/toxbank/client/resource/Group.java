@@ -30,4 +30,11 @@ public class Group extends AbstractToxBankResource {
 	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s (%s)", 
+				getTitle()==null?"":getTitle(),
+				getGroupName()==null?"":getGroupName());
+	}
 }

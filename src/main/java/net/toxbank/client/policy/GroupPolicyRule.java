@@ -38,4 +38,16 @@ public class GroupPolicyRule<GROUP extends Group> extends PolicyRule<GROUP> {
 	public GroupPolicyRule(GROUP subject,Boolean get,Boolean post, Boolean put, Boolean delete) {
 		super(subject,get,post,put,delete);
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s\tGroup=%s\tGET=%s\tPOST=%s\tPUT=%s\tDELETE=%s\n", 
+					getName()==null?"":getName(),
+					getSubject().getGroupName()==null?getSubject().getResourceURL():getSubject().getGroupName(),
+					allowsGET()==null?"":allowsGET(),
+					allowsPOST()==null?"":allowsPOST(),
+					allowsPUT()==null?"":allowsPUT(), 
+					allowsDELETE()==null?"":allowsDELETE()
+					);
+	}
 }

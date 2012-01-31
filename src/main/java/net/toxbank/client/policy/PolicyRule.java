@@ -66,7 +66,7 @@ public class PolicyRule<T extends IToxBankResource> {
 			return allows(Method.valueOf(method));
 		} catch (Exception x) { return null;}
 	}
-	private void setAllow(Method method, Boolean value) {
+	public void setAllow(Method method, Boolean value) {
 		actions[method.ordinal()] = value;
 	}
 	public Boolean allowsGET() {
@@ -88,7 +88,7 @@ public class PolicyRule<T extends IToxBankResource> {
 	public void setAllowPUT(Boolean allow) {
 		setAllow(Method.POST,allow);
 	}
-	public boolean allowsDELETE() {
+	public Boolean allowsDELETE() {
 		return allows(Method.DELETE);
 	}
 	public void setAllowDELETE(Boolean allow) {
@@ -100,5 +100,17 @@ public class PolicyRule<T extends IToxBankResource> {
 			if (actions[method.ordinal()]) a.add(method.name());
 		}
 		return a.toArray(new String[a.size()]);
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s\t%s\tGET=%s\tPOST=%s\tPUT=%s\tDELETE=%s\n", 
+					getName()==null?"":getName(),
+					getSubject().getResourceURL()==null?getSubject():getSubject().getResourceURL(), 
+					allowsGET()==null?"":allowsGET(),
+					allowsPOST()==null?"":allowsPOST(),
+					allowsPUT()==null?"":allowsPUT(), 
+					allowsDELETE()==null?"":allowsDELETE()
+					);
 	}
 }

@@ -39,4 +39,16 @@ public class UserPolicyRule<USER extends User> extends PolicyRule<USER> {
 	public UserPolicyRule(USER subject,Boolean get,Boolean post, Boolean put, Boolean delete) {
 		super(subject,get,post,put,delete);
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s\tUser=%s\tGET=%s\tPOST=%s\tPUT=%s\tDELETE=%s\n", 
+					getName()==null?"":getName(),
+					getSubject().getUserName()==null?getSubject().getResourceURL():getSubject().getUserName(),
+					allowsGET()==null?"":allowsGET(),
+					allowsPOST()==null?"":allowsPOST(),
+					allowsPUT()==null?"":allowsPUT(), 
+					allowsDELETE()==null?"":allowsDELETE()
+					);
+	}
 }

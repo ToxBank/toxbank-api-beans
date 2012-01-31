@@ -128,4 +128,12 @@ public class User extends AbstractToxBankResource {
 	public URL getWeblog() {
 		return weblog;
 	}
+	@Override
+	public String toString() {
+		return String.format("%s %s %s (%s)", 
+				getTitle()==null?"":getTitle(),
+				getFirstname()==null?"":getFirstname(),
+				getLastname()==null?"":getLastname(),
+				getUserName()==null?"":getUserName());
+	}
 }
