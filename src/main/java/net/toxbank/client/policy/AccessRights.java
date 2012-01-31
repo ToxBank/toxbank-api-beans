@@ -10,7 +10,7 @@ import java.util.List;
  * @author nina
  *
  */
-public class Policy {
+public class AccessRights {
 	
 	protected URL resource;
 	protected List<PolicyRule> rules;
@@ -41,7 +41,7 @@ public class Policy {
 		this.resource = resource;
 	}
 
-	public Policy(URL resource) {
+	public AccessRights(URL resource) {
 		this(resource,null);
 	}
 	/**
@@ -49,7 +49,7 @@ public class Policy {
 	 * @param resource
 	 * @param rule
 	 */
-	public Policy(URL resource,PolicyRule rule) {
+	public AccessRights(URL resource,PolicyRule rule) {
 		setResource(resource);
 		if (rule !=null) addRule(rule);
 	}
