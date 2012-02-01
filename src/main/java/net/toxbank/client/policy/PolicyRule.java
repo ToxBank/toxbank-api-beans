@@ -19,7 +19,7 @@ public class PolicyRule<T extends IToxBankResource> {
 	}
 	protected T subject;
 
-	public enum Method {
+	private enum Method {
 		GET,PUT,POST,DELETE
 		//,HEAD,OPTIONS
 	}
@@ -66,6 +66,9 @@ public class PolicyRule<T extends IToxBankResource> {
 			return allows(Method.valueOf(method));
 		} catch (Exception x) { return null;}
 	}
+	public void setAllow(String method, Boolean value) {
+		actions[Method.valueOf(method).ordinal()] = value;
+	}
 	public void setAllow(Method method, Boolean value) {
 		actions[method.ordinal()] = value;
 	}
@@ -97,6 +100,7 @@ public class PolicyRule<T extends IToxBankResource> {
 	public String[] getActionsAsArray() {
 		ArrayList<String> a = new ArrayList<String>();
 		for (Method method : Method.values()) {
+			if (actions[method.ordinal()]==null) continue;
 			if (actions[method.ordinal()]) a.add(method.name());
 		}
 		return a.toArray(new String[a.size()]);
