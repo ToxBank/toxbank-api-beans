@@ -86,7 +86,7 @@ public class PolicyRule<T extends IToxBankResource> {
 		return allows(Method.PUT);
 	}
 	public void setAllowPUT(Boolean allow) {
-		setAllow(Method.POST,allow);
+		setAllow(Method.PUT,allow);
 	}
 	public Boolean allowsDELETE() {
 		return allows(Method.DELETE);
