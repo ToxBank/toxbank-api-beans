@@ -30,7 +30,7 @@ public class ProjectIO extends AbstractIOClass<Project> {
 		toAddTo.add(res, RDF.type, TOXBANK.PROJECT);
 		
 		if (project.getCluster() != null) {
-			Resource cluster =  ResourceFactory.createResource(project.getCluster().toExternalForm()); 
+			Resource cluster =  toAddTo.createResource(project.getCluster().toExternalForm()); 
 			res.addProperty(TOXBANK.SUBORGANISATIONOF,cluster);
 		}
 		return res;
