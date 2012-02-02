@@ -27,6 +27,7 @@ digraph G {
 			<tr><td align="left"> + testGetSetOwner() </td></tr>
 			<tr><td align="left"> + testGetSetInfo() </td></tr>
 			<tr><td align="left"> + testGetSetSubmissionDate() </td></tr>
+			<tr><td align="left"> + testGetSetPublishedFlag() </td></tr>
 			<tr><td align="left"> + testGetSetIsSearchable() </td></tr>
 			<tr><td align="left"> + testGetSetDocument() </td></tr>
 			<tr><td align="left"> + testGetSetDataTemplate() </td></tr>

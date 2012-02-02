@@ -19,6 +19,7 @@ digraph G {
 			<tr><td align="left"> + ProjectIOTest() </td></tr>
 			<tr><td align="left"> + getIOClass() : ProjectIO </td></tr>
 			<tr><td align="left"> + testRoundtripResourceURI() </td></tr>
+			<tr><td align="left"> + testRoundtripWithSuborganisation() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AbstractIOClassTest<T extends net.toxbank.client.resource.IToxBankResource>

@@ -27,6 +27,7 @@ digraph G {
 			<tr><td align="left"> + testGetSetToxbankAccount() </td></tr>
 			<tr><td align="left"> + testGetSetProjects() </td></tr>
 			<tr><td align="left"> + testGetSetOrganisations() </td></tr>
+			<tr><td align="left"> + testEquals() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AbstractToxBankResourceTest

@@ -70,7 +70,7 @@ digraph G {
 			<tr><td> ProtocolIOTest </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
+			<tr><td align="left"> # exampleProtocol : String </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + ProtocolIOTest() </td></tr>
@@ -80,6 +80,7 @@ digraph G {
 			<tr><td align="left"> + testRoundtripResourceURI() </td></tr>
 			<tr><td align="left"> + testRoundtripTitle() </td></tr>
 			<tr><td align="left"> + testRoundtripTimestamp() </td></tr>
+			<tr><td align="left"> + testRoundtripSubmissionDate() </td></tr>
 			<tr><td align="left"> + testRoundtripStatus() </td></tr>
 			<tr><td align="left"> + testRoundtripTitle_Null() </td></tr>
 			<tr><td align="left"> + testRoundtripIdentifier() </td></tr>
@@ -108,6 +109,7 @@ digraph G {
 			<tr><td align="left"> + ProjectIOTest() </td></tr>
 			<tr><td align="left"> + getIOClass() : ProjectIO </td></tr>
 			<tr><td align="left"> + testRoundtripResourceURI() </td></tr>
+			<tr><td align="left"> + testRoundtripWithSuborganisation() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.OrganisationIOTest
