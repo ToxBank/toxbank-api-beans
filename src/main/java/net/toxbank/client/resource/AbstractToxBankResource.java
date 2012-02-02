@@ -38,4 +38,10 @@ public abstract class AbstractToxBankResource implements IToxBankResource {
 	public String toString() {
 		return getResourceURL()==null?super.toString():getResourceURL().toString();
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if ((obj!=null) && (obj instanceof IToxBankResource)) {
+			return resourceURL.equals(((IToxBankResource)obj).getResourceURL());
+		} else return false;
+	}
 }

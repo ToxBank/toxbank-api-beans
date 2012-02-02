@@ -88,4 +88,15 @@ public class UserTest extends AbstractToxBankResourceTest {
 		Assert.assertEquals(karolinska, user.getOrganisations().get(0));
 	}
 
+	@Test
+	public void testEquals() throws MalformedURLException {
+		User user1 = new User(new URL("http://example.com/USER1"));
+		User user2 = new User(new URL("http://example.com/USER2"));
+		User user3 = new User(new URL("http://example.com/USER2"));
+		User user4 = new User();
+		Assert.assertNotSame(user1,user2);
+		Assert.assertNotSame(user3,user2);
+		Assert.assertNotSame(user1,user4);
+		Assert.assertNotSame(user4,user3);
+	}
 }

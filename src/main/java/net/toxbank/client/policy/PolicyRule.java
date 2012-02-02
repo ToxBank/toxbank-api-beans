@@ -117,4 +117,8 @@ public class PolicyRule<T extends IToxBankResource> {
 					allowsDELETE()==null?"":allowsDELETE()
 					);
 	}
+	
+	public boolean hasSubject(T subject) {
+		return this.subject.equals(subject);
+	}
 }
