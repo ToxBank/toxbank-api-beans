@@ -1,3 +1,4 @@
 net.toxbank.client
 net.toxbank.client.io.rdf
+net.toxbank.client.policy
 net.toxbank.client.resource

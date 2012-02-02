@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.Resources
-	c89 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Resources.html">
+	c50 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Resources.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Resources </td></tr>
 		</table></td></tr>
@@ -19,6 +19,7 @@ digraph G {
 			<tr><td align="left"> + organisation : String </td></tr>
 			<tr><td align="left"> + user : String </td></tr>
 			<tr><td align="left"> + versions : String </td></tr>
+			<tr><td align="left"> + previous : String </td></tr>
 			<tr><td align="left"> + authors : String </td></tr>
 			<tr><td align="left"> + document : String </td></tr>
 		</table></td></tr>

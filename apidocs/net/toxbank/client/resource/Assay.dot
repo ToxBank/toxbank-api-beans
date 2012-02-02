@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.resource.Assay
-	c903 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Assay.html">
+	c1372 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Assay.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Assay </td></tr>
 		</table></td></tr>
@@ -20,7 +20,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AbstractToxBankResource
-	c906 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
+	c1375 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractToxBankResource </font></td></tr>
 		</table></td></tr>
@@ -35,9 +35,10 @@ digraph G {
 			<tr><td align="left"> + setTitle(title : String) </td></tr>
 			<tr><td align="left"> + getTitle() : String </td></tr>
 			<tr><td align="left"> + toString() : String </td></tr>
+			<tr><td align="left"> + equals(obj : Object) : boolean </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.resource.Assay extends net.toxbank.client.resource.AbstractToxBankResource
-	c906:p -> c903:p [dir=back,arrowtail=empty];
+	c1375:p -> c1372:p [dir=back,arrowtail=empty];
 }
 

@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.io.rdf.AlertIO
-	c463 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AlertIO.html">
+	c589 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AlertIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> AlertIO </td></tr>
 		</table></td></tr>
@@ -23,7 +23,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AbstractIOClass<T extends net.toxbank.client.resource.IToxBankResource>
-	c465 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractIOClass.html">
+	c591 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractIOClass.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractIOClass&lt;T extends IToxBankResource&gt; </font></td></tr>
 		</table></td></tr>
@@ -36,9 +36,10 @@ digraph G {
 			<tr><td align="left"><font face="ariali" point-size="10.0"> + objectToJena(toAddTo : Model, object : T) : Resource </font></td></tr>
 			<tr><td align="left"> # fromJena(source : Model, iter : ResIterator) : List&lt;T&gt; </td></tr>
 			<tr><td align="left"> # fromJena(source : Model, iter : NodeIterator) : List&lt;T&gt; </td></tr>
+			<tr><td align="left"> # cleanLiteral(m : String) : String </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.io.rdf.AlertIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Alert>
-	c465:p -> c463:p [dir=back,arrowtail=empty];
+	c591:p -> c589:p [dir=back,arrowtail=empty];
 }
 

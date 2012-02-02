@@ -8,12 +8,13 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.io.rdf.TOXBANK
-	c153 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./TOXBANK.html">
+	c219 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./TOXBANK.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> TOXBANK </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + URI : String </td></tr>
+			<tr><td align="left"> + SEURAT1 : String </td></tr>
 			<tr><td align="left"> + ORGANIZATION : Resource </td></tr>
 			<tr><td align="left"> + PARAMETER : Resource </td></tr>
 			<tr><td align="left"> + PROJECT : Resource </td></tr>
@@ -38,6 +39,8 @@ digraph G {
 			<tr><td align="left"> + HASPROJECTMEMBER : Property </td></tr>
 			<tr><td align="left"> + HASMEMBER : Property </td></tr>
 			<tr><td align="left"> + HASTBACCOUNT : Property </td></tr>
+			<tr><td align="left"> + ISPUBLISHED : Property </td></tr>
+			<tr><td align="left"> + SUBORGANISATIONOF : Property </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + TOXBANK() </td></tr>

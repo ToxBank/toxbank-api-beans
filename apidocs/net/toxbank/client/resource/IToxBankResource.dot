@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.resource.ToxBankResourceSet<T>
-	c802 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ToxBankResourceSet.html">
+	c1253 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ToxBankResourceSet.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ToxBankResourceSet&lt;T&gt; </td></tr>
 		</table></td></tr>
@@ -27,7 +27,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.IToxBankResource
-	c809 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./IToxBankResource.html">
+	c1260 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./IToxBankResource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> IToxBankResource </td></tr>
@@ -43,7 +43,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AbstractToxBankResource
-	c815 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
+	c1266 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractToxBankResource </font></td></tr>
 		</table></td></tr>
@@ -58,16 +58,17 @@ digraph G {
 			<tr><td align="left"> + setTitle(title : String) </td></tr>
 			<tr><td align="left"> + getTitle() : String </td></tr>
 			<tr><td align="left"> + toString() : String </td></tr>
+			<tr><td align="left"> + equals(obj : Object) : boolean </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.resource.ToxBankResourceSet<T> implements net.toxbank.client.resource.IToxBankResource
-	c809:p -> c802:p [dir=back,arrowtail=empty,style=dashed];
+	c1260:p -> c1253:p [dir=back,arrowtail=empty,style=dashed];
 	//net.toxbank.client.resource.IToxBankResource implements java.io.Serializable
-	c817:p -> c809:p [dir=back,arrowtail=empty,style=dashed];
+	c1267:p -> c1260:p [dir=back,arrowtail=empty,style=dashed];
 	//net.toxbank.client.resource.AbstractToxBankResource implements net.toxbank.client.resource.IToxBankResource
-	c809:p -> c815:p [dir=back,arrowtail=empty,style=dashed];
+	c1260:p -> c1266:p [dir=back,arrowtail=empty,style=dashed];
 	// java.io.Serializable
-	c817 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/javase/6/docs/api/java/io/Serializable.html">
+	c1267 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="http://java.sun.com/j2se/1.4.2/docs/api/java/io/Serializable.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> Serializable </td></tr>
