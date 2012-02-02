@@ -120,6 +120,10 @@ public class AccessRights {
 		this.resource = resource;
 	}
 
+	public AccessRights() {
+		this(null,null);
+	}
+	
 	public AccessRights(URL resource) {
 		this(resource,null);
 	}
