@@ -33,7 +33,6 @@ public class Protocol extends AbstractToxBankResource {
 	private String info;
 	private Long submissionDate;
 	private Boolean isSearchable = false;
-	private Protocol previousVersion;
 	private Boolean isPublished = null;
 	
 	public Boolean isPublished() {
@@ -101,14 +100,6 @@ public class Protocol extends AbstractToxBankResource {
 
 	public void setProject(Project project) {
 		this.project = project;
-	}
-
-	public void setPreviousVersion(Protocol previousVersion) {
-		this.previousVersion = previousVersion;
-	}
-
-	public Protocol getPreviousVersion() {
-		return previousVersion;
 	}
 
 	public void setSearchable(Boolean isSearchable) {
