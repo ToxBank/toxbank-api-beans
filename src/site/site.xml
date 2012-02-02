@@ -2,7 +2,7 @@
 <project name="TOXBANK">
   <bannerLeft>
     <name>ToxBank software</name>
-    <src>./images/tb.jpg</src>
+    <src>./images/toxbank_rgb-72.png</src>
     <href>index.html</href>
   </bannerLeft>
   <bannerRight>
