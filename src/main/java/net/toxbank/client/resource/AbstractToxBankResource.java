@@ -41,6 +41,7 @@ public abstract class AbstractToxBankResource implements IToxBankResource {
 	@Override
 	public boolean equals(Object obj) {
 		if ((obj!=null) && (obj instanceof IToxBankResource)) {
+			if (resourceURL==null) return this == obj;
 			return resourceURL.equals(((IToxBankResource)obj).getResourceURL());
 		} else return false;
 	}
