@@ -17,6 +17,7 @@ public class Serializer {
 		model.setNsPrefix("tb", TOXBANK.URI);
 		model.setNsPrefix("dcterms", DCTerms.getURI());
 		model.setNsPrefix("xsd", XSD.getURI());
+		model.setNsPrefix("ncal",NCAL.URI);
 		model.write(output, "RDF/XML-ABBREV");
 	}
 
@@ -24,6 +25,7 @@ public class Serializer {
 		model.setNsPrefix("tb", TOXBANK.URI);
 		model.setNsPrefix("dcterms", DCTerms.getURI());
 		model.setNsPrefix("xsd", XSD.getURI());
+		model.setNsPrefix("ncal",NCAL.URI);
 		model.write(output, "TURTLE");
 	}
 }
