@@ -75,8 +75,14 @@
     	<groupId>com.hp.hpl.jena</groupId>
     	<artifactId>arq-extra</artifactId>
     	<version>2.7.0</version>
-    </dependency>        
-
+    </dependency>    
+    <!--  
+	<dependency>
+		<groupId>ical4j</groupId>
+		<artifactId>ical4j</artifactId>
+		<version>0.9.20</version>
+	</dependency>
+	 -->
   </dependencies>
   <properties>
     <junit.version>4.8.1</junit.version>
