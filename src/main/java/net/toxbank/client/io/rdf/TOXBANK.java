@@ -24,6 +24,7 @@ public class TOXBANK {
     public static final Resource PARAMETER = resource("Parameter");
     public static final Resource PROJECT = resource("Project");
     public static final Resource PROTOCOL = resource("Protocol");
+    public static final Resource INVESTIGATION = resource("Investigation");
     public static final Resource STUDY = resource("Study");
     //TODO consider http://dvcs.w3.org/hg/gld/people/
     public static final Resource USER = resource("User");
