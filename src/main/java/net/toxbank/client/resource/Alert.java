@@ -14,7 +14,13 @@ public class Alert<USER extends User> extends AbstractToxBankResource  {
 	public enum RecurrenceFrequency {secondly, minutely, hourly, daily, weekly, monthly,  yearly};
 	public enum AlarmAction {audioAction, displayAction, emailAction, procedureAction};
 	//ncal:byhour, ncal:bysetpos, ncal:bysecond, ncal:byminute, ncal:bymonth, ncal:bymonthday, ncal:byweekno, ncal:interval, ncal:count, ncal:byday, ncal:wkst, ncal:byyearday, ncal:until
-
+	protected long sentAt;
+	public long getSentAt() {
+		return sentAt;
+	}
+	public void setSentAt(long sentAt) {
+		this.sentAt = sentAt;
+	}
 	protected Query query;
 	public Query getQuery() {
 		return query;
