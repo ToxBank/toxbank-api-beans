@@ -136,4 +136,36 @@ public class User extends AbstractToxBankResource {
 				getLastname()==null?"":getLastname(),
 				getUserName()==null?"":getUserName());
 	}
+	
+	public static final String mailto = "mailto";
+	/**
+	 * Wrapper to access the first email account
+	 * @return
+	 */
+	public String getEmail() {
+		List<Account> accounts = getAccounts();
+		if ((accounts==null) || (accounts.size()==0)) return null;
+		for (Account account : accounts) if (mailto.equals(account.getService())) return account.getAccountName();
+		return null;
+	}
+	/**
+	 * Wrapper to set the first email account
+	 * @param email
+	 */
+	public void setEmail(String email) {
+		List<Account> accounts = getAccounts();
+		Account newAccount = null;
+		if (accounts!=null) 
+			for (Account account : accounts) {
+				if (mailto.equals(account.getService())) 
+					account.setAccountName(email);
+			}
+		else { 
+			newAccount = new Account(); 
+			newAccount.setAccountName(email);newAccount.setService(mailto);
+			
+			addAccount(newAccount);
+		}
+
+	}
 }
