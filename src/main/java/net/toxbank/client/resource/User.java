@@ -157,8 +157,12 @@ public class User extends AbstractToxBankResource {
 		Account newAccount = null;
 		if (accounts!=null) 
 			for (Account account : accounts) {
-				if (mailto.equals(account.getService())) 
+				if (mailto.equals(account.getService()))  {
 					account.setAccountName(email);
+					try {
+					account.setResourceURL(new URL(String.format("%s:%s", mailto,email)));
+					} catch (Exception x) { account.setResourceURL(null); }
+				}
 			}
 		else { 
 			newAccount = new Account(); 
