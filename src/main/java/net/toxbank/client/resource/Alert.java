@@ -15,6 +15,13 @@ public class Alert<USER extends User> extends AbstractToxBankResource  {
 	public enum AlarmAction {audioAction, displayAction, emailAction, procedureAction};
 	//ncal:byhour, ncal:bysetpos, ncal:bysecond, ncal:byminute, ncal:bymonth, ncal:bymonthday, ncal:byweekno, ncal:interval, ncal:count, ncal:byday, ncal:wkst, ncal:byyearday, ncal:until
 	protected long sentAt;
+	protected long created;
+	public long getCreated() {
+		return created;
+	}
+	public void setCreated(long created) {
+		this.created = created;
+	}
 	public long getSentAt() {
 		return sentAt;
 	}
