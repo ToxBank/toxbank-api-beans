@@ -1,7 +1,3 @@
-/**
- * Copyright 2011 Leadscope, Inc. All rights reserved.
- * LEADSCOPE PROPRIETARY and CONFIDENTIAL. Use is subject to license terms.
- */
 package net.toxbank.client.resource;
 
 import java.net.URL;

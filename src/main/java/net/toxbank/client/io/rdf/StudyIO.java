@@ -24,7 +24,7 @@ public class StudyIO extends AbstractIOClass<Study> {
 				throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "Studies"));
 			}
 			Resource res = toAddTo.createResource(study.getResourceURL().toString());
-			toAddTo.add(res, RDF.type, TOXBANK.STUDY);
+			toAddTo.add(res, RDF.type, TOXBANK_ISA.STUDY);
 			if (study.getTitle() != null)
 				res.addLiteral(DCTerms.title, study.getTitle());
 			List<String> keywords = study.getKeywords();
@@ -47,7 +47,7 @@ public class StudyIO extends AbstractIOClass<Study> {
 	
 	public List<Study> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();
-		return fromJena(source,source.listResourcesWithProperty(RDF.type, TOXBANK.STUDY));
+		return fromJena(source,source.listResourcesWithProperty(RDF.type, TOXBANK_ISA.STUDY));
 	}
 	
 	@Override

@@ -1,7 +1,3 @@
-/**
- * Copyright 2011 Leadscope, Inc. All rights reserved.
- * LEADSCOPE PROPRIETARY and CONFIDENTIAL. Use is subject to license terms.
- */
 package net.toxbank.client.io.rdf;
 
 import java.net.MalformedURLException;
@@ -17,7 +13,7 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
   @Override
   public List<Investigation> fromJena(Model source) {
     if (source == null) return Collections.emptyList();
-    return fromJena(source, source.listResourcesWithProperty(RDF.type, TOXBANK.INVESTIGATION));
+    return fromJena(source, source.listResourcesWithProperty(RDF.type, TOXBANK_ISA.INVESTIGATION));
   }
 
   @Override
@@ -40,7 +36,7 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
       throw new IllegalArgumentException(String.format(msg_ResourceWithoutURI, "investigations"));
     }
     Resource res = toAddTo.createResource(investigation.getResourceURL().toString());
-    toAddTo.add(res, RDF.type, TOXBANK.INVESTIGATION);
+    toAddTo.add(res, RDF.type, TOXBANK_ISA.INVESTIGATION);
     return res;
   }
 

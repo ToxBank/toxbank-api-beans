@@ -1,7 +1,3 @@
-/**
- * Copyright 2011 Leadscope, Inc. All rights reserved.
- * LEADSCOPE PROPRIETARY and CONFIDENTIAL. Use is subject to license terms.
- */
 package net.toxbank.client.io.rdf;
 
 import java.io.*;
@@ -47,7 +43,7 @@ public class InvestigationIOTest extends AbstractIOClassTest<Investigation> {
   }
   
   @Test
-  public void testRoundTripExample() throws Exception {
+  public void testRoundTripExample() throws Throwable {
     InputStream is = getClass().getResourceAsStream("/bii-i-1_investigation.n3");
     if (is == null) {
       throw new RuntimeException("Could not get test file: bii-i-1_investigation.n3");
@@ -72,7 +68,11 @@ public class InvestigationIOTest extends AbstractIOClassTest<Investigation> {
     List<Investigation> reparsedInvestigations = getIOClass().fromJena(reparsedModel);
     TestCase.assertEquals("Should have 1 investigation", 1, reparsedInvestigations.size());
     Investigation reparsedInvestigation = reparsedInvestigations.get(0);
+    compare(investigation, reparsedInvestigation);
+  }
+  
+  private void compare(Investigation original, Investigation reparsed) throws Throwable {
     TestCase.assertEquals("Should have same url after reparsing", 
-        reparsedInvestigation.getResourceURL(), investigation.getResourceURL());
+        original.getResourceURL(), reparsed.getResourceURL());
   }
 }
