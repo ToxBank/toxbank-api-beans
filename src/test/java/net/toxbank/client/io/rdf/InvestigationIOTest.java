@@ -35,7 +35,6 @@ public class InvestigationIOTest extends AbstractIOClassTest<Investigation> {
 
       byte[] docBytes = sb.toString().getBytes("UTF-8");
       is = new ByteArrayInputStream(docBytes);
-      // is = getClass().getResourceAsStream("/bii-i-1_investigation.n3");
        
       Model model = ModelFactory.createDefaultModel();
       model.read(is, null, "N3");
