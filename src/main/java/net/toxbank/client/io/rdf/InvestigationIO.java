@@ -13,14 +13,11 @@ import net.toxbank.client.resource.Investigation;
 import com.hp.hpl.jena.rdf.model.*;
 import com.hp.hpl.jena.vocabulary.RDF;
 
-public class InvestigationIO extends AbstractIOClass<Investigation> {
-  public static Resource investigationType =
-      ResourceFactory.createResource("http://onto.toxbank.net/isa/Investigation");
-  
+public class InvestigationIO extends AbstractIOClass<Investigation> {  
   @Override
   public List<Investigation> fromJena(Model source) {
     if (source == null) return Collections.emptyList();
-    return fromJena(source, source.listResourcesWithProperty(RDF.type, investigationType));
+    return fromJena(source, source.listResourcesWithProperty(RDF.type, TOXBANK.INVESTIGATION));
   }
 
   @Override

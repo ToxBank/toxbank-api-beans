@@ -10,12 +10,17 @@ import com.hp.hpl.jena.rdf.model.ResourceFactory;
 public class TOXBANK {
 
 	public static final String URI ="http://onto.toxbank.net/api/";
+	public static final String ISA_URI = "http://onto.toxbank.net/isa/";
 	public static final String SEURAT1 = "SEURAT-1";
 	
     private static final Resource resource(String local) {
         return ResourceFactory.createResource(URI + local);
     }
 
+    private static final Resource isaResource(String local) {
+      return ResourceFactory.createResource(ISA_URI + local);
+    }
+    
     private static final Property property(String local) {
         return ResourceFactory.createProperty(URI, local);
     }
@@ -24,7 +29,7 @@ public class TOXBANK {
     public static final Resource PARAMETER = resource("Parameter");
     public static final Resource PROJECT = resource("Project");
     public static final Resource PROTOCOL = resource("Protocol");
-    public static final Resource INVESTIGATION = resource("Investigation");
+    public static final Resource INVESTIGATION = isaResource("Investigation");
     public static final Resource STUDY = resource("Study");
     //TODO consider http://dvcs.w3.org/hg/gld/people/
     public static final Resource USER = resource("User");
@@ -32,7 +37,7 @@ public class TOXBANK {
     public static final Resource ASSAY = resource("Assay");
     public static final Resource TEMPLATE = resource("Template");
     public static final Resource DOCUMENT = resource("Document");
-    
+       
     public static final Property HASABSTRACT = property("hasAbstract");
     public static final Property HASAUTHOR = property("hasAuthor");
     public static final Property HASKEYWORD = property("hasKeyword");
