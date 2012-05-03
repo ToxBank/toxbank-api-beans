@@ -28,7 +28,6 @@ public class TOXBANK {
     //TODO consider http://dvcs.w3.org/hg/gld/people/
     public static final Resource USER = resource("User");
     public static final Resource ALERT = resource("Alert");
-    public static final Resource ASSAY = resource("Assay");
     public static final Resource TEMPLATE = resource("Template");
     public static final Resource DOCUMENT = resource("Document");
        

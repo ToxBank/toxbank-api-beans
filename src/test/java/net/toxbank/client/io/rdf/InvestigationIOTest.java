@@ -43,7 +43,7 @@ public class InvestigationIOTest extends AbstractIOClassTest<Investigation> {
   }
   
   @Test
-  public void testRoundTripExample() throws Throwable {
+  public void testReadExample() throws Throwable {
     InputStream is = getClass().getResourceAsStream("/bii-i-1_investigation.n3");
     if (is == null) {
       throw new RuntimeException("Could not get test file: bii-i-1_investigation.n3");
@@ -53,26 +53,52 @@ public class InvestigationIOTest extends AbstractIOClassTest<Investigation> {
     List<Investigation> investigations = getIOClass().fromJena(model);
     TestCase.assertEquals("Should have 1 investigation", 1, investigations.size());
     Investigation investigation = investigations.get(0);
-    
+    verifyBiiInvestigation(investigation);
+        
+    Model newModel = ModelFactory.createDefaultModel();
+    newModel = getIOClass().toJena(newModel, investigation);
     File outputFile = getOutputFile(investigation, "full.n3");
     OutputStream out = new FileOutputStream(outputFile);
     try {
-      Serializer.toTurtle(out, model);
+      Serializer.toTurtle(out, newModel);
     }
     finally {
       try { out.close(); } catch (Exception e) {}
     }
-      
-    InputStream reparsedIs = new FileInputStream(outputFile);
-    Model reparsedModel = parseModel(reparsedIs);
-    List<Investigation> reparsedInvestigations = getIOClass().fromJena(reparsedModel);
-    TestCase.assertEquals("Should have 1 investigation", 1, reparsedInvestigations.size());
-    Investigation reparsedInvestigation = reparsedInvestigations.get(0);
-    compare(investigation, reparsedInvestigation);
   }
   
-  private void compare(Investigation original, Investigation reparsed) throws Throwable {
-    TestCase.assertEquals("Should have same url after reparsing", 
-        original.getResourceURL(), reparsed.getResourceURL());
+  @Test
+  public void testMetaData() throws Throwable {
+    InputStream is = getClass().getResourceAsStream("/metadata-11.n3");
+    if (is == null) {
+      throw new RuntimeException("Could not get test file: metadata-11.n3");
+    }
+        
+    Model model = parseModel(is);
+    List<Investigation> investigations = getIOClass().fromJena(model);
+    TestCase.assertEquals("Should have 1 investigation", 1, investigations.size());
+    Investigation investigation = investigations.get(0);
+    verifyMetadata11Investigation(investigation);
+  }
+  
+  private void verifyBiiInvestigation(Investigation i) throws Throwable {
+    TestCase.assertEquals("BII-I-1", i.getAccessionId());
+    TestCase.assertEquals("Growth control of the eukaryote cell: a systems biology study in yeast", i.getTitle());
+    TestCase.assertEquals("Background Cell growth underlies many key cellular and developmental processes, yet a limited number of studies have been carried out on cell-growth regulation. Comprehensive studies at the transcriptional, proteomic and metabolic levels under defined controlled conditions are currently lacking. Results Metabolic control analysis is being exploited in a systems biology study of the eukaryotic cell. Using chemostat culture, we have measured the impact of changes in flux (growth rate) on the transcriptome, proteome, endometabolome and exometabolome of the yeast Saccharomyces cerevisiae. Each functional genomic level shows clear growth-rate-associated trends and discriminates between carbon-sufficient and carbon-limited conditions. Genes consistently and significantly upregulated with increasing growth rate are frequently essential and encode evolutionarily conserved proteins of known function that participate in many protein-protein interactions. In contrast, more unknown, and fewer essential, genes are downregulated with increasing growth rate; their protein products rarely interact with one another. A large proportion of yeast genes under positive growth-rate control share orthologs with other eukaryotes, including humans. Significantly, transcription of genes encoding components of the TOR complex (a major controller of eukaryotic cell growth) is not subject to growth-rate regulation. Moreover, integrative studies reveal the extent and importance of post-transcriptional control, patterns of control of metabolic fluxes at the level of enzyme synthesis, and the relevance of specific enzymatic reactions in the control of metabolic fluxes during cell growth. Conclusion This work constitutes a first comprehensive systems biology study on growth-rate control in the eukaryotic cell. The results have direct implications for advanced studies on cell growth, in vivo regulation of metabolic fluxes for comprehensive metabolic engineering, and for the design of genome-scale systems biology models of the eukaryotic cell.",
+        i.getAbstract());
+    TestCase.assertEquals(new Long(1177905600000l), i.getCreatedDate());
+    TestCase.assertEquals(new Long(1236657600000l), i.getIssuedDate());
+    TestCase.assertNotNull("Should have owner", i.getOwner());
+    TestCase.assertEquals("http://toxbanktest1.opentox.org:8080/toxbank/user/U115", i.getOwner().getResourceURL().toString());
+    TestCase.assertNotNull("Should have organisation", i.getOrganisation());
+    TestCase.assertEquals("http://toxbanktest1.opentox.org:8080/toxbank/organisation/G176", i.getOrganisation().getResourceURL().toString());
+    TestCase.assertNotNull("Should have project", i.getProject());
+    TestCase.assertEquals("http://toxbanktest1.opentox.org:8080/toxbank/project/G2", i.getProject().getResourceURL().toString());
+    TestCase.assertEquals("Should have one toxbank protocol", 1, i.getProtocols().size());
+    TestCase.assertEquals("http://toxbanktest1.opentox.org:8080/toxbank/protocol/SEURAT-Protocol-245-1", i.getProtocols().get(0).getResourceURL().toString());
+  }
+  
+  private void verifyMetadata11Investigation(Investigation i) throws Throwable {
+    TestCase.assertEquals("BII-I-1", i.getAccessionId());
   }
 }

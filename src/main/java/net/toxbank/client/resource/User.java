@@ -86,6 +86,7 @@ public class User extends AbstractToxBankResource {
 	public User(URL identifier) {
 		setResourceURL(identifier);
 	}
+
 	public void setProjects(ToxBankResourceSet<Project> projects) {
 		this.projects = projects;
 	}
