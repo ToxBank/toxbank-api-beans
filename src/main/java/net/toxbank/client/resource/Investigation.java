@@ -14,16 +14,17 @@ public class Investigation extends AbstractToxBankResource {
   private String title;
   private String abstrakt;
   
-  private Long createdDate;
-  private Long issuedDate;
+  private Long submissionDate;
+  private Long lastModifiedDate;
   
   private User owner;
   private Organisation organisation;
   private Project project;
   
-  private List<User> authors;
-  private List<Protocol> protocols;
-    
+  private List<User> authors = new ArrayList<User>();
+  private List<Protocol> protocols = new ArrayList<Protocol>();    
+  private List<String> keywords = new ArrayList<String>();
+  
   public Investigation() {}
   
   public Investigation(URL identifier) {
@@ -54,20 +55,20 @@ public class Investigation extends AbstractToxBankResource {
     this.abstrakt = abstrakt;
   }
 
-  public Long getCreatedDate() {
-    return createdDate;
+  public Long getSubmissionDate() {
+    return submissionDate;
   }
 
-  public void setCreatedDate(Long createdDate) {
-    this.createdDate = createdDate;
+  public void setSubmissionDate(Long submissionDate) {
+    this.submissionDate = submissionDate;
   }
 
-  public Long getIssuedDate() {
-    return issuedDate;
+  public Long getLastModifiedDate() {
+    return lastModifiedDate;
   }
 
-  public void setIssuedDate(Long issuedDate) {
-    this.issuedDate = issuedDate;
+  public void setLastModifiedDate(Long lastModifiedDate) {
+    this.lastModifiedDate = lastModifiedDate;
   }
 
   public User getOwner() {
@@ -114,5 +115,16 @@ public class Investigation extends AbstractToxBankResource {
 
   public void setProject(Project project) {
     this.project = project;
+  }
+  
+  public List<String> getKeywords() {
+    return keywords;
+  }
+  
+  public void setKeywords(List<String> keywords) {
+    if (keywords == null) {
+      keywords = new ArrayList<String>();
+    }
+    this.keywords = keywords;
   }
 }

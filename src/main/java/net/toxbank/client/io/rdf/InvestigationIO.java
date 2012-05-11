@@ -34,8 +34,8 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     investigation.setAccessionId(getString(res, TOXBANK_ISA.HAS_ACCESSION_ID));
     investigation.setTitle(getString(res, DCTerms.title));
     investigation.setAbstract(getString(res, DCTerms.abstract_));
-    investigation.setIssuedDate(getTimestamp(res, DCTerms.issued));
-    investigation.setCreatedDate(getTimestamp(res, DCTerms.created));
+    investigation.setLastModifiedDate(getTimestamp(res, DCTerms.issued));
+    investigation.setSubmissionDate(getTimestamp(res, DCTerms.created));
     
     if (res.getProperty(TOXBANK.HASPROJECT) != null) {
       Project project = projectIO.fromJena(source,res.getProperty(TOXBANK.HASPROJECT).getResource());
@@ -58,6 +58,7 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
       }
     }
 
+    /** this will get changed once ISA Tab supports the specialized comment field for authors */
     List<User> authors = new ArrayList<User>();
     for (StmtIterator iter = res.listProperties(TOXBANK_ISA.HAS_OWNER); iter.hasNext(); ) {
       Resource authorRes = iter.next().getResource();
@@ -73,6 +74,12 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
       }
     }
     investigation.setAuthors(authors);
+    
+    List<String> keywords = new ArrayList<String>();
+    for (StmtIterator iter = res.listProperties(TOXBANK.HASKEYWORD); iter.hasNext(); ) {
+      keywords.add(iter.next().getString());
+    }
+    investigation.setKeywords(keywords);
     
     List<Protocol> protocols = new ArrayList<Protocol>();
     for (StmtIterator iter = res.listProperties(TOXBANK_ISA.HAS_STUDY); iter.hasNext(); ) {
@@ -109,8 +116,8 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     addString(res, TOXBANK_ISA.HAS_ACCESSION_ID, investigation.getAccessionId());
     addString(res, DCTerms.title, investigation.getTitle());
     addString(res, DCTerms.abstract_, investigation.getAbstract());
-    addTimestamp(res, DCTerms.created, investigation.getCreatedDate());
-    addTimestamp(res, DCTerms.issued, investigation.getIssuedDate());
+    addTimestamp(res, DCTerms.created, investigation.getSubmissionDate());
+    addTimestamp(res, DCTerms.issued, investigation.getLastModifiedDate());
 
     if (investigation.getProject() != null) {
       if (investigation.getProject().getResourceURL()==null)
