@@ -3,6 +3,8 @@ package net.toxbank.client.io.rdf;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import net.toxbank.client.resource.*;
 
@@ -15,6 +17,8 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
   private ProjectIO projectIO = new ProjectIO();
   private UserIO userIO = new UserIO();
 
+  private static Pattern fullInvestigationUrlPattern = Pattern.compile("(.*)/([0-9]+)/([A-Z0-9]+)");
+  
   @Override
   public List<Investigation> fromJena(Model source) {
     if (source == null) return Collections.emptyList();
@@ -26,7 +30,12 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
       throws IllegalArgumentException {
     Investigation investigation = new Investigation();
     try {
-      investigation.setResourceURL(new URL(res.getURI()));
+      String resourceUri = res.getURI();
+      Matcher matcher = fullInvestigationUrlPattern.matcher(resourceUri);
+      if (matcher.matches()) {
+        resourceUri = matcher.group(1) + "/" + matcher.group(2);
+      }
+      investigation.setResourceURL(new URL(resourceUri));
     } catch (MalformedURLException e) {
       throw new IllegalArgumentException(String.format(msg_InvalidURI, "investigation", res.getURI()));
     }
