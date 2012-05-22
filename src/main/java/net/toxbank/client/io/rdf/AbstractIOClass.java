@@ -1,21 +1,16 @@
 package net.toxbank.client.io.rdf;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import net.toxbank.client.resource.IToxBankResource;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.NodeIterator;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.ResIterator;
-import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.*;
+import com.hp.hpl.jena.vocabulary.RDF;
 
 public abstract class AbstractIOClass<T extends IToxBankResource> implements IOClass<T> {
-
-	
+  
 	public Model toJena(Model toAddTo, T... resources) throws IllegalArgumentException {
 
 		if (toAddTo == null) toAddTo = ModelFactory.createDefaultModel();
@@ -82,4 +77,71 @@ public abstract class AbstractIOClass<T extends IToxBankResource> implements IOC
 		}
 		return m;
 	}
+
+	protected boolean hasType(Resource res, Resource type) {
+	  try {
+	    for (StmtIterator iter = res.listProperties(RDF.type); iter.hasNext(); ) {
+	      Statement stmt = iter.next();
+	      if (stmt.getResource().getURI().equals(type.getURI())) {
+	        return true;
+	      }
+	    }
+	  }
+	  catch (Exception e) {}
+	  return false;
+	}
+	
+	protected void addString(Resource res, Property prop, String value) {
+	  if (value != null) {
+	    res.addLiteral(prop, value);
+	  }
+	}
+	
+	protected void addTimestamp(Resource res, Property prop, Long timestamp) {
+	  addString(res, prop, timestampToDateString(timestamp));
+	}
+	
+	protected String getString(Resource res, Property prop) {
+	  try {
+	    return res.getProperty(prop).getString();
+	  }
+	  catch (Exception e) {
+	    return null;
+	  }
+	}
+	
+	protected String getUri(Resource res, Property prop) {
+	  try {
+	    return res.getProperty(prop).getResource().getURI();
+	  }
+	  catch (Exception e) {
+	    return null;
+	  }
+	}
+	
+	protected Long getTimestamp(Resource res, Property prop) {
+	  try {
+	    String dateString = res.getProperty(prop).getString();
+	    return dateStringToTimestamp(dateString);
+	  }
+	  catch (Exception e) {
+	    return null;
+	  }
+	}
+	
+  protected DateFormat dateStringFormat = new SimpleDateFormat("d MMM yyyy HH:mm:ss z");
+  protected String timestampToDateString(Long timestamp) {
+    if (timestamp == null || timestamp == 0) {
+      return null;
+    }
+    Date date = new Date(timestamp);
+    return dateStringFormat.format(date);    
+  }
+  protected Long dateStringToTimestamp(String dateString) throws Exception {
+    if (dateString == null) {
+      return null;
+    }
+    Date date = dateStringFormat.parse(dateString);
+    return date.getTime();
+  }
 }

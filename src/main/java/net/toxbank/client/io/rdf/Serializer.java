@@ -15,17 +15,23 @@ public class Serializer {
 
 	public static void toRDFXML(OutputStream output, Model model) {
 		model.setNsPrefix("tb", TOXBANK.URI);
+    model.setNsPrefix("isa", TOXBANK_ISA.URI);
+    
 		model.setNsPrefix("dcterms", DCTerms.getURI());
 		model.setNsPrefix("xsd", XSD.getURI());
 		model.setNsPrefix("ncal",NCAL.URI);
+		
 		model.write(output, "RDF/XML-ABBREV");
 	}
 
 	public static void toTurtle(OutputStream output, Model model) {
 		model.setNsPrefix("tb", TOXBANK.URI);
+    model.setNsPrefix("isa", TOXBANK_ISA.URI);
+    
 		model.setNsPrefix("dcterms", DCTerms.getURI());
 		model.setNsPrefix("xsd", XSD.getURI());
 		model.setNsPrefix("ncal",NCAL.URI);
+		
 		model.write(output, "TURTLE");
 	}
 }

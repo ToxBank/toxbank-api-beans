@@ -38,17 +38,21 @@ public abstract class AbstractIOClassTest<T extends IToxBankResource> {
 		Assert.assertNotNull(results);
 	}
 	
-	 protected OutputStream getResourceStream(Object object,String ext) throws IOException {
-		 counter++;
-		  URL url = getClass().getClassLoader().getResource("");
-		  String f = String.format(
-		      "%s%s.%s%s",
-		      url.getFile(),
-		      object.getClass().getName(),
-		      ext.contains("full") ? "" : counter + ".",
-		      ext
-		  );
-		  return new FileOutputStream(new File(f));
+	protected File getOutputFile(Object object, String ext) {
+	  counter++;
+    URL url = getClass().getClassLoader().getResource("");
+    String f = String.format(
+        "%s%s.%s%s",
+        url.getFile(),
+        object.getClass().getName(),
+        ext.contains("full") ? "" : counter + ".",
+            ext
+        );
+    return new File(f);
+	}
+	
+	 protected OutputStream getResourceStream(Object object,String ext) throws IOException {		 
+		 return new FileOutputStream(getOutputFile(object, ext));
 	 }
 
 }
