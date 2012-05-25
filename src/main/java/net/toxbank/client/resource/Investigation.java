@@ -11,6 +11,7 @@ public class Investigation extends AbstractToxBankResource {
   private static final long serialVersionUID = -1189656198870429173L;
  
   private String accessionId;
+  private String seuratId;
   private String title;
   private String abstrakt;
   
@@ -39,6 +40,14 @@ public class Investigation extends AbstractToxBankResource {
     this.accessionId = accessionId;
   }
 
+  public String getSeuratId() {
+    return seuratId;
+  }
+
+  public void setSeuratId(String seuratId) {
+    this.seuratId = seuratId;
+  }
+  
   public String getTitle() {
     return title;
   }
