@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.resource.Project
-	c1295 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Project.html">
+	c1557 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Project.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Project </td></tr>
 		</table></td></tr>
@@ -21,7 +21,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.Organisation
-	c1296 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Organisation.html">
+	c1558 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Organisation.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Organisation </td></tr>
 		</table></td></tr>
@@ -34,7 +34,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.Group
-	c1298 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Group.html">
+	c1561 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Group.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Group </td></tr>
 		</table></td></tr>
@@ -51,7 +51,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AbstractToxBankResource
-	c1303 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
+	c1567 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractToxBankResource </font></td></tr>
 		</table></td></tr>
@@ -70,10 +70,10 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.resource.Project extends net.toxbank.client.resource.Group
-	c1298:p -> c1295:p [dir=back,arrowtail=empty];
+	c1561:p -> c1557:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.Organisation extends net.toxbank.client.resource.Group
-	c1298:p -> c1296:p [dir=back,arrowtail=empty];
+	c1561:p -> c1558:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.Group extends net.toxbank.client.resource.AbstractToxBankResource
-	c1303:p -> c1298:p [dir=back,arrowtail=empty];
+	c1567:p -> c1561:p [dir=back,arrowtail=empty];
 }
 

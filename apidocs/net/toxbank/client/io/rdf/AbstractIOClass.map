@@ -1,14 +1,13 @@
 <map id="G" name="G">
-<area shape="rect" id="node1_0" href="./UserIO.html" title="&lt;TABLE&gt;" alt="" coords="15,422,366,543"/>
-<area shape="rect" id="node2_1" href="./TemplateIO.html" title="&lt;TABLE&gt;" alt="" coords="411,422,813,543"/>
-<area shape="rect" id="node3_2" href="./StudyIO.html" title="&lt;TABLE&gt;" alt="" coords="859,422,1224,543"/>
-<area shape="rect" id="node4_3" href="./ProtocolIO.html" title="&lt;TABLE&gt;" alt="" coords="1270,422,1663,543"/>
-<area shape="rect" id="node5_4" href="./ProjectIO.html" title="&lt;TABLE&gt;" alt="" coords="1709,422,2088,543"/>
-<area shape="rect" id="node6_5" href="./OrganisationIO.html" title="&lt;TABLE&gt;" alt="" coords="2133,422,2523,543"/>
-<area shape="rect" id="node7_6" href="./IOClass.html" title="&lt;TABLE&gt;" alt="" coords="1957,11,2270,149"/>
-<area shape="rect" id="node12_7" href="./AbstractIOClass.html" title="&lt;TABLE&gt;" alt="" coords="1930,209,2297,362"/>
-<area shape="rect" id="node8_8" href="./DocumentIO.html" title="&lt;TABLE&gt;" alt="" coords="2568,422,2947,543"/>
-<area shape="rect" id="node9_9" href="./AssayIO.html" title="&lt;TABLE&gt;" alt="" coords="2992,422,3363,543"/>
-<area shape="rect" id="node10_10" href="./AlertIO.html" title="&lt;TABLE&gt;" alt="" coords="3409,422,3759,543"/>
-<area shape="rect" id="node11_11" href="./AccountIO.html" title="&lt;TABLE&gt;" alt="" coords="3805,422,4198,543"/>
+<area shape="rect" id="node1_0" href="./UserIO.html" title="&lt;TABLE&gt;" alt="" coords="15,550,366,671"/>
+<area shape="rect" id="node2_1" href="./TemplateIO.html" title="&lt;TABLE&gt;" alt="" coords="411,550,813,671"/>
+<area shape="rect" id="node3_2" href="./ProtocolIO.html" title="&lt;TABLE&gt;" alt="" coords="858,550,1251,671"/>
+<area shape="rect" id="node4_3" href="./ProjectIO.html" title="&lt;TABLE&gt;" alt="" coords="1297,550,1676,671"/>
+<area shape="rect" id="node5_4" href="./OrganisationIO.html" title="&lt;TABLE&gt;" alt="" coords="1721,550,2111,671"/>
+<area shape="rect" id="node6_5" href="./IOClass.html" title="&lt;TABLE&gt;" alt="" coords="1759,11,2073,149"/>
+<area shape="rect" id="node11_6" href="./AbstractIOClass.html" title="&lt;TABLE&gt;" alt="" coords="1709,209,2123,490"/>
+<area shape="rect" id="node7_7" href="./InvestigationIO.html" title="&lt;TABLE&gt;" alt="" coords="2157,550,2598,671"/>
+<area shape="rect" id="node8_8" href="./DocumentIO.html" title="&lt;TABLE&gt;" alt="" coords="2644,550,3023,671"/>
+<area shape="rect" id="node9_9" href="./AlertIO.html" title="&lt;TABLE&gt;" alt="" coords="3069,550,3435,671"/>
+<area shape="rect" id="node10_10" href="./AccountIO.html" title="&lt;TABLE&gt;" alt="" coords="3481,550,3874,671"/>
 </map>

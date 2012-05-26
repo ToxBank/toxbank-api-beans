@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.io.rdf.TemplateIO
-	c256 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./TemplateIO.html">
+	c325 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./TemplateIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> TemplateIO </td></tr>
 		</table></td></tr>
@@ -23,12 +23,12 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AbstractIOClass<T extends net.toxbank.client.resource.IToxBankResource>
-	c267 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractIOClass.html">
+	c336 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractIOClass.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractIOClass&lt;T extends IToxBankResource&gt; </font></td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
+			<tr><td align="left"> # dateStringFormat : DateFormat </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + AbstractIOClass() </td></tr>
@@ -37,9 +37,17 @@ digraph G {
 			<tr><td align="left"> # fromJena(source : Model, iter : ResIterator) : List&lt;T&gt; </td></tr>
 			<tr><td align="left"> # fromJena(source : Model, iter : NodeIterator) : List&lt;T&gt; </td></tr>
 			<tr><td align="left"> # cleanLiteral(m : String) : String </td></tr>
+			<tr><td align="left"> # hasType(res : Resource, type : Resource) : boolean </td></tr>
+			<tr><td align="left"> # addString(res : Resource, prop : Property, value : String) </td></tr>
+			<tr><td align="left"> # addTimestamp(res : Resource, prop : Property, timestamp : Long) </td></tr>
+			<tr><td align="left"> # getString(res : Resource, prop : Property) : String </td></tr>
+			<tr><td align="left"> # getUri(res : Resource, prop : Property) : String </td></tr>
+			<tr><td align="left"> # getTimestamp(res : Resource, prop : Property) : Long </td></tr>
+			<tr><td align="left"> # timestampToDateString(timestamp : Long) : String </td></tr>
+			<tr><td align="left"> # dateStringToTimestamp(dateString : String) : Long </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.io.rdf.TemplateIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Template>
-	c267:p -> c256:p [dir=back,arrowtail=empty];
+	c336:p -> c325:p [dir=back,arrowtail=empty];
 }
 

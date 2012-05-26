@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.policy.UserPolicyRule<USER extends net.toxbank.client.resource.User>
-	c809 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./UserPolicyRule.html">
+	c938 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./UserPolicyRule.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> UserPolicyRule&lt;USER extends User&gt; </td></tr>
 		</table></td></tr>
@@ -22,7 +22,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.policy.PolicyRule<T extends net.toxbank.client.resource.IToxBankResource>
-	c811 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PolicyRule.html">
+	c940 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PolicyRule.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PolicyRule&lt;T extends IToxBankResource&gt; </td></tr>
 		</table></td></tr>
@@ -57,7 +57,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.policy.GroupPolicyRule<GROUP extends net.toxbank.client.resource.Group>
-	c812 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GroupPolicyRule.html">
+	c941 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./GroupPolicyRule.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> GroupPolicyRule&lt;GROUP extends Group&gt; </td></tr>
 		</table></td></tr>
@@ -71,8 +71,8 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.policy.UserPolicyRule<USER extends net.toxbank.client.resource.User> extends net.toxbank.client.policy.PolicyRule<USER>
-	c811:p -> c809:p [dir=back,arrowtail=empty];
+	c940:p -> c938:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.policy.GroupPolicyRule<GROUP extends net.toxbank.client.resource.Group> extends net.toxbank.client.policy.PolicyRule<GROUP>
-	c811:p -> c812:p [dir=back,arrowtail=empty];
+	c940:p -> c941:p [dir=back,arrowtail=empty];
 }
 

@@ -1,13 +1,12 @@
 <map id="G" name="G">
-<area shape="rect" id="node1_0" href="./UserIOTest.html" title="&lt;TABLE&gt;" alt="" coords="15,273,209,554"/>
-<area shape="rect" id="node2_1" href="./TemplateIOTest.html" title="&lt;TABLE&gt;" alt="" coords="254,361,447,466"/>
-<area shape="rect" id="node3_2" href="./StudyIOTest.html" title="&lt;TABLE&gt;" alt="" coords="493,329,686,498"/>
-<area shape="rect" id="node4_3" href="./ProtocolIOTest.html" title="&lt;TABLE&gt;" alt="" coords="732,209,945,618"/>
-<area shape="rect" id="node5_4" href="./ProjectIOTest.html" title="&lt;TABLE&gt;" alt="" coords="991,353,1228,474"/>
-<area shape="rect" id="node6_5" href="./OrganisationIOTest.html" title="&lt;TABLE&gt;" alt="" coords="1273,361,1476,466"/>
-<area shape="rect" id="node7_6" href="./DocumentIOTest.html" title="&lt;TABLE&gt;" alt="" coords="1522,361,1715,466"/>
-<area shape="rect" id="node8_7" href="./AssayIOTest.html" title="&lt;TABLE&gt;" alt="" coords="1761,361,1954,466"/>
-<area shape="rect" id="node9_8" href="./AlertIOTest.html" title="&lt;TABLE&gt;" alt="" coords="1999,361,2193,466"/>
-<area shape="rect" id="node10_9" href="./AccountIOTest.html" title="&lt;TABLE&gt;" alt="" coords="2239,329,2468,498"/>
-<area shape="rect" id="node11_10" href="./AbstractIOClassTest.html" title="&lt;TABLE&gt;" alt="" coords="1039,11,1444,149"/>
+<area shape="rect" id="node1_0" href="./UserIOTest.html" title="&lt;TABLE&gt;" alt="" coords="15,289,209,570"/>
+<area shape="rect" id="node2_1" href="./TemplateIOTest.html" title="&lt;TABLE&gt;" alt="" coords="254,377,447,482"/>
+<area shape="rect" id="node3_2" href="./ProtocolIOTest.html" title="&lt;TABLE&gt;" alt="" coords="493,225,707,634"/>
+<area shape="rect" id="node4_3" href="./ProjectIOTest.html" title="&lt;TABLE&gt;" alt="" coords="752,369,989,490"/>
+<area shape="rect" id="node5_4" href="./OrganisationIOTest.html" title="&lt;TABLE&gt;" alt="" coords="1035,377,1237,482"/>
+<area shape="rect" id="node6_5" href="./InvestigationIOTest.html" title="&lt;TABLE&gt;" alt="" coords="1283,353,1591,506"/>
+<area shape="rect" id="node7_6" href="./DocumentIOTest.html" title="&lt;TABLE&gt;" alt="" coords="1637,377,1830,482"/>
+<area shape="rect" id="node8_7" href="./AlertIOTest.html" title="&lt;TABLE&gt;" alt="" coords="1875,377,2069,482"/>
+<area shape="rect" id="node9_8" href="./AccountIOTest.html" title="&lt;TABLE&gt;" alt="" coords="2115,345,2344,514"/>
+<area shape="rect" id="node10_9" href="./AbstractIOClassTest.html" title="&lt;TABLE&gt;" alt="" coords="933,11,1339,165"/>
 </map>

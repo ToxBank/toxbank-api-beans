@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.policy.UserPolicyRule<USER extends net.toxbank.client.resource.User>
-	c737 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./UserPolicyRule.html">
+	c858 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./UserPolicyRule.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> UserPolicyRule&lt;USER extends User&gt; </td></tr>
 		</table></td></tr>
@@ -22,7 +22,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.policy.PolicyRule<T extends net.toxbank.client.resource.IToxBankResource>
-	c739 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PolicyRule.html">
+	c860 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PolicyRule.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PolicyRule&lt;T extends IToxBankResource&gt; </td></tr>
 		</table></td></tr>
@@ -57,6 +57,6 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.policy.UserPolicyRule<USER extends net.toxbank.client.resource.User> extends net.toxbank.client.policy.PolicyRule<USER>
-	c739:p -> c737:p [dir=back,arrowtail=empty];
+	c860:p -> c858:p [dir=back,arrowtail=empty];
 }
 

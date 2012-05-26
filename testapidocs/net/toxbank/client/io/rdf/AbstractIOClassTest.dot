@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.io.rdf.UserIOTest
-	c299 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./UserIOTest.html">
+	c240 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./UserIOTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> UserIOTest </td></tr>
 		</table></td></tr>
@@ -33,7 +33,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.TemplateIOTest
-	c300 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TemplateIOTest.html">
+	c241 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TemplateIOTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> TemplateIOTest </td></tr>
 		</table></td></tr>
@@ -46,26 +46,8 @@ digraph G {
 			<tr><td align="left"> + testRoundtripResourceURI() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.io.rdf.StudyIOTest
-	c301 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./StudyIOTest.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> StudyIOTest </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + StudyIOTest() </td></tr>
-			<tr><td align="left"> + getIOClass() : StudyIO </td></tr>
-			<tr><td align="left"> + testRoundtripTitle() </td></tr>
-			<tr><td align="left"> + testRoundtripTitle_Null() </td></tr>
-			<tr><td align="left"> + testRoundtripKeywords() </td></tr>
-			<tr><td align="left"> + testRoundtripOwner() </td></tr>
-			<tr><td align="left"> + testRoundtripResourceURI() </td></tr>
-		</table></td></tr>
-		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.ProtocolIOTest
-	c302 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProtocolIOTest.html">
+	c242 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProtocolIOTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ProtocolIOTest </td></tr>
 		</table></td></tr>
@@ -98,7 +80,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.ProjectIOTest
-	c303 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProjectIOTest.html">
+	c243 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProjectIOTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ProjectIOTest </td></tr>
 		</table></td></tr>
@@ -113,7 +95,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.OrganisationIOTest
-	c304 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OrganisationIOTest.html">
+	c244 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OrganisationIOTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> OrganisationIOTest </td></tr>
 		</table></td></tr>
@@ -126,8 +108,25 @@ digraph G {
 			<tr><td align="left"> + testRoundtripResourceURI() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
+	// net.toxbank.client.io.rdf.InvestigationIOTest
+	c245 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./InvestigationIOTest.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> InvestigationIOTest </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td align="left"> + BII_TEST_CASE_ACCESSION_ID : String </td></tr>
+			<tr><td align="left"> + ALT_BII_TEST_CASE_ACCESSION_ID : String </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td align="left"> + InvestigationIOTest() </td></tr>
+			<tr><td align="left"> + getIOClass() : InvestigationIO </td></tr>
+			<tr><td align="left"> + testReadExample() </td></tr>
+			<tr><td align="left"> + testMetaData() </td></tr>
+			<tr><td align="left"> + verifyBiiInvestigation(i : Investigation) </td></tr>
+		</table></td></tr>
+		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.DocumentIOTest
-	c305 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DocumentIOTest.html">
+	c246 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DocumentIOTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DocumentIOTest </td></tr>
 		</table></td></tr>
@@ -140,22 +139,8 @@ digraph G {
 			<tr><td align="left"> + testRoundtripResourceURI() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.io.rdf.AssayIOTest
-	c306 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AssayIOTest.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> AssayIOTest </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + AssayIOTest() </td></tr>
-			<tr><td align="left"> + getIOClass() : AssayIO </td></tr>
-			<tr><td align="left"> + testRoundtripResourceURI() </td></tr>
-		</table></td></tr>
-		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AlertIOTest
-	c307 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AlertIOTest.html">
+	c247 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AlertIOTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> AlertIOTest </td></tr>
 		</table></td></tr>
@@ -169,7 +154,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AccountIOTest
-	c308 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AccountIOTest.html">
+	c248 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AccountIOTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> AccountIOTest </td></tr>
 		</table></td></tr>
@@ -187,7 +172,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AbstractIOClassTest<T extends net.toxbank.client.resource.IToxBankResource>
-	c309 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AbstractIOClassTest.html">
+	c249 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AbstractIOClassTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractIOClassTest&lt;T extends IToxBankResource&gt; </font></td></tr>
 		</table></td></tr>
@@ -199,28 +184,27 @@ digraph G {
 			<tr><td align="left"> + getIOClass() : IOClass&lt;T&gt; </td></tr>
 			<tr><td align="left"> + testFromJena_AcceptNullModel() </td></tr>
 			<tr><td align="left"> + testToJena_AcceptNullModel() </td></tr>
+			<tr><td align="left"> # getOutputFile(object : Object, ext : String) : File </td></tr>
 			<tr><td align="left"> # getResourceStream(object : Object, ext : String) : OutputStream </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.io.rdf.UserIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.User>
-	c309:p -> c299:p [dir=back,arrowtail=empty];
+	c249:p -> c240:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.TemplateIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Template>
-	c309:p -> c300:p [dir=back,arrowtail=empty];
-	//net.toxbank.client.io.rdf.StudyIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Study>
-	c309:p -> c301:p [dir=back,arrowtail=empty];
+	c249:p -> c241:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.ProtocolIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Protocol>
-	c309:p -> c302:p [dir=back,arrowtail=empty];
+	c249:p -> c242:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.ProjectIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Project>
-	c309:p -> c303:p [dir=back,arrowtail=empty];
+	c249:p -> c243:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.OrganisationIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Organisation>
-	c309:p -> c304:p [dir=back,arrowtail=empty];
+	c249:p -> c244:p [dir=back,arrowtail=empty];
+	//net.toxbank.client.io.rdf.InvestigationIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Investigation>
+	c249:p -> c245:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.DocumentIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Document>
-	c309:p -> c305:p [dir=back,arrowtail=empty];
-	//net.toxbank.client.io.rdf.AssayIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Assay>
-	c309:p -> c306:p [dir=back,arrowtail=empty];
+	c249:p -> c246:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.AlertIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Alert>
-	c309:p -> c307:p [dir=back,arrowtail=empty];
+	c249:p -> c247:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.AccountIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Account>
-	c309:p -> c308:p [dir=back,arrowtail=empty];
+	c249:p -> c248:p [dir=back,arrowtail=empty];
 }
 

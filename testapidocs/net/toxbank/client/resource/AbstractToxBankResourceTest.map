@@ -2,13 +2,11 @@
 <area shape="rect" id="node1_0" href="./UserTest.html" title="&lt;TABLE&gt;" alt="" coords="15,217,217,466"/>
 <area shape="rect" id="node2_1" href="./ToxBankResourceSetTest.html" title="&lt;TABLE&gt;" alt="" coords="262,273,455,410"/>
 <area shape="rect" id="node3_2" href="./TemplateTest.html" title="&lt;TABLE&gt;" alt="" coords="501,289,630,394"/>
-<area shape="rect" id="node4_3" href="./StudyTest.html" title="&lt;TABLE&gt;" alt="" coords="676,257,844,426"/>
-<area shape="rect" id="node5_4" href="./ProtocolTest.html" title="&lt;TABLE&gt;" alt="" coords="890,193,1089,490"/>
-<area shape="rect" id="node6_5" href="./ProjectTest.html" title="&lt;TABLE&gt;" alt="" coords="1134,289,1263,394"/>
-<area shape="rect" id="node7_6" href="./OrganisationTest.html" title="&lt;TABLE&gt;" alt="" coords="1309,289,1448,394"/>
-<area shape="rect" id="node8_7" href="./DocumentTest.html" title="&lt;TABLE&gt;" alt="" coords="1494,289,1623,394"/>
-<area shape="rect" id="node9_8" href="./AssayTest.html" title="&lt;TABLE&gt;" alt="" coords="1669,289,1798,394"/>
-<area shape="rect" id="node10_9" href="./AlertTest.html" title="&lt;TABLE&gt;" alt="" coords="1843,289,1973,394"/>
-<area shape="rect" id="node11_10" href="./AccountTest.html" title="&lt;TABLE&gt;" alt="" coords="2018,273,2203,410"/>
-<area shape="rect" id="node12_11" href="./AbstractToxBankResourceTest.html" title="&lt;TABLE&gt;" alt="" coords="1034,11,1363,133"/>
+<area shape="rect" id="node4_3" href="./ProtocolTest.html" title="&lt;TABLE&gt;" alt="" coords="675,193,874,490"/>
+<area shape="rect" id="node5_4" href="./ProjectTest.html" title="&lt;TABLE&gt;" alt="" coords="919,289,1049,394"/>
+<area shape="rect" id="node6_5" href="./OrganisationTest.html" title="&lt;TABLE&gt;" alt="" coords="1095,289,1233,394"/>
+<area shape="rect" id="node7_6" href="./DocumentTest.html" title="&lt;TABLE&gt;" alt="" coords="1279,289,1409,394"/>
+<area shape="rect" id="node8_7" href="./AlertTest.html" title="&lt;TABLE&gt;" alt="" coords="1455,281,1593,402"/>
+<area shape="rect" id="node9_8" href="./AccountTest.html" title="&lt;TABLE&gt;" alt="" coords="1639,273,1825,410"/>
+<area shape="rect" id="node10_9" href="./AbstractToxBankResourceTest.html" title="&lt;TABLE&gt;" alt="" coords="819,11,1149,133"/>
 </map>

@@ -8,12 +8,12 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.resource.User
-	c1469 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./User.html">
+	c1790 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./User.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> User </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
+			<tr><td align="left"> + mailto : String </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + User() </td></tr>
@@ -39,10 +39,12 @@ digraph G {
 			<tr><td align="left"> + setWeblog(weblog : URL) </td></tr>
 			<tr><td align="left"> + getWeblog() : URL </td></tr>
 			<tr><td align="left"> + toString() : String </td></tr>
+			<tr><td align="left"> + getEmail() : String </td></tr>
+			<tr><td align="left"> + setEmail(email : String) </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.Template
-	c1471 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Template.html">
+	c1792 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Template.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Template </td></tr>
 		</table></td></tr>
@@ -54,38 +56,8 @@ digraph G {
 			<tr><td align="left"> + Template(identifier : URL) </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.resource.Study
-	c1472 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Study.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Study </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + Study() </td></tr>
-			<tr><td align="left"> + Study(identifier : URL) </td></tr>
-			<tr><td align="left"> + setOwner(owner : Organisation) </td></tr>
-			<tr><td align="left"> + getOwner() : Organisation </td></tr>
-			<tr><td align="left"> + addKeyword(keyword : String) </td></tr>
-			<tr><td align="left"> + removeKeyword(keyword : String) </td></tr>
-			<tr><td align="left"> + getKeywords() : List&lt;String&gt; </td></tr>
-			<tr><td align="left"> + setAbstract(abstrakt : String) </td></tr>
-			<tr><td align="left"> + getAbstract() : String </td></tr>
-			<tr><td align="left"> + setAuthor(author : User) </td></tr>
-			<tr><td align="left"> + getAuthor() : User </td></tr>
-			<tr><td align="left"> + setSummarySearchable(isSummarySearchable : boolean) </td></tr>
-			<tr><td align="left"> + isSummarySearchable() : boolean </td></tr>
-			<tr><td align="left"> + setAssay(assay : Assay) </td></tr>
-			<tr><td align="left"> + getAssay() : Assay </td></tr>
-			<tr><td align="left"> + setProject(project : Project) </td></tr>
-			<tr><td align="left"> + getProject() : Project </td></tr>
-			<tr><td align="left"> + setVersionInfo(versionInfo : String) </td></tr>
-			<tr><td align="left"> + getVersionInfo() : String </td></tr>
-		</table></td></tr>
-		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.Protocol
-	c1473 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Protocol.html">
+	c1795 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Protocol.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Protocol </td></tr>
 		</table></td></tr>
@@ -137,7 +109,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.IToxBankResource
-	c1477 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./IToxBankResource.html">
+	c1799 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./IToxBankResource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> IToxBankResource </td></tr>
@@ -152,8 +124,43 @@ digraph G {
 			<tr><td align="left"> + getTitle() : String </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
+	// net.toxbank.client.resource.Investigation
+	c1800 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Investigation.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> Investigation </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td align="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td align="left"> + Investigation() </td></tr>
+			<tr><td align="left"> + Investigation(identifier : URL) </td></tr>
+			<tr><td align="left"> + getAccessionId() : String </td></tr>
+			<tr><td align="left"> + setAccessionId(accessionId : String) </td></tr>
+			<tr><td align="left"> + getTitle() : String </td></tr>
+			<tr><td align="left"> + setTitle(title : String) </td></tr>
+			<tr><td align="left"> + getAbstract() : String </td></tr>
+			<tr><td align="left"> + setAbstract(abstrakt : String) </td></tr>
+			<tr><td align="left"> + getSubmissionDate() : Long </td></tr>
+			<tr><td align="left"> + setSubmissionDate(submissionDate : Long) </td></tr>
+			<tr><td align="left"> + getLastModifiedDate() : Long </td></tr>
+			<tr><td align="left"> + setLastModifiedDate(lastModifiedDate : Long) </td></tr>
+			<tr><td align="left"> + getOwner() : User </td></tr>
+			<tr><td align="left"> + setOwner(owner : User) </td></tr>
+			<tr><td align="left"> + getAuthors() : List&lt;User&gt; </td></tr>
+			<tr><td align="left"> + setAuthors(authors : List&lt;User&gt;) </td></tr>
+			<tr><td align="left"> + getProtocols() : List&lt;Protocol&gt; </td></tr>
+			<tr><td align="left"> + setProtocols(protocols : List&lt;Protocol&gt;) </td></tr>
+			<tr><td align="left"> + getOrganisation() : Organisation </td></tr>
+			<tr><td align="left"> + setOrganisation(organisation : Organisation) </td></tr>
+			<tr><td align="left"> + getProject() : Project </td></tr>
+			<tr><td align="left"> + setProject(project : Project) </td></tr>
+			<tr><td align="left"> + getKeywords() : List&lt;String&gt; </td></tr>
+			<tr><td align="left"> + setKeywords(keywords : List&lt;String&gt;) </td></tr>
+		</table></td></tr>
+		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.Group
-	c1478 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Group.html">
+	c1801 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Group.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Group </td></tr>
 		</table></td></tr>
@@ -170,7 +177,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.Document
-	c1479 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Document.html">
+	c1802 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Document.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Document </td></tr>
 		</table></td></tr>
@@ -186,32 +193,45 @@ digraph G {
 			<tr><td align="left"> + setMediaType(mediaType : String) </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.resource.Assay
-	c1480 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Assay.html">
+	// net.toxbank.client.resource.Alert<USER extends net.toxbank.client.resource.User>
+	c1803 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Alert.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Assay </td></tr>
+			<tr><td> Alert&lt;USER extends User&gt; </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + Assay() </td></tr>
-		</table></td></tr>
-		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.resource.Alert
-	c1481 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Alert.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Alert </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
+			<tr><td align="left"> # sentAt : long </td></tr>
+			<tr><td align="left"> # created : long </td></tr>
+			<tr><td align="left"> # query : Query </td></tr>
+			<tr><td align="left"> # recurrenceFrequency : Alert.RecurrenceFrequency </td></tr>
+			<tr><td align="left"> # recurrenceInterval : int </td></tr>
+			<tr><td align="left"> # user : USER </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + Alert() </td></tr>
+			<tr><td align="left"> + Alert(query : Query, user : USER) </td></tr>
+			<tr><td align="left"> + Alert(query : Query, user : USER, frequency : Alert.RecurrenceFrequency) </td></tr>
+			<tr><td align="left"> + Alert(query : Query, user : USER, frequency : Alert.RecurrenceFrequency, interval : int) </td></tr>
+			<tr><td align="left"> + getCreated() : long </td></tr>
+			<tr><td align="left"> + setCreated(created : long) </td></tr>
+			<tr><td align="left"> + getSentAt() : long </td></tr>
+			<tr><td align="left"> + setSentAt(sentAt : long) </td></tr>
+			<tr><td align="left"> + getQuery() : Query </td></tr>
+			<tr><td align="left"> + setQuery(query : Query) </td></tr>
+			<tr><td align="left"> + getQueryString() : String </td></tr>
+			<tr><td align="left"> + setQueryString(content : String) </td></tr>
+			<tr><td align="left"> + getType() : Query.QueryType </td></tr>
+			<tr><td align="left"> + setType(type : Query.QueryType) </td></tr>
+			<tr><td align="left"> + getRecurrenceFrequency() : Alert.RecurrenceFrequency </td></tr>
+			<tr><td align="left"> + setRecurrenceFrequency(recurrenceFrequency : Alert.RecurrenceFrequency) </td></tr>
+			<tr><td align="left"> + getRecurrenceInterval() : int </td></tr>
+			<tr><td align="left"> + setRecurrenceInterval(recurrenceInterval : int) </td></tr>
+			<tr><td align="left"> + getUser() : USER </td></tr>
+			<tr><td align="left"> + setUser(user : USER) </td></tr>
+			<tr><td align="left"> + toString() : String </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.Account
-	c1482 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Account.html">
+	c1806 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./Account.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> Account </td></tr>
 		</table></td></tr>
@@ -227,7 +247,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AbstractToxBankResource
-	c1483 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AbstractToxBankResource.html">
+	c1807 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AbstractToxBankResource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractToxBankResource </font></td></tr>
 		</table></td></tr>
@@ -246,24 +266,22 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.resource.User extends net.toxbank.client.resource.AbstractToxBankResource
-	c1483:p -> c1469:p [dir=back,arrowtail=empty];
+	c1807:p -> c1790:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.Template extends net.toxbank.client.resource.AbstractToxBankResource
-	c1483:p -> c1471:p [dir=back,arrowtail=empty];
-	//net.toxbank.client.resource.Study extends net.toxbank.client.resource.AbstractToxBankResource
-	c1483:p -> c1472:p [dir=back,arrowtail=empty];
+	c1807:p -> c1792:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.Protocol extends net.toxbank.client.resource.AbstractToxBankResource
-	c1483:p -> c1473:p [dir=back,arrowtail=empty];
+	c1807:p -> c1795:p [dir=back,arrowtail=empty];
+	//net.toxbank.client.resource.Investigation extends net.toxbank.client.resource.AbstractToxBankResource
+	c1807:p -> c1800:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.Group extends net.toxbank.client.resource.AbstractToxBankResource
-	c1483:p -> c1478:p [dir=back,arrowtail=empty];
+	c1807:p -> c1801:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.Document extends net.toxbank.client.resource.AbstractToxBankResource
-	c1483:p -> c1479:p [dir=back,arrowtail=empty];
-	//net.toxbank.client.resource.Assay extends net.toxbank.client.resource.AbstractToxBankResource
-	c1483:p -> c1480:p [dir=back,arrowtail=empty];
-	//net.toxbank.client.resource.Alert extends net.toxbank.client.resource.AbstractToxBankResource
-	c1483:p -> c1481:p [dir=back,arrowtail=empty];
+	c1807:p -> c1802:p [dir=back,arrowtail=empty];
+	//net.toxbank.client.resource.Alert<USER extends net.toxbank.client.resource.User> extends net.toxbank.client.resource.AbstractToxBankResource
+	c1807:p -> c1803:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.Account extends net.toxbank.client.resource.AbstractToxBankResource
-	c1483:p -> c1482:p [dir=back,arrowtail=empty];
+	c1807:p -> c1806:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.AbstractToxBankResource implements net.toxbank.client.resource.IToxBankResource
-	c1477:p -> c1483:p [dir=back,arrowtail=empty,style=dashed];
+	c1799:p -> c1807:p [dir=back,arrowtail=empty,style=dashed];
 }
 

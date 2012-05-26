@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.io.rdf.AlertIO
-	c589 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AlertIO.html">
+	c694 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AlertIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> AlertIO </td></tr>
 		</table></td></tr>
@@ -17,18 +17,18 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + AlertIO() </td></tr>
-			<tr><td align="left"> + objectToJena(toAddTo : Model, alert : Alert) : Resource </td></tr>
-			<tr><td align="left"> + fromJena(source : Model) : List&lt;Alert&gt; </td></tr>
-			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Alert </td></tr>
+			<tr><td align="left"> + objectToJena(toAddTo : Model, alert : Alert&lt;&gt;) : Resource </td></tr>
+			<tr><td align="left"> + fromJena(source : Model) : List&lt;Alert&lt;&gt;&gt; </td></tr>
+			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Alert&lt;&gt; </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AbstractIOClass<T extends net.toxbank.client.resource.IToxBankResource>
-	c591 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractIOClass.html">
+	c696 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractIOClass.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractIOClass&lt;T extends IToxBankResource&gt; </font></td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
+			<tr><td align="left"> # dateStringFormat : DateFormat </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + AbstractIOClass() </td></tr>
@@ -37,9 +37,17 @@ digraph G {
 			<tr><td align="left"> # fromJena(source : Model, iter : ResIterator) : List&lt;T&gt; </td></tr>
 			<tr><td align="left"> # fromJena(source : Model, iter : NodeIterator) : List&lt;T&gt; </td></tr>
 			<tr><td align="left"> # cleanLiteral(m : String) : String </td></tr>
+			<tr><td align="left"> # hasType(res : Resource, type : Resource) : boolean </td></tr>
+			<tr><td align="left"> # addString(res : Resource, prop : Property, value : String) </td></tr>
+			<tr><td align="left"> # addTimestamp(res : Resource, prop : Property, timestamp : Long) </td></tr>
+			<tr><td align="left"> # getString(res : Resource, prop : Property) : String </td></tr>
+			<tr><td align="left"> # getUri(res : Resource, prop : Property) : String </td></tr>
+			<tr><td align="left"> # getTimestamp(res : Resource, prop : Property) : Long </td></tr>
+			<tr><td align="left"> # timestampToDateString(timestamp : Long) : String </td></tr>
+			<tr><td align="left"> # dateStringToTimestamp(dateString : String) : Long </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.io.rdf.AlertIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Alert>
-	c591:p -> c589:p [dir=back,arrowtail=empty];
+	c696:p -> c694:p [dir=back,arrowtail=empty];
 }
 

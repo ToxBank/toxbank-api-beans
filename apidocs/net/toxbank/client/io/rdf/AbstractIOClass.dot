@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.io.rdf.UserIO
-	c650 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./UserIO.html">
+	c762 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./UserIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> UserIO </td></tr>
 		</table></td></tr>
@@ -23,7 +23,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.TemplateIO
-	c652 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TemplateIO.html">
+	c765 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TemplateIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> TemplateIO </td></tr>
 		</table></td></tr>
@@ -37,23 +37,8 @@ digraph G {
 			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Template </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.io.rdf.StudyIO
-	c653 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./StudyIO.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> StudyIO </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + StudyIO() </td></tr>
-			<tr><td align="left"> + objectToJena(toAddTo : Model, study : Study) : Resource </td></tr>
-			<tr><td align="left"> + fromJena(source : Model) : List&lt;Study&gt; </td></tr>
-			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Study </td></tr>
-		</table></td></tr>
-		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.ProtocolIO
-	c655 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProtocolIO.html">
+	c767 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProtocolIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ProtocolIO </td></tr>
 		</table></td></tr>
@@ -68,7 +53,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.ProjectIO
-	c656 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProjectIO.html">
+	c768 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProjectIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ProjectIO </td></tr>
 		</table></td></tr>
@@ -83,7 +68,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.OrganisationIO
-	c657 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OrganisationIO.html">
+	c769 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OrganisationIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> OrganisationIO </td></tr>
 		</table></td></tr>
@@ -98,7 +83,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.IOClass<T extends net.toxbank.client.resource.IToxBankResource>
-	c658 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./IOClass.html">
+	c771 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./IOClass.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> IOClass&lt;T extends IToxBankResource&gt; </td></tr>
@@ -113,8 +98,23 @@ digraph G {
 			<tr><td align="left"> + fromJena(source : Model, res : Resource) : T </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
+	// net.toxbank.client.io.rdf.InvestigationIO
+	c772 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./InvestigationIO.html">
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td> InvestigationIO </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td align="left">  </td></tr>
+		</table></td></tr>
+		<tr><td><table border="0" cellspacing="0" cellpadding="1">
+			<tr><td align="left"> + InvestigationIO() </td></tr>
+			<tr><td align="left"> + fromJena(source : Model) : List&lt;Investigation&gt; </td></tr>
+			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Investigation </td></tr>
+			<tr><td align="left"> + objectToJena(toAddTo : Model, investigation : Investigation) : Resource </td></tr>
+		</table></td></tr>
+		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.DocumentIO
-	c659 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DocumentIO.html">
+	c773 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DocumentIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DocumentIO </td></tr>
 		</table></td></tr>
@@ -128,23 +128,8 @@ digraph G {
 			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Document </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.io.rdf.AssayIO
-	c660 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AssayIO.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> AssayIO </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + AssayIO() </td></tr>
-			<tr><td align="left"> + objectToJena(toAddTo : Model, assay : Assay) : Resource </td></tr>
-			<tr><td align="left"> + fromJena(source : Model) : List&lt;Assay&gt; </td></tr>
-			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Assay </td></tr>
-		</table></td></tr>
-		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AlertIO
-	c661 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AlertIO.html">
+	c774 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AlertIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> AlertIO </td></tr>
 		</table></td></tr>
@@ -153,13 +138,13 @@ digraph G {
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + AlertIO() </td></tr>
-			<tr><td align="left"> + objectToJena(toAddTo : Model, alert : Alert) : Resource </td></tr>
-			<tr><td align="left"> + fromJena(source : Model) : List&lt;Alert&gt; </td></tr>
-			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Alert </td></tr>
+			<tr><td align="left"> + objectToJena(toAddTo : Model, alert : Alert&lt;&gt;) : Resource </td></tr>
+			<tr><td align="left"> + fromJena(source : Model) : List&lt;Alert&lt;&gt;&gt; </td></tr>
+			<tr><td align="left"> + fromJena(source : Model, res : Resource) : Alert&lt;&gt; </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AccountIO
-	c662 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AccountIO.html">
+	c775 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AccountIO.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> AccountIO </td></tr>
 		</table></td></tr>
@@ -174,12 +159,12 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AbstractIOClass<T extends net.toxbank.client.resource.IToxBankResource>
-	c663 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AbstractIOClass.html">
+	c776 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AbstractIOClass.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractIOClass&lt;T extends IToxBankResource&gt; </font></td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
+			<tr><td align="left"> # dateStringFormat : DateFormat </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + AbstractIOClass() </td></tr>
@@ -188,29 +173,35 @@ digraph G {
 			<tr><td align="left"> # fromJena(source : Model, iter : ResIterator) : List&lt;T&gt; </td></tr>
 			<tr><td align="left"> # fromJena(source : Model, iter : NodeIterator) : List&lt;T&gt; </td></tr>
 			<tr><td align="left"> # cleanLiteral(m : String) : String </td></tr>
+			<tr><td align="left"> # hasType(res : Resource, type : Resource) : boolean </td></tr>
+			<tr><td align="left"> # addString(res : Resource, prop : Property, value : String) </td></tr>
+			<tr><td align="left"> # addTimestamp(res : Resource, prop : Property, timestamp : Long) </td></tr>
+			<tr><td align="left"> # getString(res : Resource, prop : Property) : String </td></tr>
+			<tr><td align="left"> # getUri(res : Resource, prop : Property) : String </td></tr>
+			<tr><td align="left"> # getTimestamp(res : Resource, prop : Property) : Long </td></tr>
+			<tr><td align="left"> # timestampToDateString(timestamp : Long) : String </td></tr>
+			<tr><td align="left"> # dateStringToTimestamp(dateString : String) : Long </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.io.rdf.UserIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.User>
-	c663:p -> c650:p [dir=back,arrowtail=empty];
+	c776:p -> c762:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.TemplateIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Template>
-	c663:p -> c652:p [dir=back,arrowtail=empty];
-	//net.toxbank.client.io.rdf.StudyIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Study>
-	c663:p -> c653:p [dir=back,arrowtail=empty];
+	c776:p -> c765:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.ProtocolIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Protocol>
-	c663:p -> c655:p [dir=back,arrowtail=empty];
+	c776:p -> c767:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.ProjectIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Project>
-	c663:p -> c656:p [dir=back,arrowtail=empty];
+	c776:p -> c768:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.OrganisationIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Organisation>
-	c663:p -> c657:p [dir=back,arrowtail=empty];
+	c776:p -> c769:p [dir=back,arrowtail=empty];
+	//net.toxbank.client.io.rdf.InvestigationIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Investigation>
+	c776:p -> c772:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.DocumentIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Document>
-	c663:p -> c659:p [dir=back,arrowtail=empty];
-	//net.toxbank.client.io.rdf.AssayIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Assay>
-	c663:p -> c660:p [dir=back,arrowtail=empty];
+	c776:p -> c773:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.AlertIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Alert>
-	c663:p -> c661:p [dir=back,arrowtail=empty];
+	c776:p -> c774:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.AccountIO extends net.toxbank.client.io.rdf.AbstractIOClass<net.toxbank.client.resource.Account>
-	c663:p -> c662:p [dir=back,arrowtail=empty];
+	c776:p -> c775:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.io.rdf.AbstractIOClass<T extends net.toxbank.client.resource.IToxBankResource> implements net.toxbank.client.io.rdf.IOClass<T extends net.toxbank.client.resource.IToxBankResource>
-	c658:p -> c663:p [dir=back,arrowtail=empty,style=dashed];
+	c771:p -> c776:p [dir=back,arrowtail=empty,style=dashed];
 }
 

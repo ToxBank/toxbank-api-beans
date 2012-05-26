@@ -7,20 +7,45 @@
 digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
-	// net.toxbank.client.resource.Alert
-	c1409 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Alert.html">
+	// net.toxbank.client.resource.Alert<USER extends net.toxbank.client.resource.User>
+	c1643 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./Alert.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> Alert </td></tr>
+			<tr><td> Alert&lt;USER extends User&gt; </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
+			<tr><td align="left"> # sentAt : long </td></tr>
+			<tr><td align="left"> # created : long </td></tr>
+			<tr><td align="left"> # query : Query </td></tr>
+			<tr><td align="left"> # recurrenceFrequency : Alert.RecurrenceFrequency </td></tr>
+			<tr><td align="left"> # recurrenceInterval : int </td></tr>
+			<tr><td align="left"> # user : USER </td></tr>
 		</table></td></tr>
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td align="left"> + Alert() </td></tr>
+			<tr><td align="left"> + Alert(query : Query, user : USER) </td></tr>
+			<tr><td align="left"> + Alert(query : Query, user : USER, frequency : Alert.RecurrenceFrequency) </td></tr>
+			<tr><td align="left"> + Alert(query : Query, user : USER, frequency : Alert.RecurrenceFrequency, interval : int) </td></tr>
+			<tr><td align="left"> + getCreated() : long </td></tr>
+			<tr><td align="left"> + setCreated(created : long) </td></tr>
+			<tr><td align="left"> + getSentAt() : long </td></tr>
+			<tr><td align="left"> + setSentAt(sentAt : long) </td></tr>
+			<tr><td align="left"> + getQuery() : Query </td></tr>
+			<tr><td align="left"> + setQuery(query : Query) </td></tr>
+			<tr><td align="left"> + getQueryString() : String </td></tr>
+			<tr><td align="left"> + setQueryString(content : String) </td></tr>
+			<tr><td align="left"> + getType() : Query.QueryType </td></tr>
+			<tr><td align="left"> + setType(type : Query.QueryType) </td></tr>
+			<tr><td align="left"> + getRecurrenceFrequency() : Alert.RecurrenceFrequency </td></tr>
+			<tr><td align="left"> + setRecurrenceFrequency(recurrenceFrequency : Alert.RecurrenceFrequency) </td></tr>
+			<tr><td align="left"> + getRecurrenceInterval() : int </td></tr>
+			<tr><td align="left"> + setRecurrenceInterval(recurrenceInterval : int) </td></tr>
+			<tr><td align="left"> + getUser() : USER </td></tr>
+			<tr><td align="left"> + setUser(user : USER) </td></tr>
+			<tr><td align="left"> + toString() : String </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AbstractToxBankResource
-	c1411 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
+	c1647 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractToxBankResource.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractToxBankResource </font></td></tr>
 		</table></td></tr>
@@ -38,7 +63,7 @@ digraph G {
 			<tr><td align="left"> + equals(obj : Object) : boolean </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	//net.toxbank.client.resource.Alert extends net.toxbank.client.resource.AbstractToxBankResource
-	c1411:p -> c1409:p [dir=back,arrowtail=empty];
+	//net.toxbank.client.resource.Alert<USER extends net.toxbank.client.resource.User> extends net.toxbank.client.resource.AbstractToxBankResource
+	c1647:p -> c1643:p [dir=back,arrowtail=empty];
 }
 

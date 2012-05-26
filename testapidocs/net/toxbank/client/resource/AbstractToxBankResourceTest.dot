@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.resource.UserTest
-	c586 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./UserTest.html">
+	c450 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./UserTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> UserTest </td></tr>
 		</table></td></tr>
@@ -31,7 +31,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.ToxBankResourceSetTest
-	c587 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ToxBankResourceSetTest.html">
+	c451 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ToxBankResourceSetTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ToxBankResourceSetTest </td></tr>
 		</table></td></tr>
@@ -47,7 +47,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.TemplateTest
-	c588 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TemplateTest.html">
+	c452 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./TemplateTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> TemplateTest </td></tr>
 		</table></td></tr>
@@ -60,26 +60,8 @@ digraph G {
 			<tr><td align="left"> + testConstructor() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.resource.StudyTest
-	c589 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./StudyTest.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> StudyTest </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + StudyTest() </td></tr>
-			<tr><td align="left"> + setup() </td></tr>
-			<tr><td align="left"> + testConstructor() </td></tr>
-			<tr><td align="left"> + testGetSetKeywords() </td></tr>
-			<tr><td align="left"> + testGetSetAbstract() </td></tr>
-			<tr><td align="left"> + testGetSetAuthor() </td></tr>
-			<tr><td align="left"> + testGetSetVersionInfo() </td></tr>
-		</table></td></tr>
-		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.ProtocolTest
-	c590 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProtocolTest.html">
+	c453 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProtocolTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ProtocolTest </td></tr>
 		</table></td></tr>
@@ -105,7 +87,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.ProjectTest
-	c591 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProjectTest.html">
+	c454 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./ProjectTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ProjectTest </td></tr>
 		</table></td></tr>
@@ -119,7 +101,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.OrganisationTest
-	c592 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OrganisationTest.html">
+	c455 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./OrganisationTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> OrganisationTest </td></tr>
 		</table></td></tr>
@@ -133,7 +115,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.DocumentTest
-	c593 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DocumentTest.html">
+	c456 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./DocumentTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> DocumentTest </td></tr>
 		</table></td></tr>
@@ -146,22 +128,8 @@ digraph G {
 			<tr><td align="left"> + testConstructor() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
-	// net.toxbank.client.resource.AssayTest
-	c594 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AssayTest.html">
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td> AssayTest </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + AssayTest() </td></tr>
-			<tr><td align="left"> + setup() </td></tr>
-			<tr><td align="left"> + testConstructor() </td></tr>
-		</table></td></tr>
-		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AlertTest
-	c595 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AlertTest.html">
+	c457 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AlertTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> AlertTest </td></tr>
 		</table></td></tr>
@@ -172,10 +140,11 @@ digraph G {
 			<tr><td align="left"> + AlertTest() </td></tr>
 			<tr><td align="left"> + setup() </td></tr>
 			<tr><td align="left"> + testConstructor() </td></tr>
+			<tr><td align="left"> + testGetSetQuery() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AccountTest
-	c596 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AccountTest.html">
+	c458 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AccountTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> AccountTest </td></tr>
 		</table></td></tr>
@@ -191,7 +160,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AbstractToxBankResourceTest.html">
+	c459 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./AbstractToxBankResourceTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractToxBankResourceTest </font></td></tr>
 		</table></td></tr>
@@ -206,26 +175,22 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.resource.UserTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c586:p [dir=back,arrowtail=empty];
+	c459:p -> c450:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.ToxBankResourceSetTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c587:p [dir=back,arrowtail=empty];
+	c459:p -> c451:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.TemplateTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c588:p [dir=back,arrowtail=empty];
-	//net.toxbank.client.resource.StudyTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c589:p [dir=back,arrowtail=empty];
+	c459:p -> c452:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.ProtocolTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c590:p [dir=back,arrowtail=empty];
+	c459:p -> c453:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.ProjectTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c591:p [dir=back,arrowtail=empty];
+	c459:p -> c454:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.OrganisationTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c592:p [dir=back,arrowtail=empty];
+	c459:p -> c455:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.DocumentTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c593:p [dir=back,arrowtail=empty];
-	//net.toxbank.client.resource.AssayTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c594:p [dir=back,arrowtail=empty];
+	c459:p -> c456:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.AlertTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c595:p [dir=back,arrowtail=empty];
+	c459:p -> c457:p [dir=back,arrowtail=empty];
 	//net.toxbank.client.resource.AccountTest extends net.toxbank.client.resource.AbstractToxBankResourceTest
-	c597:p -> c596:p [dir=back,arrowtail=empty];
+	c459:p -> c458:p [dir=back,arrowtail=empty];
 }
 

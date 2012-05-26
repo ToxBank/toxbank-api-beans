@@ -8,7 +8,7 @@ digraph G {
 	edge [fontname="arial",fontsize=10,labelfontname="arial",labelfontsize=10];
 	node [fontname="arial",fontsize=10,shape=plaintext];
 	// net.toxbank.client.io.rdf.ProtocolIOTest
-	c141 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ProtocolIOTest.html">
+	c102 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./ProtocolIOTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> ProtocolIOTest </td></tr>
 		</table></td></tr>
@@ -41,7 +41,7 @@ digraph G {
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	// net.toxbank.client.io.rdf.AbstractIOClassTest<T extends net.toxbank.client.resource.IToxBankResource>
-	c148 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractIOClassTest.html">
+	c109 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./AbstractIOClassTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="ariali"> AbstractIOClassTest&lt;T extends IToxBankResource&gt; </font></td></tr>
 		</table></td></tr>
@@ -53,10 +53,11 @@ digraph G {
 			<tr><td align="left"> + getIOClass() : IOClass&lt;T&gt; </td></tr>
 			<tr><td align="left"> + testFromJena_AcceptNullModel() </td></tr>
 			<tr><td align="left"> + testToJena_AcceptNullModel() </td></tr>
+			<tr><td align="left"> # getOutputFile(object : Object, ext : String) : File </td></tr>
 			<tr><td align="left"> # getResourceStream(object : Object, ext : String) : OutputStream </td></tr>
 		</table></td></tr>
 		</table>>, fontname="arial", fontcolor="black", fontsize=10.0];
 	//net.toxbank.client.io.rdf.ProtocolIOTest extends net.toxbank.client.io.rdf.AbstractIOClassTest<net.toxbank.client.resource.Protocol>
-	c148:p -> c141:p [dir=back,arrowtail=empty];
+	c109:p -> c102:p [dir=back,arrowtail=empty];
 }
 
