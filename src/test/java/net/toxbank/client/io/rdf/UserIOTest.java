@@ -162,6 +162,19 @@ public class UserIOTest extends AbstractIOClassTest<User> {
 	}
 	
 	@Test
+	public void testRoundtripEmail() throws MalformedURLException, IOException {
+		User user = new User();
+		user.setResourceURL(new URL(test_user));
+		//uses addAccount() under the hood
+		user.setEmail("me@example.org");
+
+		User roundtripped = roundtripSingleUser(user);
+
+		Assert.assertEquals(1, roundtripped.getAccounts().size());
+		Assert.assertEquals("me@example.org", roundtripped.getEmail());
+	}
+	
+	@Test
 	public void testRoundtripFirstName() throws MalformedURLException , IOException{
 		User user = new User();
 		user.setResourceURL(new URL("http://example.org/testUser/AJ"));

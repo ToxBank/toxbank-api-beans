@@ -44,7 +44,8 @@ public class UserIO extends AbstractIOClass<User> {
 				res.addLiteral(TOXBANK.HASTBACCOUNT, user.getUserName());		
 			if (user.getAccounts() != null) {
 				for (Account account : user.getAccounts()) {
-					accountIO.objectToJena(toAddTo, account);
+					Resource resource = accountIO.objectToJena(toAddTo, account);
+					res.addProperty(FOAF.holdsAccount, resource);	
 				}
 			}
 			//orgs
@@ -117,15 +118,18 @@ public class UserIO extends AbstractIOClass<User> {
 							)
 						);
 					}
-			List<Account> accounts = accountIO.fromJena(source);
+					
+			if (accountIO==null)  accountIO = new AccountIO();					
+			List<Account> accounts = accountIO.fromJena(source,source.listObjectsOfProperty(res,FOAF.holdsAccount));
 			for (Account account : accounts) {
 				// Important: assuming here that the account uri is an extension
 				// of the user URI
-				if (account.getResourceURL().toString().startsWith(
-						user.getResourceURL().toString()
-					)) {
+				//oops, why so? could be completely independent, e.g. mailto:smb@host.com
+				//if (account.getResourceURL().toString().startsWith(
+				//		user.getResourceURL().toString()
+				//	)) {
 					user.addAccount(account);
-				}
+				//}
 			}
 			
 			if (projectIO==null)  projectIO = new ProjectIO();
