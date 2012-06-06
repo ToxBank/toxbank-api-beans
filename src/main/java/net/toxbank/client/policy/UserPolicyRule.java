@@ -42,6 +42,7 @@ public class UserPolicyRule<USER extends User> extends PolicyRule<USER> {
 	
 	@Override
 	public String toString() {
+		if(getName()==null) return null;
 		return String.format("%s\tUser=%s\tGET=%s\tPOST=%s\tPUT=%s\tDELETE=%s\n", 
 					getName()==null?"":getName(),
 					getSubject().getUserName()==null?getSubject().getResourceURL():getSubject().getUserName(),
