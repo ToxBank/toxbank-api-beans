@@ -137,6 +137,8 @@ digraph G {
 			<tr><td align="left"> + Investigation(identifier : URL) </td></tr>
 			<tr><td align="left"> + getAccessionId() : String </td></tr>
 			<tr><td align="left"> + setAccessionId(accessionId : String) </td></tr>
+			<tr><td align="left"> + getSeuratId() : String </td></tr>
+			<tr><td align="left"> + setSeuratId(seuratId : String) </td></tr>
 			<tr><td align="left"> + getTitle() : String </td></tr>
 			<tr><td align="left"> + setTitle(title : String) </td></tr>
 			<tr><td align="left"> + getAbstract() : String </td></tr>

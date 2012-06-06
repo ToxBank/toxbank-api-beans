@@ -26,6 +26,7 @@ digraph G {
 			<tr><td align="left"> + testRoundtripUsername() </td></tr>
 			<tr><td align="left"> + testRoundtripTitle_Null() </td></tr>
 			<tr><td align="left"> + testRoundtripAccount() </td></tr>
+			<tr><td align="left"> + testRoundtripEmail() </td></tr>
 			<tr><td align="left"> + testRoundtripFirstName() </td></tr>
 			<tr><td align="left"> + testRoundtripProject() </td></tr>
 			<tr><td align="left"> + testRoundtripOrganisation() </td></tr>

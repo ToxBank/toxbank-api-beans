@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.3" timestamp="2012-05-26T09:45:18.022">
+<pmd version="4.3" timestamp="2012-06-06T13:53:48.507">
 <file name="D:\src-pol\toxbank-api-beans\src\main\java\net\toxbank\client\io\rdf\NCAL.java">
 <violation beginline="3" endline="3" begincolumn="1" endcolumn="41" rule="UnusedImports" ruleset="Import Statement Rules" package="net.toxbank.client.io.rdf" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
 Avoid unused imports such as 'net.toxbank.client.resource.Alert'
