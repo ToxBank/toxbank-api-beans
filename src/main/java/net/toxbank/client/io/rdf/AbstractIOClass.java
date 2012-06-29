@@ -101,6 +101,15 @@ public abstract class AbstractIOClass<T extends IToxBankResource> implements IOC
 	  addString(res, prop, timestampToDateString(timestamp));
 	}
 	
+	protected Boolean getBoolean(Resource res, Property prop) {
+	  try {
+	    return res.getProperty(prop).getBoolean();
+	  }
+	  catch (Exception e) {
+	    return null;
+	  }
+	}
+	
 	protected String getString(Resource res, Property prop) {
 	  try {
 	    return res.getProperty(prop).getString();

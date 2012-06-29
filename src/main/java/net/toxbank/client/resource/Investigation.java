@@ -26,10 +26,20 @@ public class Investigation extends AbstractToxBankResource {
   private List<Protocol> protocols = new ArrayList<Protocol>();    
   private List<String> keywords = new ArrayList<String>();
   
+  private Boolean isPublished = null;
+    
   public Investigation() {}
   
   public Investigation(URL identifier) {
     setResourceURL(identifier);
+  }
+
+  public Boolean isPublished() {
+    return isPublished;
+  }
+
+  public void setPublished(Boolean isPublished) {
+    this.isPublished = isPublished;
   }
 
   public String getAccessionId() {

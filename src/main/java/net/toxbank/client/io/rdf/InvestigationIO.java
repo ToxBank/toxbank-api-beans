@@ -17,7 +17,7 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
   private ProjectIO projectIO = new ProjectIO();
   private UserIO userIO = new UserIO();
 
-  private static Pattern fullInvestigationUrlPattern = Pattern.compile("(.*)/([0-9]+)/([A-Z0-9]+)");
+  private static Pattern fullInvestigationUrlPattern = Pattern.compile("(.*)/([0-9\\-a-f]+)/([A-Z0-9]+)");
   
   @Override
   public List<Investigation> fromJena(Model source) {
@@ -31,15 +31,20 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     Investigation investigation = new Investigation();
     try {
       String resourceUri = res.getURI();
+      if (resourceUri.endsWith("/")) {
+        resourceUri = resourceUri.substring(0, resourceUri.length()-1);
+      }
       Matcher matcher = fullInvestigationUrlPattern.matcher(resourceUri);
       if (matcher.matches()) {
         resourceUri = matcher.group(1) + "/" + matcher.group(2);
+        investigation.setSeuratId("SEURAT-Investigation-" + matcher.group(2));
       }
       investigation.setResourceURL(new URL(resourceUri));
     } catch (MalformedURLException e) {
       throw new IllegalArgumentException(String.format(msg_InvalidURI, "investigation", res.getURI()));
     }
     
+    investigation.setPublished(getBoolean(res, TOXBANK.ISPUBLISHED));
     investigation.setAccessionId(getString(res, TOXBANK_ISA.HAS_ACCESSION_ID));
     investigation.setTitle(getString(res, DCTerms.title));
     investigation.setAbstract(getString(res, DCTerms.abstract_));
@@ -50,7 +55,7 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
       Project project = projectIO.fromJena(source,res.getProperty(TOXBANK.HASPROJECT).getResource());
       investigation.setProject(project);
     } 
-      
+    
     if (res.getProperty(TOXBANK.HASORGANISATION) != null) {
       Organisation org  = organisationIO.fromJena(source,res.getProperty(TOXBANK.HASORGANISATION).getResource());
       investigation.setOrganisation(org);
