@@ -146,6 +146,17 @@
             <target>1.6</target>
           </configuration>
         </plugin>
+ 	 <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <releaseProfiles>release</releaseProfiles>
+            <remoteTagging>true</remoteTagging>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
+            <!--               		<preparationGoals>clean install</preparationGoals> -->
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -244,4 +255,21 @@
 	-->
     </plugins>
   </reporting>
+  <profiles>	
+	<profile>
+		<id>release</id>
+		<build>
+			<plugins>
+				<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+				<debug>false</debug>
+				<optimize>true</optimize>
+				</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+  </profiles>
 </project>
