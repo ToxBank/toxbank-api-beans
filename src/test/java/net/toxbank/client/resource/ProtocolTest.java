@@ -94,7 +94,6 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 	@Test
 	public void testGetSetPublishedFlag() {
 		Protocol version = new Protocol();
-		Long now = System.currentTimeMillis();
 		version.setPublished(true);
 		Assert.assertTrue(version.isPublished());
 	}	

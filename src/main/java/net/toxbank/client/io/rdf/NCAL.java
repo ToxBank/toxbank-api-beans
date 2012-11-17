@@ -1,6 +1,5 @@
 package net.toxbank.client.io.rdf;
 
-import net.toxbank.client.resource.Alert;
 import net.toxbank.client.resource.Alert.RecurrenceFrequency;
 
 import com.hp.hpl.jena.rdf.model.Property;
