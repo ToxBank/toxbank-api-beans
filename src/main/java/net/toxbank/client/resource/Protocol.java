@@ -98,7 +98,11 @@ public class Protocol extends AbstractToxBankResource {
 		if (projects == null) projects = new ToxBankResourceSet<Project>();
 		return projects;
 	}
-	
+	public void setProject(int index,Project project) {
+		if (project == null) return;
+		if (projects == null) projects = new ToxBankResourceSet<Project>();
+		projects.set(index, project);
+	}
 	public void addProject(Project project) {
 		if (project == null) return;
 
