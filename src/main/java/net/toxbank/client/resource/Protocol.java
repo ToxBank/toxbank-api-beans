@@ -23,7 +23,7 @@ public class Protocol extends AbstractToxBankResource {
 
 	private Document document;
 	private Template dataTemplate;
-	private Project project;
+	private ToxBankResourceSet<Project>  projects;
 	private Organisation organisation;
 	private User owner;
 	private List<String> keywords;
@@ -94,12 +94,31 @@ public class Protocol extends AbstractToxBankResource {
 		this.version = version;
 	}
 	
-	public Project getProject() {
-		return project;
+	public ToxBankResourceSet<Project> getProjects() {
+		if (projects == null) projects = new ToxBankResourceSet<Project>();
+		return projects;
+	}
+	
+	public void addProject(Project project) {
+		if (project == null) return;
+
+		if (projects == null) projects = new ToxBankResourceSet<Project>();
+		projects.add(project);
 	}
 
+	public void removeProject(Project project) {
+		if (project == null || projects == null) return;
+		if (projects.contains(project)) projects.remove(project);
+	}
+
+	@Deprecated
+	public Project getProject() {
+		return (projects == null)?null:projects.size()>0?projects.get(0):null;
+	}
+
+	@Deprecated
 	public void setProject(Project project) {
-		this.project = project;
+		addProject(project);
 	}
 
 	public void setSearchable(Boolean isSearchable) {

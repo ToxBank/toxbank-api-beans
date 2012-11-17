@@ -248,22 +248,31 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		prj.setTitle("Project");
 		prj.setGroupName("project");
 		prj.setResourceURL(new URL("http://www.toxbank.net/"));
-		protocol.setProject(prj);
+		protocol.addProject(prj);
+		
+		prj = new Project();
+		prj.setTitle("Project 2");
+		prj.setGroupName("project");
+		prj.setResourceURL(new URL("http://www.opentox.org/"));
+		protocol.addProject(prj);
 
 		Protocol roundtripped = roundtripSingleResource(protocol);
 
-		Assert.assertNotNull(roundtripped.getProject());
-		Assert.assertEquals(
-			"http://www.toxbank.net/",
-			roundtripped.getProject().getResourceURL().toString());
-		Assert.assertEquals(
-			"project",
-			roundtripped.getProject().getGroupName()		
-		);
-		Assert.assertEquals(
-				"Project",
-				roundtripped.getProject().getTitle()		
-		);			
+		Assert.assertNotNull(roundtripped.getProjects());
+		Assert.assertEquals(2,roundtripped.getProjects().size());
+		int count = 0;
+		for (Project project : roundtripped.getProjects()) {
+			Assert.assertNotNull(project);
+			Assert.assertEquals("project",project.getGroupName());
+			if ("http://www.toxbank.net/".equals(project.getResourceURL().toExternalForm())) {
+				Assert.assertEquals("Project",project.getTitle());
+				count ++;
+			} else if ("http://www.opentox.org/".equals(project.getResourceURL().toExternalForm())) { 
+				Assert.assertEquals("Project 2",project.getTitle());
+				count++;	
+			} else Assert.fail("Unknown URL " + project.getResourceURL());	
+		}
+		Assert.assertEquals(2,count);
 	}	
 	@Test
 	public void testRoundtripOwner() throws MalformedURLException, IOException {

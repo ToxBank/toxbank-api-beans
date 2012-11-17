@@ -66,12 +66,15 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 				for (String keyword : keywords)
 					res.addLiteral(TOXBANK.HASKEYWORD, keyword);
 			}
-			if (protocol.getProject() != null) {
-				if (protocol.getProject().getResourceURL()==null)
-					throw new IllegalArgumentException(String.format(msg_InvalidURI, "project",res.getURI()));				
-				Resource project = projectIO.objectToJena(toAddTo, protocol.getProject());
-				res.addProperty(TOXBANK.HASPROJECT,project);
-			}			
+			 
+			if (protocol.getProjects() != null)
+				for (Project aproject:protocol.getProjects()) {
+					if (aproject.getResourceURL()==null)
+						throw new IllegalArgumentException(String.format(msg_InvalidURI, "project",res.getURI()));				
+					Resource project = projectIO.objectToJena(toAddTo, aproject);
+					res.addProperty(TOXBANK.HASPROJECT,project);
+				}			
+			
 			if (protocol.getOrganisation() != null) {
 				if (protocol.getOrganisation().getResourceURL()==null)
 					throw new IllegalArgumentException(String.format(msg_InvalidURI, "organisation",res.getURI()));				
@@ -188,10 +191,15 @@ public class ProtocolIO extends AbstractIOClass<Protocol> {
 				User author = userIO.fromJena(source, authorRes);
 				protocol.addAuthor(author);
 			}
-			if (res.getProperty(TOXBANK.HASPROJECT) != null) {
-				Project project = projectIO.fromJena(source,res.getProperty(TOXBANK.HASPROJECT).getResource());
-				protocol.setProject(project);
-			}	
+			authors.close();
+			
+			StmtIterator projects = res.listProperties(TOXBANK.HASPROJECT);
+			while (projects.hasNext()) {
+				Resource projectRes = projects.next().getResource();
+				Project project = projectIO.fromJena(source, projectRes);
+				protocol.addProject(project);
+			}
+			projects.close();
 				
 			if (res.getProperty(TOXBANK.HASORGANISATION) != null) {
 				Organisation org  = organisationIO.fromJena(source,res.getProperty(TOXBANK.HASORGANISATION).getResource());
