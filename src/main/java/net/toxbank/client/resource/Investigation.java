@@ -27,6 +27,7 @@ public class Investigation extends AbstractToxBankResource {
   private List<String> keywords = new ArrayList<String>();
   
   private Boolean isPublished = null;
+  private Boolean isSearchable = null;
     
   public Investigation() {}
   
@@ -98,6 +99,14 @@ public class Investigation extends AbstractToxBankResource {
     this.owner = owner;
   }
 
+  public Boolean isSearchable() {
+    return isSearchable;
+  }
+  
+  public void setSearchable(Boolean searchable) {
+    this.isSearchable = searchable;
+  }
+  
   public List<User> getAuthors() {
     return authors;
   }

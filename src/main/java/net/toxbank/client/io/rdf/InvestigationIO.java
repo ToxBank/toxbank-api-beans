@@ -45,6 +45,7 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     }
     
     investigation.setPublished(getBoolean(res, TOXBANK.ISPUBLISHED));
+    investigation.setSearchable(getBoolean(res, TOXBANK.ISSUMMARYSEARCHABLE));
     investigation.setAccessionId(getString(res, TOXBANK_ISA.HAS_ACCESSION_ID));
     investigation.setTitle(getString(res, DCTerms.title));
     investigation.setAbstract(getString(res, DCTerms.abstract_));
@@ -132,6 +133,12 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     addString(res, DCTerms.abstract_, investigation.getAbstract());
     addTimestamp(res, DCTerms.created, investigation.getSubmissionDate());
     addTimestamp(res, DCTerms.issued, investigation.getLastModifiedDate());
+
+    if (investigation.isPublished() != null)
+      res.addLiteral(TOXBANK.ISPUBLISHED, investigation.isPublished());
+
+    if (investigation.isSearchable() != null)
+      res.addLiteral(TOXBANK.ISSUMMARYSEARCHABLE, investigation.isSearchable());
 
     if (investigation.getProject() != null) {
       if (investigation.getProject().getResourceURL()==null)
