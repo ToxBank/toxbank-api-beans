@@ -1,0 +1,30 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:ot="http://www.opentox.org/api/1.1#"
+    xmlns:bx="http://purl.org/net/nknouf/ns/bibtex#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:otee="http://www.opentox.org/echaEndpoints.owl#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:ota="http://www.opentox.org/algorithmTypes.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <owl:Class rdf:about="http://www.opentox.org/api/1.1#Task"/>
+  <owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#resultURI"/>
+  <owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#percentageCompleted"/>
+  <owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#hasStatus"/>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+  <ot:Task rdf:about="http://localhost:8080/toxbank/task/c9b83328-2a00-462f-82bd-9caef97472ee">
+    <ot:resultURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://localhost:8080/toxbank/protocol/SEURAT-Protocol-192-1</ot:resultURI>
+    <ot:percentageCompleted rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >0.0</ot:percentageCompleted>
+    <ot:hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Completed</ot:hasStatus>
+    <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >1359971397345</dc:date>
+    <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Apply   </dc:title>
+  </ot:Task>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+</rdf:RDF>
