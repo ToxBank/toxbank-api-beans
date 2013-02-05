@@ -5,7 +5,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceFactory;
 
 public class OPENTOX {
-	 public static final String URI ="http://www.opentox.org/api/1.1#";
+	 public static final String URI ="http://www.opentox.org/api/1.2#";
 	 private static final Resource resource(String local) {
 		    return ResourceFactory.createResource(URI + local);
 	 }
@@ -23,6 +23,9 @@ public class OPENTOX {
 	  public static final Property errorCause = property("errorCause");
 	  public static final Property errorCode = property("errorCode");
 	  public static final Property errorDetails = property("errorDetails");
+	  public static final Property message = property("message");
+
+	  
 	  public static final Property percentageCompleted = property("percentageCompleted");
 	  
 }

@@ -17,7 +17,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 
 
 public class TaskIO extends AbstractIOClass<Task<URL, String>> {
-
+ 
 	@Override
 	public List<Task<URL, String>> fromJena(Model source) {
 		if (source == null) return Collections.emptyList();
@@ -58,11 +58,15 @@ public class TaskIO extends AbstractIOClass<Task<URL, String>> {
 			} catch (Exception x) { throw new IllegalArgumentException(x);}
 
 			if (report.getProperty(OPENTOX.errorCode) != null) try {
-				error.setCode(report.getProperty(OPENTOX.errorCode).getLong());
+				error.setCode(report.getProperty(OPENTOX.errorCode).getString());
 			} catch (Exception x) { throw new IllegalArgumentException(x);}
 
 			if (report.getProperty(OPENTOX.errorDetails) != null) try {
-				error.setMessage(report.getProperty(OPENTOX.errorDetails).getString());
+				error.setDetails(report.getProperty(OPENTOX.errorDetails).getString());
+			} catch (Exception x) { throw new IllegalArgumentException(x);}
+
+			if (report.getProperty(OPENTOX.message) != null) try {
+				error.setMessage(report.getProperty(OPENTOX.message).getString());
 			} catch (Exception x) { throw new IllegalArgumentException(x);}
 
 		}

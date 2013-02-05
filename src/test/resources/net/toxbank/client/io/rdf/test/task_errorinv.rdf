@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xml:base="local:local">
+<rdf:Description rdf:nodeID="b39fd5000000008f">
+<ns0:errorCause xmlns:ns0="http://www.opentox.org/api/1.2#">/home/investigation/opentox-ruby/toxbank-investigation/application.rb:97:in `isa2rdf'
+/home/investigation/opentox-ruby/toxbank-investigation/application.rb:261:in `block (2 levels) in &lt;class:Application&gt;'
+/home/investigation/opentox-ruby/toxbank-investigation/application.rb:249:in `block in &lt;class:Application&gt;'</ns0:errorCause>
+</rdf:Description>
+<rdf:Description rdf:nodeID="b39fd5000000008f">
+<ns0:actor xmlns:ns0="http://www.opentox.org/api/1.2#"></ns0:actor>
+</rdf:Description>
+<rdf:Description rdf:nodeID="b39fd5000000008f">
+<ns0:errorCode xmlns:ns0="http://www.opentox.org/api/1.2#">OpenTox::InternalServerError</ns0:errorCode>
+</rdf:Description>
+<rdf:Description rdf:nodeID="b39fd5000000008f">
+<ns0:message xmlns:ns0="http://www.opentox.org/api/1.2#">`sed -i 's;http://onto.toxbank.net/isa/tmp/;https://toxbanktest2.toxbank.net/investigation/dad0cad1-8626-4008-901f-24c4e2afa583/;' /home/investigation/opentox-ruby/toxbank-investigation/investigation/dad0cad1-8626-4008-901f-24c4e2afa583/tmp/dad0cad1-8626-4008-901f-24c4e2afa583.n3` failed.
+sed: can't read /home/investigation/opentox-ruby/toxbank-investigation/investigation/dad0cad1-8626-4008-901f-24c4e2afa583/tmp/dad0cad1-8626-4008-901f-24c4e2afa583.n3: No such file or directory
+</ns0:message>
+</rdf:Description>
+<rdf:Description rdf:nodeID="b39fd5000000008f">
+<rdf:type rdf:resource="http://www.opentox.org/api/1.2#ErrorReport"/>
+</rdf:Description>
+<rdf:Description rdf:nodeID="b39fd5000000008f">
+<ns0:statusCode xmlns:ns0="http://www.opentox.org/api/1.2#" rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</ns0:statusCode>
+</rdf:Description>
+<rdf:Description rdf:about="https://toxbanktest2.toxbank.net/task/3eddf96a-79e8-41b8-82a4-364661ff6df5">
+<ns0:modified xmlns:ns0="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-02-05T14:56:46+01:00</ns0:modified>
+</rdf:Description>
+<rdf:Description rdf:about="https://toxbanktest2.toxbank.net/task/3eddf96a-79e8-41b8-82a4-364661ff6df5">
+<ns0:error xmlns:ns0="http://www.opentox.org/api/1.2#" rdf:nodeID="b39fd5000000008f"/>
+</rdf:Description>
+<rdf:Description rdf:about="https://toxbanktest2.toxbank.net/task/3eddf96a-79e8-41b8-82a4-364661ff6df5">
+<ns0:date xmlns:ns0="http://purl.org/dc/terms/" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-02-05T14:56:46+01:00</ns0:date>
+</rdf:Description>
+<rdf:Description rdf:about="https://toxbanktest2.toxbank.net/task/3eddf96a-79e8-41b8-82a4-364661ff6df5">
+<ns0:description xmlns:ns0="http://purl.org/dc/terms/">BII_garbage.zip: Uploading, validating and converting to RDF</ns0:description>
+</rdf:Description>
+<rdf:Description rdf:about="https://toxbanktest2.toxbank.net/task/3eddf96a-79e8-41b8-82a4-364661ff6df5">
+<rdf:type rdf:resource="http://www.opentox.org/api/1.2#Task"/>
+</rdf:Description>
+<rdf:Description rdf:about="https://toxbanktest2.toxbank.net/task/3eddf96a-79e8-41b8-82a4-364661ff6df5">
+<ns0:hasStatus xmlns:ns0="http://www.opentox.org/api/1.2#">Error</ns0:hasStatus>
+</rdf:Description>
+<rdf:Description rdf:about="https://toxbanktest2.toxbank.net/task/3eddf96a-79e8-41b8-82a4-364661ff6df5">
+<ns0:finished_at xmlns:ns0="http://www.opentox.org/api/1.2#">2013-02-05T14:56:50+01:00</ns0:finished_at>
+</rdf:Description>
+<rdf:Description rdf:about="https://toxbanktest2.toxbank.net/task/3eddf96a-79e8-41b8-82a4-364661ff6df5">
+<ns0:created_at xmlns:ns0="http://www.opentox.org/api/1.2#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-02-05T14:56:46+01:00</ns0:created_at>
+</rdf:Description>
+</rdf:RDF>

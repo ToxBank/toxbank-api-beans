@@ -1,61 +1,47 @@
 <rdf:RDF
 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-xmlns:ot="http://www.opentox.org/api/1.1#"
-xmlns:bx="http://purl.org/net/nknouf/ns/bibtex#"
+xmlns:ot="http://www.opentox.org/api/1.2#"
 xmlns:owl="http://www.w3.org/2002/07/owl#"
-xmlns:otee="http://www.opentox.org/echaEndpoints.owl#"
 xmlns:dc="http://purl.org/dc/elements/1.1/"
-xmlns:dcterms="http://purl.org/dc/terms/"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-xmlns:ota="http://www.opentox.org/algorithmTypes.owl#"
 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-<owl:Class rdf:about="http://www.opentox.org/api/1.1#Task"/>
-<owl:Class rdf:about="http://www.opentox.org/api/1.1#ErrorReport"/>
-<owl:ObjectProperty rdf:about="http://www.opentox.org/api/1.1#error"/>
-<owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#message"/>
-<owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#errorCause"/>
-<owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#errorDetails"/>
-<owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#resultURI"/>
-<owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#errorCode"/>
-<owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#percentageCompleted"/>
-<owl:DatatypeProperty rdf:about="http://www.opentox.org/api/1.1#hasStatus"/>
-<ot:Task rdf:about="http://apps.ideaconsult.net:8080/ambit2/task/f696a017-3756-4769-bd9d-97e8afa0cf21">
-<ot:resultURI rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
->http://apps.ideaconsult.net:8080/ambit2/task/f696a017-3756-4769-bd9d-97e8afa0cf21</ot:resultURI>
+<owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+<owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+<ot:Task rdf:about="http://localhost:8080/toxbank/task/f8726f32-36c7-4c35-8a0d-42b6fed70e80">
+<ot:resultURI rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+>http://localhost:8080/toxbank/task/f8726f32-36c7-4c35-8a0d-42b6fed70e80</ot:resultURI>
 <ot:error>
 <ot:ErrorReport>
 <ot:errorCause rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
->Bad Request (400) - No result URI specified
-at ambit2.rest.task.CallableMockup.doCall(CallableMockup.java:52)
-at ambit2.rest.task.CallableProtectedTask.call(CallableProtectedTask.java:38)
-at ambit2.rest.task.CallableProtectedTask.call(CallableProtectedTask.java:8)
-at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
-at java.util.concurrent.FutureTask.run(FutureTask.java:166)
-at ambit2.rest.task.ExecutableTask.run(ExecutableTask.java:72)
-at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:471)
-at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334)
-at java.util.concurrent.FutureTask.run(FutureTask.java:166)
-at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
-at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
-at java.lang.Thread.run(Thread.java:679)
+>java.lang.NullPointerException&#xD;
+at org.toxbank.rest.user.DBUser.&lt;init&gt;(DBUser.java:91)&#xD;
+at org.toxbank.rest.protocol.CallableProtocolUpload.create(CallableProtocolUpload.java:206)&#xD;
+at org.toxbank.rest.protocol.CallableProtocolUpload.doCall(CallableProtocolUpload.java:115)&#xD;
+at net.idea.restnet.c.task.CallableProtectedTask.call(CallableProtectedTask.java:39)&#xD;
+at net.idea.restnet.c.task.CallableProtectedTask.call(CallableProtectedTask.java:9)&#xD;
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)&#xD;
+at java.util.concurrent.FutureTask.run(FutureTask.java:138)&#xD;
+at net.idea.restnet.c.task.ExecutableTask.run(ExecutableTask.java:74)&#xD;
+at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:439)&#xD;
+at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)&#xD;
+at java.util.concurrent.FutureTask.run(FutureTask.java:138)&#xD;
+at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)&#xD;
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)&#xD;
+at java.lang.Thread.run(Thread.java:662)&#xD;
 </ot:errorCause>
 <ot:errorDetails rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
->No result URI specified</ot:errorDetails>
+>The server encountered an unexpected condition which prevented it from fulfilling the request</ot:errorDetails>
 <ot:message rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
->No result URI specified</ot:message>
+>The server encountered an unexpected condition which prevented it from fulfilling the request</ot:message>
 <ot:errorCode rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
->400</ot:errorCode>
+>500</ot:errorCode>
 </ot:ErrorReport>
 </ot:error>
-<ot:percentageCompleted rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
->0.0</ot:percentageCompleted>
 <ot:hasStatus rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
 >Error</ot:hasStatus>
-<dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
->1359722484666</dc:date>
+<dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#long"
+>1360092101859</dc:date>
 <dc:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
->Apply Sleeps for 'delay' milliseconds, returns 'dataset_uri' or 'model_uri', specified on input. For testing purposes </dc:title>
+>Apply </dc:title>
 </ot:Task>
-<owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
-<owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
 </rdf:RDF>
