@@ -16,6 +16,7 @@ public class Investigation extends AbstractToxBankResource {
   private String abstrakt;
   
   private Long submissionDate;
+  private Long issuedDate;
   private Long lastModifiedDate;
   
   private User owner;
@@ -81,6 +82,14 @@ public class Investigation extends AbstractToxBankResource {
 
   public void setSubmissionDate(Long submissionDate) {
     this.submissionDate = submissionDate;
+  }
+
+  public Long getIssuedDate() {
+    return issuedDate;
+  }
+
+  public void setIssuedDate(Long issuedDate) {
+    this.issuedDate = issuedDate;
   }
 
   public Long getLastModifiedDate() {
