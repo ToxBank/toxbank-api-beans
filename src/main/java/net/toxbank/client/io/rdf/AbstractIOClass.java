@@ -130,15 +130,21 @@ public abstract class AbstractIOClass<T extends IToxBankResource> implements IOC
 	
 	protected Long getTimestamp(Resource res, Property prop) {
 	  try {
-	    String dateString = res.getProperty(prop).getString();
-	    return dateStringToTimestamp(dateString);
+	    Statement dateProp = res.getProperty(prop);
+	    if (dateProp != null) {
+	      String dateString = dateProp.getString();
+	      return dateStringToTimestamp(dateString);
+	    }
+	    else {
+	      return null;
+	    }
 	  }
 	  catch (Exception e) {
-	    return null;
+	    throw new RuntimeException(e);
 	  }
 	}
 	
-  protected DateFormat dateStringFormat = new SimpleDateFormat("d MMM yyyy HH:mm:ss z");
+  protected DateFormat dateStringFormat = new SimpleDateFormat("d MMM yyyy HH:mm:ss z", Locale.US);
   protected String timestampToDateString(Long timestamp) {
     if (timestamp == null || timestamp == 0) {
       return null;
