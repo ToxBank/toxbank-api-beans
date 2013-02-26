@@ -70,23 +70,20 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
         User owner = new User(new URL(uri));        
         investigation.setOwner(owner);
       } catch (MalformedURLException e) {
-        throw new IllegalArgumentException(String.format(msg_InvalidURI,"a investigation owner", uri));
+        throw new IllegalArgumentException(String.format(msg_InvalidURI,"an investigation owner", uri));
       }
     }
 
-    /** this will get changed once ISA Tab supports the specialized comment field for authors */
     List<User> authors = new ArrayList<User>();
-    for (StmtIterator iter = res.listProperties(TOXBANK_ISA.HAS_OWNER); iter.hasNext(); ) {
+    for (StmtIterator iter = res.listProperties(TOXBANK.HASAUTHOR); iter.hasNext(); ) {
       Resource authorRes = iter.next().getResource();
-      if (hasType(authorRes, TOXBANK.USER)) {
-        String uri = null;
-        try {
-          uri = res.getProperty(TOXBANK.HASOWNER).getResource().getURI();   
-          User author = new User(new URL(uri));        
-          authors.add(author);
-        } catch (MalformedURLException e) {
-          throw new IllegalArgumentException(String.format(msg_InvalidURI,"a investigation owner", uri));
-        }
+      String uri = null;
+      try {
+        uri = authorRes.getURI();
+        User author = new User(new URL(uri));        
+        authors.add(author);
+      } catch (MalformedURLException e) {
+        throw new IllegalArgumentException(String.format(msg_InvalidURI,"an investigation author", uri));
       }
     }
     investigation.setAuthors(authors);
