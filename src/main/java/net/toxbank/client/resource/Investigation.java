@@ -29,7 +29,8 @@ public class Investigation extends AbstractToxBankResource {
   
   private Boolean isPublished = null;
   private Boolean isSearchable = null;
-    
+  private Boolean hasSubTask = null;  
+  
   public Investigation() {}
   
   public Investigation(URL identifier) {
@@ -163,5 +164,13 @@ public class Investigation extends AbstractToxBankResource {
       keywords = new ArrayList<String>();
     }
     this.keywords = keywords;
+  }
+  
+  public void setHasSubTask(boolean hasSubTask) {
+    this.hasSubTask = hasSubTask;
+  }
+  
+  public boolean hasSubTask() {
+    return hasSubTask != null && hasSubTask;
   }
 }

@@ -47,6 +47,8 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     investigation.setPublished(getBoolean(res, TOXBANK.ISPUBLISHED));
     investigation.setSearchable(getBoolean(res, TOXBANK.ISSUMMARYSEARCHABLE));
     investigation.setAccessionId(getString(res, TOXBANK_ISA.HAS_ACCESSION_ID));
+    String subTaskUri = getString(res, TOXBANK_ISA.HAS_SUB_TASK);
+    investigation.setHasSubTask(subTaskUri != null && subTaskUri.trim().length() > 0);
     investigation.setTitle(getString(res, DCTerms.title));
     investigation.setAbstract(getString(res, DCTerms.abstract_));
     investigation.setLastModifiedDate(getTimestamp(res, DCTerms.modified));
