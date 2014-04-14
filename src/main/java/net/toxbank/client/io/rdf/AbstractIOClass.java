@@ -145,6 +145,7 @@ public abstract class AbstractIOClass<T extends IToxBankResource> implements IOC
 	}
 	
   protected DateFormat dateStringFormat = new SimpleDateFormat("d MMM yyyy HH:mm:ss z", Locale.US);
+  protected DateFormat otherDateFormat = new SimpleDateFormat("yyyy-M-d", Locale.US);
   protected String timestampToDateString(Long timestamp) {
     if (timestamp == null || timestamp == 0) {
       return null;
@@ -156,7 +157,22 @@ public abstract class AbstractIOClass<T extends IToxBankResource> implements IOC
     if (dateString == null) {
       return null;
     }
-    Date date = dateStringFormat.parse(dateString);
-    return date.getTime();
+    try {
+      Date date = dateStringFormat.parse(dateString);
+      return date.getTime();
+    }
+    catch (Exception e) {
+      int timeIdx = dateString.indexOf('T');
+      if (timeIdx > 0) {
+        dateString = dateString.substring(0, timeIdx);
+      }
+      try {
+        Date date = otherDateFormat.parse(dateString);
+        return date.getTime();
+      }
+      catch (Exception e2) {
+        return null;
+      }
+    }
   }
 }
