@@ -4,7 +4,7 @@
   <groupId>net.toxbank</groupId>
   <artifactId>toxbank-api-beans</artifactId>
   <name>ToxBank API Beans</name>
-  <version>0.0.4</version>
+  <version>0.0.5-SNAPSHOT</version>
   <distributionManagement>
     <snapshotRepository>
       <id>toxbank-snapshots</id>
