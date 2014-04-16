@@ -2,6 +2,8 @@ package net.toxbank.client.resource;
 
 import java.net.URL;
 
+import net.toxbank.client.resource.Protocol.STATUS;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +32,13 @@ public class ProtocolTest extends AbstractToxBankResourceTest {
 		Assert.assertEquals(0, protocol.getKeywords().size());
 		Assert.assertFalse(protocol.getKeywords().contains("foo"));
 	}
-
+	@Test
+	public void testGetSetStatus() {
+		Protocol protocol = new Protocol();
+		Assert.assertEquals(STATUS.RESEARCH, protocol.getStatus());
+		protocol.setStatus(STATUS.REPORT);
+		Assert.assertEquals(STATUS.REPORT, protocol.getStatus());
+	}
 	@Test
 	public void testGetSetAuthors() {
 		

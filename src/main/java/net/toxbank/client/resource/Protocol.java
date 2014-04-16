@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Protocol extends AbstractToxBankResource {
-	public enum STATUS {RESEARCH,SOP};
+	public enum STATUS {RESEARCH,SOP,REPORT};
 	private static final long serialVersionUID = -8372109619715612869L;
 
 	public static final String id_prefix="SEURAT-Protocol";
