@@ -147,10 +147,12 @@ public class ProtocolIOTest extends AbstractIOClassTest<Protocol> {
 		Protocol protocol = new Protocol();
 		protocol.setResourceURL(new URL(exampleProtocol));
 		protocol.setStatus(STATUS.SOP);
-
 		Protocol roundtripped = roundtripSingleResource(protocol);
-
 		Assert.assertEquals(STATUS.SOP, roundtripped.getStatus());
+		
+		protocol.setStatus(STATUS.REPORT);
+		roundtripped = roundtripSingleResource(protocol);
+		Assert.assertEquals(STATUS.REPORT, roundtripped.getStatus());
 	}
 	
 	@Test
