@@ -10,6 +10,10 @@ import java.util.List;
 public class Investigation extends AbstractToxBankResource {
   private static final long serialVersionUID = -1189656198870429173L;
  
+  public static enum DataType {
+    noData, unFormatedData, ftpData, isaTabData
+  }
+  
   private String accessionId;
   private String seuratId;
   private String title;
@@ -21,7 +25,7 @@ public class Investigation extends AbstractToxBankResource {
   
   private User owner;
   private Organisation organisation;
-  private Project project;
+  private List<Project> projects = new ArrayList<Project>();
   
   private List<User> authors = new ArrayList<User>();
   private List<Protocol> protocols = new ArrayList<Protocol>();    
@@ -29,7 +33,8 @@ public class Investigation extends AbstractToxBankResource {
   
   private Boolean isPublished = null;
   private Boolean isSearchable = null;
-  private Boolean hasSubTask = null;  
+  private String taskUri = null;
+  private DataType dataType = null;
   
   public Investigation() {}
   
@@ -147,12 +152,15 @@ public class Investigation extends AbstractToxBankResource {
     this.organisation = organisation;
   }
 
-  public Project getProject() {
-    return project;
+  public List<Project> getProjects() {
+    return projects;
   }
 
-  public void setProject(Project project) {
-    this.project = project;
+  public void setProjects(List<Project> projects) {
+    if (projects == null) {
+      projects = new ArrayList<Project>();
+    }
+    this.projects = projects;
   }
   
   public List<String> getKeywords() {
@@ -166,11 +174,19 @@ public class Investigation extends AbstractToxBankResource {
     this.keywords = keywords;
   }
   
-  public void setHasSubTask(boolean hasSubTask) {
-    this.hasSubTask = hasSubTask;
+  public void setTaskUri(String taskUri) {
+    this.taskUri = taskUri;
   }
   
-  public boolean hasSubTask() {
-    return hasSubTask != null && hasSubTask;
+  public String getTaskUri() {
+    return this.taskUri;
+  }
+  
+  public void setDataType(DataType dataType) {
+    this.dataType = dataType;
+  }
+  
+  public DataType getDataType() {
+    return dataType;
   }
 }

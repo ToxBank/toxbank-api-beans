@@ -99,8 +99,8 @@ public class InvestigationIOTest extends AbstractIOClassTest<Investigation> {
     TestCase.assertEquals("http://toxbanktest1.opentox.org:8080/toxbank/user/U115", i.getOwner().getResourceURL().toString());
     TestCase.assertNotNull("Should have organisation", i.getOrganisation());
     TestCase.assertEquals("http://toxbanktest1.opentox.org:8080/toxbank/organisation/G176", i.getOrganisation().getResourceURL().toString());
-    TestCase.assertNotNull("Should have project", i.getProject());
-    TestCase.assertEquals("http://toxbanktest1.opentox.org:8080/toxbank/project/G2", i.getProject().getResourceURL().toString());
+    TestCase.assertEquals("Should have project", 1, i.getProjects().size());
+    TestCase.assertEquals("http://toxbanktest1.opentox.org:8080/toxbank/project/G2", i.getProjects().get(0).getResourceURL().toString());
     TestCase.assertEquals("Should have one toxbank protocol", 1, i.getProtocols().size());
     TestCase.assertEquals("http://toxbanktest1.opentox.org:8080/toxbank/protocol/SEURAT-Protocol-245-1", i.getProtocols().get(0).getResourceURL().toString());
     TestCase.assertEquals("Should have 3 keywords", 3, i.getKeywords().size());

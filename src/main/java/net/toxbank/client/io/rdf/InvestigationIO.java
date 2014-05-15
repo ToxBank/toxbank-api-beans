@@ -47,18 +47,24 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     investigation.setPublished(getBoolean(res, TOXBANK.ISPUBLISHED));
     investigation.setSearchable(getBoolean(res, TOXBANK.ISSUMMARYSEARCHABLE));
     investigation.setAccessionId(getString(res, TOXBANK_ISA.HAS_ACCESSION_ID));
-    String subTaskUri = getString(res, TOXBANK_ISA.HAS_SUB_TASK);
-    investigation.setHasSubTask(subTaskUri != null && subTaskUri.trim().length() > 0);
     investigation.setTitle(getString(res, DCTerms.title));
     investigation.setAbstract(getString(res, DCTerms.abstract_));
     investigation.setLastModifiedDate(getTimestamp(res, DCTerms.modified));
     investigation.setIssuedDate(getTimestamp(res, DCTerms.issued));
     investigation.setSubmissionDate(getTimestamp(res, DCTerms.created));
     
-    if (res.getProperty(TOXBANK.HASPROJECT) != null) {
-      Project project = projectIO.fromJena(source,res.getProperty(TOXBANK.HASPROJECT).getResource());
-      investigation.setProject(project);
-    } 
+    List<Project> projects = new ArrayList<Project>();
+    for (StmtIterator iter = res.listProperties(TOXBANK.HASPROJECT); iter.hasNext(); ) {
+      Resource projectRes = iter.next().getResource();
+      String uri = null;
+      try {
+        uri = projectRes.getURI();
+        projects.add(new Project(new URL(uri)));
+      } catch (MalformedURLException e) {
+        throw new IllegalArgumentException(String.format(msg_InvalidURI,"an investigation project", uri));
+      }
+    }    
+    investigation.setProjects(projects);
     
     if (res.getProperty(TOXBANK.HASORGANISATION) != null) {
       Organisation org  = organisationIO.fromJena(source,res.getProperty(TOXBANK.HASORGANISATION).getResource());
@@ -76,6 +82,11 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
       }
     }
 
+    if (res.getProperty(TOXBANK_ISA.HAS_SUB_TASK) != null) {
+      Resource subTaskResource = res.getProperty(TOXBANK_ISA.HAS_SUB_TASK).getResource();
+      investigation.setTaskUri(subTaskResource.getURI());
+    }
+    
     List<User> authors = new ArrayList<User>();
     for (StmtIterator iter = res.listProperties(TOXBANK.HASAUTHOR); iter.hasNext(); ) {
       Resource authorRes = iter.next().getResource();
@@ -141,12 +152,13 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     if (investigation.isSearchable() != null)
       res.addLiteral(TOXBANK.ISSUMMARYSEARCHABLE, investigation.isSearchable());
 
-    if (investigation.getProject() != null) {
-      if (investigation.getProject().getResourceURL()==null)
-        throw new IllegalArgumentException(String.format(msg_InvalidURI, "project",res.getURI()));        
-      Resource project = projectIO.objectToJena(toAddTo, investigation.getProject());
-      res.addProperty(TOXBANK.HASPROJECT,project);
-    }     
+    for (Project project : investigation.getProjects()) {
+      Resource projectRes = toAddTo.createResource(
+          project.getResourceURL().toString()
+          );
+      res.addProperty(TOXBANK.HASPROJECT, projectRes);
+    }
+    
     if (investigation.getOrganisation() != null) {
       if (investigation.getOrganisation().getResourceURL()==null)
         throw new IllegalArgumentException(String.format(msg_InvalidURI, "organisation",res.getURI()));       
