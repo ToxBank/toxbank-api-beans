@@ -103,7 +103,13 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     
     List<String> keywords = new ArrayList<String>();
     for (StmtIterator iter = res.listProperties(TOXBANK.HASKEYWORD); iter.hasNext(); ) {
-      keywords.add(iter.next().getString());
+      Statement stmt = iter.next();
+      try {
+        keywords.add(stmt.getString());
+      }
+      catch (Exception e) {
+        keywords.add(stmt.getResource().getURI());
+      }
     }
     investigation.setKeywords(keywords);
     
