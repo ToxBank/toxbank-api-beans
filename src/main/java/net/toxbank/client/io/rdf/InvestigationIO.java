@@ -14,7 +14,6 @@ import com.hp.hpl.jena.vocabulary.RDF;
 
 public class InvestigationIO extends AbstractIOClass<Investigation> {
   private OrganisationIO organisationIO = new OrganisationIO();
-  private ProjectIO projectIO = new ProjectIO();
   private UserIO userIO = new UserIO();
 
   private static Pattern fullInvestigationUrlPattern = Pattern.compile("(.*)/([0-9\\-a-f]+)/([A-Z0-9]+)");
@@ -52,6 +51,13 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
     investigation.setLastModifiedDate(getTimestamp(res, DCTerms.modified));
     investigation.setIssuedDate(getTimestamp(res, DCTerms.issued));
     investigation.setSubmissionDate(getTimestamp(res, DCTerms.created));
+    String dataTypeString = getString(res, TOXBANK.HASINVTYPE);
+    if (dataTypeString == null) {
+      investigation.setDataType(Investigation.DataType.isaTabData);
+    }
+    else {
+      investigation.setDataType(Investigation.DataType.valueOf(dataTypeString));
+    }
     
     List<Project> projects = new ArrayList<Project>();
     for (StmtIterator iter = res.listProperties(TOXBANK.HASPROJECT); iter.hasNext(); ) {
@@ -65,6 +71,13 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
       }
     }    
     investigation.setProjects(projects);
+    
+    List<String> downloadUrls = new ArrayList<String>();
+    for (StmtIterator iter = res.listProperties(TOXBANK.HASDOWNLOAD); iter.hasNext(); ) {
+      Resource urlRes = iter.next().getResource();
+      downloadUrls.add(urlRes.getURI());
+    }
+    investigation.setDownloadUrls(downloadUrls);
     
     if (res.getProperty(TOXBANK.HASORGANISATION) != null) {
       Organisation org  = organisationIO.fromJena(source,res.getProperty(TOXBANK.HASORGANISATION).getResource());

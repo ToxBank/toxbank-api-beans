@@ -11,7 +11,7 @@ public class Investigation extends AbstractToxBankResource {
   private static final long serialVersionUID = -1189656198870429173L;
  
   public static enum DataType {
-    noData, unFormatedData, ftpData, isaTabData
+    noData, unformattedData, ftpData, isaTabData
   }
   
   private String accessionId;
@@ -30,6 +30,7 @@ public class Investigation extends AbstractToxBankResource {
   private List<User> authors = new ArrayList<User>();
   private List<Protocol> protocols = new ArrayList<Protocol>();    
   private List<String> keywords = new ArrayList<String>();
+  private List<String> downloadUrls = new ArrayList<String>();
   
   private Boolean isPublished = null;
   private Boolean isSearchable = null;
@@ -172,6 +173,17 @@ public class Investigation extends AbstractToxBankResource {
       keywords = new ArrayList<String>();
     }
     this.keywords = keywords;
+  }
+  
+  public List<String> getDownloadUrls() {
+    return downloadUrls;
+  }
+  
+  public void setDownloadUrls(List<String> downloadUrls) {
+    if (downloadUrls == null) {
+      downloadUrls = new ArrayList<String>();
+    }
+    this.downloadUrls = downloadUrls;
   }
   
   public void setTaskUri(String taskUri) {
