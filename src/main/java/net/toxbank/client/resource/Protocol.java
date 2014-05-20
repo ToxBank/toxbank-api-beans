@@ -1,8 +1,7 @@
 package net.toxbank.client.resource;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Protocol extends AbstractToxBankResource {
 	public enum STATUS {RESEARCH,SOP,REPORT};
@@ -34,6 +33,8 @@ public class Protocol extends AbstractToxBankResource {
 	private Long submissionDate;
 	private Boolean isSearchable = false;
 	private Boolean isPublished = null;
+	
+	private Set<String> investigationLabels = new HashSet<String>();
 	
 	public Boolean isPublished() {
 		return isPublished;
@@ -216,4 +217,33 @@ public class Protocol extends AbstractToxBankResource {
 		return abstrakt;
 	}
 
+	public String getInvestigationLabel() {
+	  if (investigationLabels.size() == 0) {
+	    return null;
+	  }
+	  else {
+	    StringBuilder sb = new StringBuilder();
+	    List<String> labels = new ArrayList<String>(investigationLabels);
+	    Collections.sort(labels);
+	    for (String label : labels) {
+	      if (sb.length() > 0) {
+	        sb.append(", ");
+	      }
+	      sb.append(label);
+	    }
+	    return sb.toString();
+	  }	  
+	}
+		
+	public Set<String> getInvestigationLabels() {
+	  return investigationLabels;
+	}
+	
+	public void addInvestigationLabel(String label) {
+	  investigationLabels.add(label);
+	}
+	
+	public void removeInvestigationLabel(String label) {
+	  investigationLabels.remove(label);
+	}
 }

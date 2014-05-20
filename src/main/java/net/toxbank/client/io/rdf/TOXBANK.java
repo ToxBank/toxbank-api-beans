@@ -3,6 +3,7 @@ package net.toxbank.client.io.rdf;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.ResourceFactory;
+import com.hp.hpl.jena.vocabulary.RDF;
 
 /**
  * Java API to the ToxBank API OWL.
@@ -18,7 +19,7 @@ public class TOXBANK {
   private static final Property property(String local) {
     return ResourceFactory.createProperty(URI, local);
   }
-
+  
     //TODO consider http://www.w3.org/ns/org#
     public static final Resource ORGANIZATION = resource("Organization");
     public static final Resource PARAMETER = resource("Parameter");
@@ -50,4 +51,6 @@ public class TOXBANK {
     public static final Property HASINVTYPE = property("hasInvType");
     public static final Property HASDOWNLOAD = property("hasDownload");
     
+    public static final Property PROTOCOLLABEL = 
+        ResourceFactory.createProperty(RDF.getURI(), "label");
 }

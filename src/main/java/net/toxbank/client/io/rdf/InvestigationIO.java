@@ -137,6 +137,14 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
             uri = protocolRes.getURI();   
             Protocol protocol = new Protocol(new URL(uri));        
             protocols.add(protocol);
+            
+            for (StmtIterator protoIter = protocolRes.listProperties(TOXBANK.PROTOCOLLABEL); protoIter.hasNext(); ) {
+              String label = protoIter.next().getString();
+              if (label != null && label.trim().length() > 0) {
+                protocol.addInvestigationLabel(label);
+              }
+            }
+            
           } catch (MalformedURLException e) {
             throw new IllegalArgumentException(String.format(msg_InvalidURI,"a investigation owner", uri));
           } 
