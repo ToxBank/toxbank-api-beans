@@ -50,7 +50,4 @@ public class TOXBANK {
     public static final Property SUBORGANISATIONOF = property("subOrganisationOf");
     public static final Property HASINVTYPE = property("hasInvType");
     public static final Property HASDOWNLOAD = property("hasDownload");
-    
-    public static final Property PROTOCOLLABEL = 
-        ResourceFactory.createProperty(RDF.getURI(), "label");
 }

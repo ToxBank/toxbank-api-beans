@@ -9,8 +9,7 @@ import java.util.regex.Pattern;
 import net.toxbank.client.resource.*;
 
 import com.hp.hpl.jena.rdf.model.*;
-import com.hp.hpl.jena.vocabulary.DCTerms;
-import com.hp.hpl.jena.vocabulary.RDF;
+import com.hp.hpl.jena.vocabulary.*;
 
 public class InvestigationIO extends AbstractIOClass<Investigation> {
   private OrganisationIO organisationIO = new OrganisationIO();
@@ -138,7 +137,7 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
             Protocol protocol = new Protocol(new URL(uri));        
             protocols.add(protocol);
             
-            for (StmtIterator protoIter = protocolRes.listProperties(TOXBANK.PROTOCOLLABEL); protoIter.hasNext(); ) {
+            for (StmtIterator protoIter = protocolRes.listProperties(RDFS.label); protoIter.hasNext(); ) {
               String label = protoIter.next().getString();
               if (label != null && label.trim().length() > 0) {
                 protocol.addInvestigationLabel(label);
@@ -148,6 +147,14 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
           } catch (MalformedURLException e) {
             throw new IllegalArgumentException(String.format(msg_InvalidURI,"a investigation owner", uri));
           } 
+        }
+        else {
+          for (StmtIterator protoIter = protocolRes.listProperties(RDFS.label); protoIter.hasNext(); ) {
+            String label = protoIter.next().getString();
+            if (label != null && label.trim().length() > 0) {
+              investigation.addOtherProtocolName(label);
+            }
+          }
         }
       }
     }

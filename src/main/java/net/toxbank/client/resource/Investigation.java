@@ -1,8 +1,8 @@
 package net.toxbank.client.resource;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URLDecoder;
+import java.util.*;
 
 /**
  * An investigation as represented in the toxbank repository
@@ -36,6 +36,8 @@ public class Investigation extends AbstractToxBankResource {
   private Boolean isSearchable = null;
   private String taskUri = null;
   private DataType dataType = null;
+  
+  private Set<String> otherProtocolNames = new HashSet<String>();
   
   public Investigation() {}
   
@@ -186,6 +188,25 @@ public class Investigation extends AbstractToxBankResource {
     this.downloadUrls = downloadUrls;
   }
   
+  public List<String> getFtpFilenames() {
+    List<String> filenames = new ArrayList<String>();
+    for (String url : downloadUrls) {
+      int ftpIdx = url.indexOf("/files/");
+      if (ftpIdx > 0) {
+        String filename = url.substring(ftpIdx+7);
+        if (filename.length() > 0) {
+          try {
+            filenames.add(URLDecoder.decode(filename, "UTF-8"));
+          }
+          catch (Exception e) { 
+            e.printStackTrace();
+          }
+        }
+      }
+    }
+    return filenames;
+  }
+  
   public void setTaskUri(String taskUri) {
     this.taskUri = taskUri;
   }
@@ -200,5 +221,17 @@ public class Investigation extends AbstractToxBankResource {
   
   public DataType getDataType() {
     return dataType;
+  }
+  
+  public Set<String> getOtherProtocolNames() {
+    return otherProtocolNames;
+  }
+  
+  public void addOtherProtocolName(String name) {
+    otherProtocolNames.add(name);
+  }
+  
+  public void removeOtherProtocolName(String name) {
+    otherProtocolNames.remove(name);
   }
 }
