@@ -4,11 +4,22 @@ import java.net.URL;
 import java.util.*;
 
 public class Protocol extends AbstractToxBankResource {
-	public enum STATUS {RESEARCH,SOP,REPORT};
+	public enum STATUS {
+		RESEARCH,SOP,
+		REPORT {
+			@Override
+			public String getPrefix() {
+				return "SEURAT-Report";
+			}
+		};
+		public String getPrefix() {
+			return "SEURAT-Protocol";
+		}
+		public String getIDPattern() {
+			return String.format("%s%s",getPrefix(),"-%d-%d");
+		}
+	};
 	private static final long serialVersionUID = -8372109619715612869L;
-
-	public static final String id_prefix="SEURAT-Protocol";
-	public static final String id_pattern=String.format("%s%s",id_prefix,"-%d-%d"); 
 
 	protected int version;
 	private STATUS status = STATUS.RESEARCH;
