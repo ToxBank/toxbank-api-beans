@@ -42,7 +42,5 @@ public class TOXBANK_ISA {
   public static final Property HAS_PARAMETER_VALUE = property("hasParameterValue");
   public static final Property HAS_INPUT_NODE = property("hasInputNode");
   public static final Property HAS_OUTPUT_NODE = property("hasOutputNode");
-  
-  public static final Property HAS_SUB_TASK = property("hasSubTaskURI");
-  
+
 }

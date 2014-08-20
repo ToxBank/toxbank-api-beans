@@ -94,8 +94,8 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
       }
     }
 
-    if (res.getProperty(TOXBANK_ISA.HAS_SUB_TASK) != null) {
-      Resource subTaskResource = res.getProperty(TOXBANK_ISA.HAS_SUB_TASK).getResource();
+    if (res.getProperty(TOXBANK.HAS_SUB_TASK) != null) {
+      Resource subTaskResource = res.getProperty(TOXBANK.HAS_SUB_TASK).getResource();
       investigation.setTaskUri(subTaskResource.getURI());
     }
     
