@@ -39,6 +39,8 @@ public class Investigation extends AbstractToxBankResource {
   
   private Set<String> otherProtocolNames = new HashSet<String>();
   
+  private List<String> licenses = new ArrayList<String>();
+  
   public Investigation() {}
   
   public Investigation(URL identifier) {
@@ -233,5 +235,17 @@ public class Investigation extends AbstractToxBankResource {
   
   public void removeOtherProtocolName(String name) {
     otherProtocolNames.remove(name);
+  }
+  
+  public List<String> getLicenses() {
+    return licenses;
+  }
+  
+  public void setLicenses(List<String> licenses) {
+    this.licenses = licenses;
+  }
+  
+  public void addLicense(String license) {
+    this.licenses.add(license);
   }
 }

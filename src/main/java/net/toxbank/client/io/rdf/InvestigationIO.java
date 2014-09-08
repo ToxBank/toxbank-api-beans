@@ -58,6 +58,10 @@ public class InvestigationIO extends AbstractIOClass<Investigation> {
       investigation.setDataType(Investigation.DataType.valueOf(dataTypeString));
     }
     
+    for (StmtIterator iter = res.listProperties(DCTerms.license); iter.hasNext(); ) {
+      investigation.addLicense(iter.next().getString());
+    }
+    
     List<Project> projects = new ArrayList<Project>();
     for (StmtIterator iter = res.listProperties(TOXBANK.HASPROJECT); iter.hasNext(); ) {
       Resource projectRes = iter.next().getResource();
