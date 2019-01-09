@@ -8,11 +8,11 @@
   <distributionManagement>
     <snapshotRepository>
       <id>toxbank-snapshots</id>
-      <url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/toxbank-snapshots</url>
+      <url>https://nexus.ideaconsult.net/content/repositories/toxbank-snapshots</url>
     </snapshotRepository>
     <repository>
       <id>toxbank-releases</id>
-      <url>http://ambit.uni-plovdiv.bg:8083/nexus/content/repositories/toxbank-releases</url>
+      <url>https://nexus.ideaconsult.net/content/repositories/toxbank-releases</url>
     </repository>
   </distributionManagement>
   <description>The Java ToxBank API client software.</description>
